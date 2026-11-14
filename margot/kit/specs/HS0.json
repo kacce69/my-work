@@ -1,0 +1,55 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Je prépare",
+    "un gros coup"
+   ],
+   "voix": "Restaurateurs, cette semaine, je prépare un gros coup.",
+   "accessoire": "masque",
+   "decor": "ville"
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "Jeudi sort un jeu",
+    "vidéo très attendu"
+   ],
+   "voix": "Jeudi, un jeu vidéo très attendu sort enfin. On va beaucoup parler de braquages, de planques et de codes de triche.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "8 vidéos pour",
+    "votre restaurant"
+   ],
+   "voix": "Moi, j'en profite pour vous parler de votre restaurant. Huit vidéos, pour vous montrer ce que vos clients regardent avant de pousser votre porte.",
+   "puces": [
+    "Le repérage",
+    "La planque",
+    "Le coffre"
+   ]
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Épisode 1 lundi",
+    "Abonnez-vous !"
+   ],
+   "voix": "Premier épisode lundi. Abonnez-vous pour ne rien manquer, et prévenez un collègue restaurateur.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "accessoire": "masque",
+   "decor": "ville"
+  }
+ ]
+}

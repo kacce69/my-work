@@ -49,10 +49,23 @@ function margot(i, pose, acc) {
   <ellipse class="oeil" cx="414" cy="380" rx="41" ry="50" fill="#fff"/><ellipse class="oeil" cx="536" cy="380" rx="41" ry="50" fill="#fff"/>
   <g class="pupilles"><circle cx="422" cy="388" r="21" fill="${NOIR}"/><circle cx="544" cy="388" r="21" fill="${NOIR}"/>
   <circle cx="430" cy="378" r="7" fill="#fff"/><circle cx="552" cy="378" r="7" fill="#fff"/></g>
+  ${acc === "lunettes" ? `<g><rect x="360" y="336" width="108" height="78" rx="24" fill="#1d0a18"/><rect x="482" y="336" width="108" height="78" rx="24" fill="#1d0a18"/><rect x="462" y="352" width="26" height="13" fill="#1d0a18"/><path d="M293 356H362M588 356H657" stroke="#1d0a18" stroke-width="11"/><path d="M380 356l22 -8M502 356l22 -8" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".7"/></g>` : ""}
   <path class="bouche" d="M424 464 Q475 536 526 464" fill="${NOIR}" stroke="${C.creme}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
   <g stroke-width="13" stroke-linecap="round"><path d="M352 558H516" stroke="${C.creme}"/><path d="M554 558H598" stroke="${C.or}"/><path d="M352 606H476" stroke="${C.creme}"/><path d="M554 606H598" stroke="${C.or}"/></g>
   ${OBJET[pose] || ""}
   </g></g></svg>`;
+}
+function ville(fond) {
+  const c = fond === "prune" ? "rgba(255,255,255,.09)" : "rgba(90,31,74,.13)";
+  const larg = [150, 110, 190, 130, 90, 170, 120, 160], haut = [300, 210, 380, 250, 170, 330, 230, 290];
+  let x = -20, s = "";
+  larg.forEach((w, k) => {
+    const hh = haut[k], y = 1920 - hh;
+    s += `<rect x="${x}" y="${y}" width="${w - 14}" height="${hh}" fill="${c}"/>`;
+    for (let fy = y + 34; fy < 1900; fy += 56) for (let fx = x + 22; fx < x + w - 44; fx += 44) s += `<rect x="${fx}" y="${fy}" width="16" height="22" fill="${c}"/>`;
+    x += w;
+  });
+  return `<svg style="position:absolute;left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">${s}</svg>`;
 }
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const root = document.getElementById("root"), EL = [];
@@ -61,6 +74,7 @@ D.scenes.forEach((sc, i) => {
   const d = document.createElement("div"); d.className = "scene"; d.style.background = C[sc.fond] || C.creme; d.style.zIndex = i + 1;
   d.innerHTML = `<div class="deco" style="width:760px;height:760px;left:-300px;top:-240px;background:${th.deco}"></div>
   <div class="deco" style="width:560px;height:560px;right:-220px;top:1480px;background:${th.deco}"></div>
+  ${sc.decor === "ville" ? ville(sc.fond) : ""}
   <div class="tag"><span style="background:${th.tagF};color:${th.tagT}">${esc(D.etiquette)}</span></div>
   <div class="titre${long ? " petit" : ""}" style="color:${th.titre}">${(sc.titre || []).map(l => `<div>${esc(l)}</div>`).join("")}</div>
   <div class="puces">${(sc.puces || []).map(p => `<span style="background:${th.puceF};color:${th.puceT}">${esc(p)}</span>`).join("")}</div>

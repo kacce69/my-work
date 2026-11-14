@@ -1,0 +1,61 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Dans le jeu,",
+    "le GPS mène partout"
+   ],
+   "voix": "Dans un jeu en monde ouvert, le GPS vous mène partout en un instant.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Et jusqu'à",
+    "votre restaurant ?"
+   ],
+   "voix": "Et dans la vraie vie, arrive-t-on aussi facilement jusqu'à votre restaurant ?",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Deux boutons",
+    "bien visibles"
+   ],
+   "voix": "Il faut deux boutons bien visibles : appeler, et itinéraire.",
+   "puces": [
+    "Appeler",
+    "Itinéraire"
+   ]
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "Tout en haut",
+    "de votre page"
+   ],
+   "voix": "Sur votre page Restaurant Site Internet, ces deux boutons sont tout en haut, au-dessus de votre carte."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "voix": "Envie d'essayer ? Écrivez menu en commentaire, et nous vous recontactons.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ]
+  }
+ ]
+}

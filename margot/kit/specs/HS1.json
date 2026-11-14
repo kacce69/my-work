@@ -4,22 +4,24 @@
   {
    "fond": "creme",
    "pose": "bonjour",
-   "accessoire": "masque",
    "titre": [
     "Avant un braquage,",
     "on fait du repérage"
    ],
-   "voix": "Dans les jeux vidéo, avant un braquage, on fait toujours du repérage."
+   "voix": "Dans les jeux vidéo, avant un braquage, on fait toujours du repérage.",
+   "accessoire": "masque",
+   "decor": "ville"
   },
   {
    "fond": "prune",
    "pose": "carte",
-   "accessoire": "masque",
    "titre": [
     "Les lieux,",
     "les horaires, le plan"
    ],
-   "voix": "On étudie les lieux, les horaires, le plan. Personne ne fonce à l'aveugle."
+   "voix": "On étudie les lieux, les horaires, le plan. Personne ne fonce à l'aveugle.",
+   "accessoire": "masque",
+   "decor": "ville"
   },
   {
    "fond": "or",
@@ -28,12 +30,12 @@
     "Vos clients",
     "font pareil"
    ],
+   "voix": "Vos clients font pareil. Avant de venir, ils repèrent votre carte, vos prix, vos horaires.",
    "puces": [
     "La carte",
     "Les prix",
     "Les horaires"
-   ],
-   "voix": "Vos clients font pareil. Avant de venir, ils repèrent votre carte, vos prix, vos horaires."
+   ]
   },
   {
    "fond": "creme",
@@ -51,10 +53,10 @@
     "Commentez",
     "MENU"
    ],
+   "voix": "Mettez votre carte en ligne avec Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
    "puces": [
     "restaurant-site-internet.fr"
-   ],
-   "voix": "Mettez votre carte en ligne avec Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons."
+   ]
   }
  ]
 }

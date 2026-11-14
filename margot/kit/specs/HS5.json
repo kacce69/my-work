@@ -1,0 +1,57 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Qu'y a-t-il",
+    "dans le coffre ?"
+   ],
+   "voix": "Dans un braquage, personne n'y va sans savoir ce qu'il y a dans le coffre.",
+   "accessoire": "masque",
+   "decor": "ville"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Et dans",
+    "l'assiette ?"
+   ],
+   "voix": "Vos clients, eux, veulent savoir ce qu'il y a dans l'assiette. Et combien ça coûte.",
+   "accessoire": "masque",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Des prix,",
+    "sans surprise"
+   ],
+   "voix": "Des plats, des prix, et pas de surprise au moment de l'addition."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "Affichez vos prix",
+    "en ligne"
+   ],
+   "voix": "Affichez votre carte et vos prix en ligne. Vous les modifiez en quelques secondes, depuis votre téléphone."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "voix": "C'est ce que propose Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ]
+  }
+ ]
+}

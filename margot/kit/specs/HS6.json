@@ -1,0 +1,62 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Un code de triche",
+    "pour votre restaurant ?"
+   ],
+   "voix": "Vous cherchez un code de triche pour votre restaurant ? Désolée, il n'y en a pas.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Mais il y a",
+    "trois raccourcis"
+   ],
+   "voix": "Mais il existe trois raccourcis simples pour être trouvé sur internet.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Les trois",
+    "raccourcis"
+   ],
+   "voix": "Une fiche Google à jour. Une carte en ligne. Et un QR code en salle.",
+   "puces": [
+    "Fiche Google",
+    "Carte en ligne",
+    "QR code"
+   ]
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "Aucune triche,",
+    "juste du concret"
+   ],
+   "voix": "Aucune triche là-dedans. Juste trois choses concrètes, à mettre en place puis à tenir à jour."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "voix": "Pour la carte et le QR code, il y a Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ]
+  }
+ ]
+}

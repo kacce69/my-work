@@ -1,0 +1,56 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Même un jeu",
+    "se met à jour"
+   ],
+   "voix": "Même les plus gros jeux reçoivent des mises à jour.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Et votre carte ?"
+   ],
+   "voix": "Et votre carte ? Un prix qui change, un plat retiré : est-elle encore juste ?",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Une carte",
+    "qui date ?"
+   ],
+   "voix": "Une carte qui n'est plus à jour, c'est le risque d'un client déçu à l'arrivée."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "La date de",
+    "mise à jour"
+   ],
+   "voix": "Sur Restaurant Site Internet, la date de mise à jour s'affiche. Et si rien n'a changé, un clic prolonge la validité de votre carte."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "voix": "Votre carte mérite d'être à jour. Écrivez menu en commentaire, et nous vous recontactons.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ]
+  }
+ ]
+}

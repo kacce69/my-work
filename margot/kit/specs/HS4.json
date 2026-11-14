@@ -1,0 +1,62 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Une bonne planque,",
+    "ça reste caché"
+   ],
+   "voix": "Dans une histoire de braquage, une bonne planque, c'est un endroit que personne ne trouve.",
+   "accessoire": "masque",
+   "decor": "ville"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Un restaurant,",
+    "c'est l'inverse"
+   ],
+   "voix": "Un restaurant, c'est tout l'inverse. Il faut qu'on vous trouve, et qu'on sache ce qu'on y mange.",
+   "accessoire": "masque",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Sans carte",
+    "en ligne ?"
+   ],
+   "voix": "Sans carte en ligne, votre restaurant ressemble à une planque : personne ne sait ce qu'il y a à l'intérieur."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "Sortez",
+    "de la planque"
+   ],
+   "voix": "Sortez de la planque. Montrez votre carte, vos prix et vos horaires.",
+   "puces": [
+    "Votre carte",
+    "Vos prix",
+    "Vos horaires"
+   ]
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "voix": "Restaurant Site Internet vous donne une page à votre nom. Écrivez menu en commentaire, et nous vous recontactons.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ]
+  }
+ ]
+}

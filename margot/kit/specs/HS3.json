@@ -1,0 +1,57 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Entre deux missions,",
+    "il faut bien manger"
+   ],
+   "voix": "Entre deux missions, même le meilleur joueur finit par avoir faim.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Il cherche",
+    "où manger"
+   ],
+   "voix": "Alors il pose la manette, et il cherche où manger près de chez lui.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Que voit-il de",
+    "votre restaurant ?"
+   ],
+   "voix": "Que voit-il quand il tombe sur votre restaurant ? Une carte, des prix, des horaires ? Ou rien du tout ?"
+  },
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Rien à voir ?",
+    "Il passe au suivant"
+   ],
+   "voix": "S'il n'y a rien à voir, il risque de passer au restaurant suivant."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "voix": "Montrez votre carte en ligne avec Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ]
+  }
+ ]
+}

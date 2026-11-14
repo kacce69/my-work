@@ -1,0 +1,62 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Demain, tout le monde",
+    "explore la carte"
+   ],
+   "voix": "Demain, tout le monde va explorer la carte d'une ville qui n'existe pas.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Chaque rue,",
+    "chaque recoin"
+   ],
+   "voix": "Chaque rue, chaque recoin, chaque adresse cachée. Les joueurs veulent tout voir avant d'y aller.",
+   "accessoire": "lunettes",
+   "decor": "ville"
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Votre restaurant,",
+    "lui, existe"
+   ],
+   "voix": "Votre restaurant, lui, existe vraiment. Mais vos clients peuvent-ils voir votre carte avant de venir ?"
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "Une carte",
+    "en ligne"
+   ],
+   "voix": "Une carte en ligne, avec vos plats, vos prix et la date de mise à jour : voilà ce qu'ils cherchent.",
+   "puces": [
+    "Les plats",
+    "Les prix",
+    "La mise à jour"
+   ]
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "voix": "Mettez la vôtre en ligne avec Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "puces": [
+    "restaurant-site-internet.fr"
+   ]
+  }
+ ]
+}

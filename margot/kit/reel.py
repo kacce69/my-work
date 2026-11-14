@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-"""Reel Margot avec son : voix de Margot (Kokoro, voix française locale et gratuite),
-bouche animée sur la voix, sous-titres, 1080 x 1920, 30 images/s.
+"""Reel Margot avec son : voix de Margot, bouche animée sur la voix, sous-titres,
+1080 x 1920, 30 images/s.
 
-Usage : python3 reel.py spec.json sortie.mp4 [--apercu]
+Usage : python3 reel.py spec.json sortie.mp4 [--apercu] [--kokoro | --prise]
   --apercu : n'écrit que quelques images JPEG (dossier apercu/) pour contrôler la mise en page.
+  --kokoro : ignore la prise enregistrée et fabrique la voix avec Kokoro.
+  --prise  : exige la prise enregistrée ; s'arrête si elle manque (au lieu de passer à Kokoro).
+
+Voix : si voix/<nom du spec>.flac (ou .wav) et voix/<nom du spec>.json existent, c'est cette prise
+enregistrée qui est utilisée (voix « Amélie », voir caler_voix.py et le README). Sinon la voix est
+fabriquée sur place par Kokoro (voix française locale et gratuite).
 
 spec.json :
 { "etiquette": "Les conseils de Margot",
@@ -30,27 +36,50 @@ def trouver(nom, *dossiers):
     raise SystemExit(f"Fichier manquant : {nom} (lancez preparer.sh)")
 
 
-def synthese(scenes):
-    """Une prise de voix par scène. Renvoie la piste complète et les repères de temps."""
-    from kokoro_onnx import Kokoro
-    mod = [ICI / "modeles", ICI, pathlib.Path.cwd(), "/home/claude/tts"]
-    k = Kokoro(str(trouver("kokoro-v1.0.onnx", *mod)), str(trouver("voices-v1.0.bin", *mod)))
-    import phonemizer
-    from kokoro_onnx.tokenizer import Tokenizer
+def jetons(voix):
+    """Les mots d'une scène, tels que les sous-titres les découpent (« ? », « : »… restent collés au mot)."""
+    return [m for m in re.sub(r"\s+([!?:;])", "\xa0\\1", voix.strip()).split(" ") if m]
 
-    def sons(texte):
-        # Sans cette option, un mot jugé anglais (« Google », « flash », « e-mail ») est entouré de marques
-        # « (en) … (fr) » que la voix prononce comme des bruits parasites.
-        ph = phonemizer.phonemize(Tokenizer.normalize_text(texte), "fr-fr", preserve_punctuation=True, with_stress=True,
-                                  language_switch="remove-flags")
-        return "".join(c for c in ph if c in k.tokenizer.vocab).strip()
+
+def synthese(scenes, prise=None):
+    """Une voix par scène. Renvoie la piste complète et les repères de temps.
+    Sans prise : la voix est fabriquée ici par Kokoro. Avec une prise enregistrée (dossier voix/) :
+    chaque scène est découpée dans l'enregistrement et les sous-titres suivent l'heure de chaque mot."""
+    if prise is None:
+        from kokoro_onnx import Kokoro
+        mod = [ICI / "modeles", ICI, pathlib.Path.cwd(), "/home/claude/tts"]
+        k = Kokoro(str(trouver("kokoro-v1.0.onnx", *mod)), str(trouver("voices-v1.0.bin", *mod)))
+        import phonemizer
+        from kokoro_onnx.tokenizer import Tokenizer
+
+        def sons(texte):
+            # Sans cette option, un mot jugé anglais (« Google », « flash », « e-mail ») est entouré de marques
+            # « (en) … (fr) » que la voix prononce comme des bruits parasites.
+            ph = phonemizer.phonemize(Tokenizer.normalize_text(texte), "fr-fr", preserve_punctuation=True, with_stress=True,
+                                      language_switch="remove-flags")
+            return "".join(c for c in ph if c in k.tokenizer.vocab).strip()
+    else:
+        son, sr = sf.read(prise["audio"], dtype="float32")
+        son = son.mean(axis=1) if son.ndim > 1 else son
+        if sr != SR:
+            raise SystemExit(f"{prise['audio']} : {sr} Hz au lieu de {SR} Hz (convertissez avec ffmpeg -ar {SR} -ac 1)")
 
     piste, t = [], 0.0
     for i, sc in enumerate(scenes):
-        s, sr = k.create(sons(sc["voix"]), voice=VOIX, speed=VITESSE, lang="fr-fr", is_phonemes=True)
-        assert sr == SR
+        if prise is None:
+            s, sr = k.create(sons(sc["voix"]), voice=VOIX, speed=VITESSE, lang="fr-fr", is_phonemes=True)
+            assert sr == SR
+        else:
+            c = prise["scenes"][i]
+            s = son[int(c["debut"] * SR): int(c["fin"] * SR)].copy()
         fort = np.where(np.abs(s) > 0.012)[0]
-        s = s[max(0, fort[0] - 900): min(len(s), fort[-1] + 1500)] if len(fort) else s
+        d0 = max(0, fort[0] - 900) if len(fort) else 0
+        s = s[d0: min(len(s), fort[-1] + 1500)] if len(fort) else s
+        if prise is not None:
+            r = min(240, len(s) // 2)                             # fondu de 10 ms aux deux coupes
+            s[:r] *= np.linspace(0, 1, r, dtype=np.float32); s[-r:] *= np.linspace(1, 0, r, dtype=np.float32)
+            base = c["debut"] + d0 / SR                           # heure, dans la prise, du début de la scène
+            sc["_mots"] = [(max(0.0, m0 - base), max(0.0, m1 - base)) for m0, m1 in c["mots"]]
         avant, apres = (0.35 if i == 0 else 0.45), (0.9 if i == len(scenes) - 1 else 0.35)
         sc["debut"], sc["parle0"] = t, t + avant
         sc["parle1"] = sc["parle0"] + len(s) / SR
@@ -102,13 +131,14 @@ def sous_titres(sc, maxi=30):
     texte = re.sub(r"\s+([!?:;])", " \\1", sc["voix"].strip())
     phrases = [p for p in re.split(r"(?<=[.!?…])\s+", texte) if p]
     span = sc["parle1"] - sc["parle0"]
+    heures = sc.pop("_mots", None)                            # prise enregistrée : heure de chaque mot
     grandes = sorted(sorted(sc.pop("_pauses", []), key=lambda x: -x[1])[: len(phrases) - 1])
     if len(grandes) == len(phrases) - 1:
         bornes = [0.0] + [m for m, _ in grandes] + [span]
     else:                                                     # pas assez de pauses nettes : au prorata
         poids = [len(p) + 8 for p in phrases]
         bornes = [0.0] + [span * sum(poids[: k + 1]) / sum(poids) for k in range(len(poids))]
-    out = []
+    out, rang = [], 0
     for k, ph in enumerate(phrases):
         mots, n = ph.split(" "), max(1, math.ceil(len(ph) / maxi))
         cible, blocs, cur = len(ph) / n, [], ""
@@ -122,12 +152,23 @@ def sous_titres(sc, maxi=30):
             else:
                 cur = essai
         blocs.append(cur)
+        if heures:                                            # chaque bloc commence quand son premier mot est dit
+            for b in blocs:
+                t = sc["parle0"] + heures[min(rang, len(heures) - 1)][0]
+                out.append({"t0": round(t - 0.04, 3), "t1": 0.0, "texte": b})
+                rang += len(b.split(" "))
+            continue
         t0, t1 = sc["parle0"] + bornes[k], sc["parle0"] + bornes[k + 1]
         poids, t = [len(b) + 4 for b in blocs], t0
         for b, p in zip(blocs, poids):
             d = (t1 - t0) * p / sum(poids)
             out.append({"t0": round(t - 0.04, 3), "t1": round(t + d - 0.04, 3), "texte": b})
             t += d
+    if heures:
+        out[0]["t0"] = min(out[0]["t0"], round(sc["parle0"] - 0.04, 3))
+        for a, b in zip(out, out[1:]):                        # jamais à rebours, jamais moins de 0,3 s à l'écran
+            b["t0"] = max(b["t0"], round(a["t0"] + 0.3, 3))
+            a["t1"] = b["t0"]
     out[-1]["t1"] = round(sc["parle1"] + 0.25, 3)
     return out
 
@@ -149,7 +190,17 @@ def main():
     scenes = spec["scenes"]
     tmp = sortie.parent / (sortie.stem + "_tmp"); tmp.mkdir(parents=True, exist_ok=True)
 
-    piste = synthese(scenes)
+    prise, nom = None, pathlib.Path(sys.argv[1]).stem
+    cale = ICI / "voix" / f"{nom}.json"
+    audio = next((p for p in (ICI / "voix" / f"{nom}.flac", ICI / "voix" / f"{nom}.wav") if p.exists()), None)
+    if cale.exists() and audio and "--kokoro" not in sys.argv:
+        prise = json.loads(cale.read_text(encoding="utf-8")); prise["audio"] = str(audio)
+        if len(prise["scenes"]) != len(scenes) or any(len(c["mots"]) != len(jetons(sc["voix"])) for c, sc in zip(prise["scenes"], scenes)):
+            raise SystemExit(f"voix/{nom}.json ne correspond plus au scénario : refaites la prise ou relancez caler_voix.py {nom}")
+    if "--prise" in sys.argv and not prise:
+        raise SystemExit(f"Pas de prise enregistrée calée pour {nom} (voix/{nom}.flac et voix/{nom}.json) : rien n'est fabriqué.")
+    print("Voix :", f"prise enregistrée {audio.name}" if prise else "Kokoro (fabriquée sur place)")
+    piste = synthese(scenes, prise)
     for sc in scenes:
         sc["subs"] = sous_titres(sc)
         for k in ("debut", "fin", "parle0", "parle1"):

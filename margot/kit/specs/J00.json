@@ -1,0 +1,8 @@
+{ "etiquette": "Les conseils de Margot",
+  "scenes": [
+    {"fond": "creme", "pose": "bonjour", "titre": ["Bonjour !", "Moi, c'est Margot"], "voix": "Bonjour ! Moi, c'est Margot. Je suis une carte de restaurant."},
+    {"fond": "prune", "pose": "carte", "titre": ["30 jours,", "30 conseils"], "voix": "Pendant trente jours, je partage ici un conseil par jour pour les restaurateurs."},
+    {"fond": "or", "pose": "pouce", "titre": ["Au programme"], "puces": ["Fiche Google", "Photos", "Prix", "Avis"], "voix": "Votre fiche Google, vos photos de plats, vos prix, vos avis clients…"},
+    {"fond": "creme", "pose": "pouce", "titre": ["Simple", "et concret"], "voix": "Des idées simples et concrètes, à appliquer le jour même."},
+    {"fond": "prune", "pose": "bonjour", "titre": ["Abonnez-vous !", "À demain"], "voix": "Abonnez-vous pour ne rien manquer. À demain !"}
+  ] }

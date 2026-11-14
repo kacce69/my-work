@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<style>
+/*POLICES*/
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#FBF3EC;font-family:Inter,"Helvetica Neue",Arial,sans-serif}
+.scene{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden}
+.deco{position:absolute;border-radius:50%}
+.tag{position:absolute;left:0;right:0;top:215px;text-align:center}
+.tag span{display:inline-block;font-weight:700;font-size:34px;padding:12px 30px;border-radius:999px;letter-spacing:.2px}
+.titre{position:absolute;left:64px;right:64px;top:312px;text-align:center;font-family:Fraunces,Lora,Georgia,serif;font-weight:900;font-size:104px;line-height:1.05;letter-spacing:-1.5px}
+.titre.petit{font-size:88px}
+.puces{position:absolute;left:50px;right:50px;top:590px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.puces span{font-weight:700;font-size:42px;padding:14px 30px;border-radius:999px;white-space:nowrap}
+.disque{position:absolute;left:190px;top:720px;width:700px;height:700px;border-radius:50%;background:#FBF3EC}
+.margot{position:absolute;left:215px;top:790px;width:650px;height:561px;overflow:visible}
+.sub{position:absolute;left:0;right:0;top:1452px;text-align:center}
+.sub span{display:inline-block;font-weight:800;font-size:54px;line-height:1.15;padding:16px 36px;border-radius:26px;max-width:960px}
+</style></head><body><div id="root"></div>
+<script>
+/*DONNEES*/
+const D = window.DATA, C = D.coul, FONCE = "#3D1030", NOIR = "#2A0A20";
+const THEME = {
+  creme: {titre: C.prune, tagF: C.or, tagT: FONCE, subF: C.prune, subT: C.creme, disque: false, deco: "rgba(235,190,114,.28)", puceF: C.prune, puceT: C.creme},
+  prune: {titre: C.creme, tagF: C.or, tagT: FONCE, subF: C.creme, subT: FONCE, disque: true, deco: "rgba(255,255,255,.06)", puceF: C.or, puceT: FONCE},
+  or:    {titre: FONCE, tagF: C.prune, tagT: C.creme, subF: C.prune, subT: C.creme, disque: true, deco: "rgba(255,255,255,.24)", puceF: C.prune, puceT: C.creme}
+};
+const BRAS = {
+  bonjour: `<g class="bras"><path d="M650 446 C705 428 742 384 746 320" fill="none" stroke="${C.prune}" stroke-width="32" stroke-linecap="round"/><circle cx="746" cy="302" r="31" fill="${C.prune}"/></g>`,
+  pouce: `<g class="bras"><path d="M650 470 C690 474 730 468 760 452" fill="none" stroke="${C.prune}" stroke-width="32" stroke-linecap="round"/></g>`,
+  carte: `<g class="bras"><path d="M650 478 C690 486 725 490 757 487" fill="none" stroke="${C.prune}" stroke-width="30" stroke-linecap="round"/></g>`
+};
+const OBJET = {
+  bonjour: ``,
+  pouce: `<g class="objet"><rect x="752" y="356" width="24" height="90" rx="12" fill="${C.prune}"/><circle cx="766" cy="449" r="34" fill="${C.prune}"/></g>`,
+  carte: `<g class="objet"><rect x="737" y="307" width="160" height="208" rx="20" fill="${C.creme}" stroke="${C.or}" stroke-width="9"/><g stroke="${C.prune}" stroke-width="9" stroke-linecap="round"><path d="M766 363H866"/><path d="M766 404H846"/><path d="M766 440H858"/></g><circle cx="759" cy="487" r="29" fill="${C.prune}"/></g>`
+};
+function margot(i, pose) {
+  return `<svg class="margot" viewBox="190 160 730 630" xmlns="http://www.w3.org/2000/svg"><g class="corps">
+  <ellipse cx="475" cy="752" rx="200" ry="16" fill="rgba(61,16,48,.13)"/>
+  <rect x="390" y="620" width="36" height="102" fill="${FONCE}"/><rect x="524" y="620" width="36" height="102" fill="${FONCE}"/>
+  <ellipse cx="398" cy="737" rx="45" ry="19" fill="${FONCE}"/><ellipse cx="552" cy="737" rx="45" ry="19" fill="${FONCE}"/>
+  <g class="haut">
+  <path d="M300 474 C250 490 228 520 234 566" fill="none" stroke="${C.prune}" stroke-width="32" stroke-linecap="round"/><circle cx="236" cy="581" r="29" fill="${C.prune}"/>
+  ${BRAS[pose] || BRAS.bonjour}
+  <clipPath id="b${i}"><rect x="293" y="178" width="364" height="484" rx="45"/></clipPath>
+  <g clip-path="url(#b${i})"><rect x="293" y="178" width="364" height="484" fill="${C.prune}"/><rect x="293" y="178" width="364" height="92" fill="${C.or}"/></g>
+  <ellipse class="oeil" cx="414" cy="380" rx="41" ry="50" fill="#fff"/><ellipse class="oeil" cx="536" cy="380" rx="41" ry="50" fill="#fff"/>
+  <g class="pupilles"><circle cx="422" cy="388" r="21" fill="${NOIR}"/><circle cx="544" cy="388" r="21" fill="${NOIR}"/>
+  <circle cx="430" cy="378" r="7" fill="#fff"/><circle cx="552" cy="378" r="7" fill="#fff"/></g>
+  <path class="bouche" d="M424 464 Q475 536 526 464" fill="${NOIR}" stroke="${C.creme}" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <g stroke-width="13" stroke-linecap="round"><path d="M352 558H516" stroke="${C.creme}"/><path d="M554 558H598" stroke="${C.or}"/><path d="M352 606H476" stroke="${C.creme}"/><path d="M554 606H598" stroke="${C.or}"/></g>
+  ${OBJET[pose] || ""}
+  </g></g></svg>`;
+}
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const root = document.getElementById("root"), EL = [];
+D.scenes.forEach((sc, i) => {
+  const th = THEME[sc.fond] || THEME.creme, long = (sc.titre || []).length > 2 || (sc.puces && sc.puces.length);
+  const d = document.createElement("div"); d.className = "scene"; d.style.background = C[sc.fond] || C.creme; d.style.zIndex = i + 1;
+  d.innerHTML = `<div class="deco" style="width:760px;height:760px;left:-300px;top:-240px;background:${th.deco}"></div>
+  <div class="deco" style="width:560px;height:560px;right:-220px;top:1480px;background:${th.deco}"></div>
+  <div class="tag"><span style="background:${th.tagF};color:${th.tagT}">${esc(D.etiquette)}</span></div>
+  <div class="titre${long ? " petit" : ""}" style="color:${th.titre}">${(sc.titre || []).map(l => `<div>${esc(l)}</div>`).join("")}</div>
+  <div class="puces">${(sc.puces || []).map(p => `<span style="background:${th.puceF};color:${th.puceT}">${esc(p)}</span>`).join("")}</div>
+  ${th.disque ? '<div class="disque"></div>' : ""}${margot(i, sc.pose)}
+  <div class="sub"><span style="background:${th.subF};color:${th.subT}"></span></div>`;
+  root.appendChild(d);
+  const q = s => d.querySelector(s), qa = s => [...d.querySelectorAll(s)];
+  EL.push({d, tag: q(".tag"), lignes: qa(".titre div"), puces: qa(".puces span"), disque: q(".disque"), svg: q(".margot"), corps: q(".corps"), haut: q(".haut"),
+    bras: q(".bras"), objet: q(".objet"), yeux: qa(".oeil"), pupilles: q(".pupilles"), bouche: q(".bouche"), sub: q(".sub span")});
+});
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const sortie = x => 1 - Math.pow(1 - clamp(x), 3);
+const rebond = x => { x = clamp(x); const c = 1.70158; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+function render(t) {
+  const img = Math.max(0, Math.min(D.env.length - 1, Math.round(t * D.fps)));
+  const ouv = D.env[img] || 0;
+  D.scenes.forEach((sc, i) => {
+    const e = EL[i], u = t - sc.debut;
+    if (u < 0 || (i < D.scenes.length - 1 && t >= D.scenes[i + 1].debut + 0.5)) { e.d.style.display = "none"; return; }
+    e.d.style.display = "block";
+    e.d.style.clipPath = i === 0 ? "none" : `circle(${Math.round(sortie(u / 0.42) * 2300)}px at 540px 1070px)`;
+    e.tag.style.opacity = clamp((u - 0.1) / 0.3);
+    e.lignes.forEach((l, j) => { const k = sortie((u - 0.16 - 0.12 * j) / 0.4); l.style.opacity = k; l.style.transform = `translateY(${(1 - k) * 56}px)`; });
+    const n = e.puces.length, span = sc.parle1 - sc.parle0;
+    e.puces.forEach((p, j) => { const k = (t - (sc.parle0 + span * j / n + 0.05)) / 0.3; p.style.opacity = clamp(k * 2); p.style.transform = `scale(${k <= 0 ? 0.6 : 0.6 + 0.4 * rebond(k)})`; });
+    const ent = rebond((u - 0.05) / 0.5), parle = t >= sc.parle0 - 0.1 && t <= sc.parle1 + 0.1 ? ouv : 0;
+    if (e.disque) e.disque.style.transform = `scale(${sortie((u - 0.02) / 0.4)})`;
+    e.svg.style.transform = `translateY(${(1 - ent) * 90}px) scale(${0.82 + 0.18 * ent})`;
+    e.svg.style.opacity = clamp(u / 0.15);
+    const bob = 5 * Math.sin(2 * Math.PI * t / 1.7), rot = 1.2 * Math.sin(2 * Math.PI * t / 2.3);
+    e.haut.setAttribute("transform", `translate(0 ${(bob - parle * 3).toFixed(2)}) rotate(${rot.toFixed(2)} 475 640)`);
+    if (e.bras) {
+      let a = 0;
+      if (sc.pose === "bonjour") a = (u < 1.6 ? 15 : 5) * Math.sin(2 * Math.PI * (u < 1.6 ? 2.6 : 0.8) * u);
+      else if (sc.pose === "pouce") a = -4 + 4 * Math.sin(2 * Math.PI * u / 1.1);
+      else a = 3 * Math.sin(2 * Math.PI * u / 1.6);
+      const piv = sc.pose === "bonjour" ? "655 446" : "655 472";
+      e.bras.setAttribute("transform", `rotate(${a.toFixed(2)} ${piv})`);
+      if (e.objet) e.objet.setAttribute("transform", `rotate(${a.toFixed(2)} ${piv})`);
+    }
+    const cl = (t + 0.4 * i) % 2.9, ferme = cl > 1.1 && cl < 1.24;
+    e.yeux.forEach(o => o.setAttribute("ry", ferme ? 5 : 50));
+    e.pupilles.setAttribute("opacity", ferme ? 0 : 1);
+    e.pupilles.setAttribute("transform", `translate(${(3 * Math.sin(t * 0.9)).toFixed(2)} ${(2 * Math.cos(t * 0.7)).toFixed(2)})`);
+    const haut = 536 - 70 * parle, bas = 536 + 30 * parle;
+    e.bouche.setAttribute("d", `M424 464 Q475 ${haut.toFixed(1)} 526 464 Q475 ${bas.toFixed(1)} 424 464 Z`);
+    const s = (sc.subs || []).find(x => t >= x.t0 && t < x.t1);
+    if (s) { e.sub.style.display = "inline-block"; e.sub.textContent = s.texte; e.sub.style.transform = `scale(${0.9 + 0.1 * sortie((t - s.t0) / 0.12)})`; }
+    else e.sub.style.display = "none";
+  });
+}
+document.fonts.load('900 104px Fraunces').catch(() => 0).then(() => document.fonts.ready).then(() => { render(0); window.PRET = true; });
+</script></body></html>

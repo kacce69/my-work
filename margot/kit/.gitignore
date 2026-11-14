@@ -1,0 +1,5 @@
+modeles/
+node_modules/
+package*.json
+*_tmp/
+apercu/

@@ -1,0 +1,60 @@
+{
+ "etiquette": "Les conseils de Margot · hors-série",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "accessoire": "masque",
+   "titre": [
+    "Avant un braquage,",
+    "on fait du repérage"
+   ],
+   "voix": "Dans les jeux vidéo, avant un braquage, on fait toujours du repérage."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "accessoire": "masque",
+   "titre": [
+    "Les lieux,",
+    "les horaires, le plan"
+   ],
+   "voix": "On étudie les lieux, les horaires, le plan. Personne ne fonce à l'aveugle."
+  },
+  {
+   "fond": "or",
+   "pose": "pouce",
+   "titre": [
+    "Vos clients",
+    "font pareil"
+   ],
+   "puces": [
+    "La carte",
+    "Les prix",
+    "Les horaires"
+   ],
+   "voix": "Vos clients font pareil. Avant de venir, ils repèrent votre carte, vos prix, vos horaires."
+  },
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Pas de carte en ligne ?",
+    "Mission annulée"
+   ],
+   "voix": "Et s'ils ne trouvent pas votre carte en ligne ? Mission annulée : ils risquent d'aller ailleurs."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Mettez votre carte en ligne avec Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons."
+  }
+ ]
+}

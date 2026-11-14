@@ -35,7 +35,7 @@ const OBJET = {
   pouce: `<g class="objet"><rect x="752" y="356" width="24" height="90" rx="12" fill="${C.prune}"/><circle cx="766" cy="449" r="34" fill="${C.prune}"/></g>`,
   carte: `<g class="objet"><rect x="737" y="307" width="160" height="208" rx="20" fill="${C.creme}" stroke="${C.or}" stroke-width="9"/><g stroke="${C.prune}" stroke-width="9" stroke-linecap="round"><path d="M766 363H866"/><path d="M766 404H846"/><path d="M766 440H858"/></g><circle cx="759" cy="487" r="29" fill="${C.prune}"/></g>`
 };
-function margot(i, pose) {
+function margot(i, pose, acc) {
   return `<svg class="margot" viewBox="190 160 730 630" xmlns="http://www.w3.org/2000/svg"><g class="corps">
   <ellipse cx="475" cy="752" rx="200" ry="16" fill="rgba(61,16,48,.13)"/>
   <rect x="390" y="620" width="36" height="102" fill="${FONCE}"/><rect x="524" y="620" width="36" height="102" fill="${FONCE}"/>
@@ -45,6 +45,7 @@ function margot(i, pose) {
   ${BRAS[pose] || BRAS.bonjour}
   <clipPath id="b${i}"><rect x="293" y="178" width="364" height="484" rx="45"/></clipPath>
   <g clip-path="url(#b${i})"><rect x="293" y="178" width="364" height="484" fill="${C.prune}"/><rect x="293" y="178" width="364" height="92" fill="${C.or}"/></g>
+  ${acc === "masque" ? `<g clip-path="url(#b${i})"><rect x="293" y="324" width="364" height="112" fill="${NOIR}"/></g>` : ""}
   <ellipse class="oeil" cx="414" cy="380" rx="41" ry="50" fill="#fff"/><ellipse class="oeil" cx="536" cy="380" rx="41" ry="50" fill="#fff"/>
   <g class="pupilles"><circle cx="422" cy="388" r="21" fill="${NOIR}"/><circle cx="544" cy="388" r="21" fill="${NOIR}"/>
   <circle cx="430" cy="378" r="7" fill="#fff"/><circle cx="552" cy="378" r="7" fill="#fff"/></g>
@@ -63,7 +64,7 @@ D.scenes.forEach((sc, i) => {
   <div class="tag"><span style="background:${th.tagF};color:${th.tagT}">${esc(D.etiquette)}</span></div>
   <div class="titre${long ? " petit" : ""}" style="color:${th.titre}">${(sc.titre || []).map(l => `<div>${esc(l)}</div>`).join("")}</div>
   <div class="puces">${(sc.puces || []).map(p => `<span style="background:${th.puceF};color:${th.puceT}">${esc(p)}</span>`).join("")}</div>
-  ${th.disque ? '<div class="disque"></div>' : ""}${margot(i, sc.pose)}
+  ${th.disque ? '<div class="disque"></div>' : ""}${margot(i, sc.pose, sc.accessoire)}
   <div class="sub"><span style="background:${th.subF};color:${th.subT}"></span></div>`;
   root.appendChild(d);
   const q = s => d.querySelector(s), qa = s => [...d.querySelectorAll(s)];

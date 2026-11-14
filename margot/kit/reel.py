@@ -35,9 +35,19 @@ def synthese(scenes):
     from kokoro_onnx import Kokoro
     mod = [ICI / "modeles", ICI, pathlib.Path.cwd(), "/home/claude/tts"]
     k = Kokoro(str(trouver("kokoro-v1.0.onnx", *mod)), str(trouver("voices-v1.0.bin", *mod)))
+    import phonemizer
+    from kokoro_onnx.tokenizer import Tokenizer
+
+    def sons(texte):
+        # Sans cette option, un mot jugé anglais (« Google », « flash », « e-mail ») est entouré de marques
+        # « (en) … (fr) » que la voix prononce comme des bruits parasites.
+        ph = phonemizer.phonemize(Tokenizer.normalize_text(texte), "fr-fr", preserve_punctuation=True, with_stress=True,
+                                  language_switch="remove-flags")
+        return "".join(c for c in ph if c in k.tokenizer.vocab).strip()
+
     piste, t = [], 0.0
     for i, sc in enumerate(scenes):
-        s, sr = k.create(sc["voix"], voice=VOIX, speed=VITESSE, lang="fr-fr")
+        s, sr = k.create(sons(sc["voix"]), voice=VOIX, speed=VITESSE, lang="fr-fr", is_phonemes=True)
         assert sr == SR
         fort = np.where(np.abs(s) > 0.012)[0]
         s = s[max(0, fort[0] - 900): min(len(s), fort[-1] + 1500)] if len(fort) else s

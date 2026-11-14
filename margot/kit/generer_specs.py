@@ -24,7 +24,7 @@ reel(1, ["Votre fiche Google", "est-elle à jour ?"], "Votre fiche Google est-el
     (["3. Des photos", "récentes"], "Trois : des photos récentes. La devanture, la salle, et quelques plats de la carte actuelle.")])
 
 reel(2, ["Vos photos de plats", "donnent-elles faim ?"], "Vos photos de plats donnent-elles vraiment faim ? Trois gestes simples, avec un téléphone.", [
-    (["1. La lumière", "du jour"], "Un : la lumière du jour. Posez l'assiette près d'une fenêtre, sans flash."),
+    (["1. La lumière", "du jour"], "Un : la lumière du jour. Coupez le flash, et posez l'assiette près d'une fenêtre."),
     (["2. Un objectif", "propre"], "Deux : essuyez l'objectif du téléphone, et le bord de l'assiette."),
     (["3. Un seul plat", "bien cadré"], "Trois : un seul plat par photo, cadré de près, sur une table dégagée.")],
     sol="Sur Restaurant Site Internet, vos photos s'affichent sur la page de votre restaurant, avec votre carte.")
@@ -79,7 +79,7 @@ reel(11, ["Votre carte est-elle", "trop longue ?"], "Trop de plats sur la carte 
     (["3. Complique-t-il", "le service ?"], "Trois : complique-t-il la cuisine ou les stocks ? S'il se vend peu, rapporte peu et complique le service, il peut quitter la carte.")])
 
 reel(12, ["« Poisson du jour »,", "c'est un peu court"], "Poisson du jour, ça ne dit pas grand-chose. Voici une formule simple pour nommer un plat.", [
-    (["1. Le produit"], "Un : le produit précis. Dos de cabillaud, plutôt que poisson."),
+    (["1. Le produit"], "Un : le produit précis. Filet de cabillaud, plutôt que poisson."),
     (["2. La cuisson"], "Deux : la cuisson. Rôti, poêlé, confit : on imagine déjà l'assiette."),
     (["3. La garniture", "ou l'origine"], "Trois : la garniture ou l'origine. Purée maison, légumes du marché.")],
     sol="Sur Restaurant Site Internet, chaque plat de votre carte s'affiche avec son nom et son prix, lisible sur un téléphone.")
@@ -87,7 +87,7 @@ reel(12, ["« Poisson du jour »,", "c'est un peu court"], "Poisson du jour, ça
 reel(13, ["Vos prix sont-ils", "bien affichés ?"], "L'affichage des prix est obligatoire, à l'intérieur comme à l'extérieur. Trois points à vérifier.", [
     (["1. La carte", "à l'extérieur"], "Un : dehors, votre menu ou votre carte du jour doit être visible pendant tout le service."),
     (["2. Les mêmes", "à l'intérieur"], "Deux : à l'intérieur, les cartes et les menus doivent être identiques à ceux de l'extérieur."),
-    (["3. Taxes et", "service compris"], "Trois : le prix affiché s'entend taxes et service compris.")],
+    (["3. Taxes et", "service compris"], "Trois : le prix affiché comprend les taxes et le service.")],
     puces={0: ["Source : DGCCRF"]})
 
 reel(14, ["Vous trouve-t-on", "sur Google ?"], "Quand on cherche un restaurant dans votre ville, apparaissez-vous ?", [

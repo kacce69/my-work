@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 13/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Vos prix sont-ils",
+    "bien affichés ?"
+   ],
+   "voix": "L'affichage des prix est obligatoire, à l'intérieur comme à l'extérieur. Trois points à vérifier.",
+   "puces": [
+    "Source : DGCCRF"
+   ]
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. La carte",
+    "à l'extérieur"
+   ],
+   "voix": "Un : dehors, votre menu ou votre carte du jour doit être visible pendant tout le service."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Les mêmes",
+    "à l'intérieur"
+   ],
+   "voix": "Deux : à l'intérieur, les cartes et les menus doivent être identiques à ceux de l'extérieur."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Taxes et",
+    "service compris"
+   ],
+   "voix": "Trois : le prix affiché s'entend taxes et service compris."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

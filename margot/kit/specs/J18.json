@@ -1,0 +1,50 @@
+{
+ "etiquette": "Les conseils de Margot · 18/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Comment faire",
+    "revenir un client ?"
+   ],
+   "voix": "Un client content ne revient pas toujours. Trois gestes qui aident."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Reconnaissez-le"
+   ],
+   "voix": "Un : reconnaissez-le. Un bonjour par son nom, sa table préférée."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Une attention"
+   ],
+   "voix": "Deux : une petite attention. Un mot sur le plat qu'il aime, une nouveauté à goûter."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Des nouvelles"
+   ],
+   "voix": "Trois : donnez des nouvelles. La carte qui change, une soirée à venir."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vos habitués retrouvent votre carte du moment, avec sa date de mise à jour. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

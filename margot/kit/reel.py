@@ -165,6 +165,8 @@ def main():
         b = p.chromium.launch(executable_path=chrome) if os.path.exists(chrome) else p.chromium.launch()
         pg = b.new_page(viewport={"width": W, "height": H})
         pg.goto(html.as_uri()); pg.wait_for_function("window.PRET===true", timeout=20000)
+        for a in pg.evaluate("window.ALERTES"):
+            print("ALERTE mise en page :", a)
         if apercu:
             d = sortie.parent / "apercu"; d.mkdir(exist_ok=True)
             for i, sc in enumerate(scenes):
@@ -177,7 +179,7 @@ def main():
             brut, fini = tmp / f"scene{i + 1}.part.mp4", tmp / f"scene{i + 1}.mp4"
             ff = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-y", "-f", "image2pipe", "-framerate", str(FPS), "-c:v", "mjpeg", "-i", "-",
                                    "-vf", "scale=in_range=full:out_range=tv:out_color_matrix=bt709,format=yuv420p",
-                                   "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-r", str(FPS),
+                                   "-c:v", "libx264", "-crf", "21", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-r", str(FPS),
                                    "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", str(brut)], stdin=subprocess.PIPE)
             n0, n1 = int(round(sc["debut"] * FPS)), int(round(sc["fin"] * FPS))
             for n in range(n0, n1):
@@ -195,8 +197,11 @@ def main():
                     "-af", "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000", "-ac", "2", "-c:a", "aac", "-b:a", "160k",
                     "-movflags", "+faststart", "-shortest", str(sortie)], check=True)
     # Couverture (image d'accroche) pour cover_url
-    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", f"{scenes[0]['parle1'] - 0.1:.2f}", "-i", str(sortie), "-frames:v", "1", "-q:v", "2",
+    t0 = f"{scenes[0]['fin'] - 0.05:.2f}"                     # fin de l'accroche : titre complet, plus de sous-titre
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", t0, "-i", str(sortie), "-frames:v", "1", "-q:v", "2",
                     str(sortie.with_suffix(".jpg"))], check=True)
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", t0, "-i", str(sortie), "-frames:v", "1", "-vf", "crop=1080:1080:0:285", "-q:v", "2",
+                    str(sortie.with_name(sortie.stem + "-carre.jpg"))], check=True)
     print("Vidéo :", sortie, f"({sortie.stat().st_size / 1e6:.1f} Mo)")
 
 

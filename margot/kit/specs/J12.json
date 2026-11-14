@@ -1,0 +1,51 @@
+{
+ "etiquette": "Les conseils de Margot · 12/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "« Poisson du jour »,",
+    "c'est un peu court"
+   ],
+   "voix": "Poisson du jour, ça ne dit pas grand-chose. Voici une formule simple pour nommer un plat."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Le produit"
+   ],
+   "voix": "Un : le produit précis. Dos de cabillaud, plutôt que poisson."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. La cuisson"
+   ],
+   "voix": "Deux : la cuisson. Rôti, poêlé, confit : on imagine déjà l'assiette."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. La garniture",
+    "ou l'origine"
+   ],
+   "voix": "Trois : la garniture ou l'origine. Purée maison, légumes du marché."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, chaque plat de votre carte s'affiche avec son nom et son prix, lisible sur un téléphone. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "etiquette": "Les conseils de Margot · 11/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre carte est-elle",
+    "trop longue ?"
+   ],
+   "voix": "Trop de plats sur la carte ? Trois questions pour savoir lesquels retirer."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Se vend-il ?"
+   ],
+   "voix": "Un : ce plat se vend-il encore ? Regardez vos ventes du mois."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Est-il",
+    "rentable ?"
+   ],
+   "voix": "Deux : vous laisse-t-il une marge correcte ?"
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Complique-t-il",
+    "le service ?"
+   ],
+   "voix": "Trois : complique-t-il la cuisine ou les stocks ? S'il se vend peu, rapporte peu et complique le service, il peut quitter la carte."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

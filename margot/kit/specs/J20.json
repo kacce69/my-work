@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 20/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Réservation",
+    "au téléphone"
+   ],
+   "voix": "Une réservation notée trop vite, et c'est l'erreur. Voici ce qu'il faut toujours demander."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Nom, date",
+    "et heure"
+   ],
+   "voix": "Un : le nom, la date et l'heure. Répétez-les à voix haute."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Couverts",
+    "et téléphone"
+   ],
+   "voix": "Deux : le nombre de couverts, et un numéro de téléphone."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Les demandes",
+    "particulières"
+   ],
+   "voix": "Trois : les demandes particulières. Allergie, chaise haute, anniversaire."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Et pour les heures où vous ne pouvez pas décrocher, Restaurant Site Internet propose la réservation de table en ligne. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

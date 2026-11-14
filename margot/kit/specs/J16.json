@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 16/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Menu de fêtes :",
+    "c'est le moment"
+   ],
+   "voix": "Votre menu de fêtes est-il prêt ? Mieux vaut l'annoncer tôt."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Le menu",
+    "et son prix"
+   ],
+   "voix": "Un : fixez le menu et son prix, en précisant si la boisson est comprise."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Annoncez-le",
+    "partout"
+   ],
+   "voix": "Deux : annoncez-le partout. En salle, sur vos réseaux, sur votre fiche Google."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Une date",
+    "limite"
+   ],
+   "voix": "Trois : donnez une date limite de réservation, et un moyen simple de réserver."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vous ajoutez votre menu de fêtes à votre carte en ligne en quelques minutes. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

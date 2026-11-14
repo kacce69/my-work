@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 14/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Vous trouve-t-on",
+    "sur Google ?"
+   ],
+   "voix": "Quand on cherche un restaurant dans votre ville, apparaissez-vous ?"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Une fiche Google",
+    "complète"
+   ],
+   "voix": "Un : une fiche Google complète. Catégorie, horaires, photos."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Les mêmes infos",
+    "partout"
+   ],
+   "voix": "Deux : le même nom, la même adresse et le même téléphone partout où vous apparaissez."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Des avis",
+    "avec réponse"
+   ],
+   "voix": "Trois : répondez à vos avis. Une fiche vivante inspire confiance."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, votre restaurant a sa page dans un répertoire, classée par ville et par type de cuisine. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

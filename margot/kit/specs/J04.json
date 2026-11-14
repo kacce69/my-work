@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 4/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Combien vous coûte",
+    "ce plat ?"
+   ],
+   "voix": "Savez-vous combien vous coûte vraiment votre plat du jour ? Le calcul tient en trois étapes."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Les ingrédients",
+    "et les quantités"
+   ],
+   "voix": "Un : listez chaque ingrédient, avec la quantité pour une portion."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Le coût",
+    "de la portion"
+   ],
+   "voix": "Deux : multipliez par le prix d'achat, puis additionnez. C'est votre coût matière."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Comparez au",
+    "prix de vente"
+   ],
+   "voix": "Trois : comparez ce coût à votre prix de vente hors taxes."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Et si un prix doit changer, sur Restaurant Site Internet, vous le modifiez en quelques secondes depuis votre téléphone. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

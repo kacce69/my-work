@@ -1,0 +1,50 @@
+{
+ "etiquette": "Les conseils de Margot · 19/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre carte est-elle",
+    "bien rangée ?"
+   ],
+   "voix": "On se perd parfois dans une carte. Trois règles pour bien ranger la vôtre."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. L'ordre",
+    "du repas"
+   ],
+   "voix": "Un : suivez l'ordre du repas. Entrées, plats, desserts, puis boissons."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Des rubriques",
+    "aux noms simples"
+   ],
+   "voix": "Deux : des noms de rubrique simples. Plats, plutôt que nos créations gourmandes."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Peu de plats",
+    "par rubrique"
+   ],
+   "voix": "Trois : peu de plats par rubrique. La carte se lit plus vite."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

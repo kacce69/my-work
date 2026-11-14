@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 28/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Plus d'avis,",
+    "honnêtement"
+   ],
+   "voix": "Vous voulez plus d'avis ? Il suffit souvent de demander, au bon moment."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Au moment",
+    "de l'addition"
+   ],
+   "voix": "Un : demandez au moment de l'addition, quand le client vous dit que c'était bon."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Un QR code",
+    "vers votre fiche"
+   ],
+   "voix": "Deux : facilitez-lui la tâche, avec un QR code qui mène à votre fiche Google."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Jamais",
+    "de contrepartie"
+   ],
+   "voix": "Trois : pas de cadeau en échange d'un avis. Un avis doit rester libre."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vous recevez aussi un QR code et des affichettes à imprimer, qui mènent à votre carte. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

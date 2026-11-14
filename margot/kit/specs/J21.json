@@ -1,0 +1,49 @@
+{
+ "etiquette": "Les conseils de Margot · 21/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre formule du midi",
+    "est-elle rentable ?"
+   ],
+   "voix": "Votre formule du midi est-elle rentable ? Trois points à vérifier."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Le coût",
+    "de chaque plat"
+   ],
+   "voix": "Un : calculez le coût matière de l'entrée, du plat et du dessert."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Le total",
+    "face au prix"
+   ],
+   "voix": "Deux : comparez le total au prix de la formule, hors taxes."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Peu de choix"
+   ],
+   "voix": "Trois : limitez les choix. Deux entrées, deux plats, deux desserts suffisent."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

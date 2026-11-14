@@ -1,0 +1,49 @@
+{
+ "etiquette": "Les conseils de Margot · 15/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Instagram :",
+    "quoi publier ?"
+   ],
+   "voix": "Pas d'idée pour Instagram ? Voici trois publications faciles à refaire chaque semaine."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Le plat",
+    "du moment"
+   ],
+   "voix": "Un : le plat du moment, en photo, à la lumière du jour."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Les coulisses"
+   ],
+   "voix": "Deux : les coulisses. La mise en place, le marché, l'équipe qui prépare."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Les infos",
+    "pratiques"
+   ],
+   "voix": "Trois : les infos pratiques. Horaires, fermeture, soirée à venir."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

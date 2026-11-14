@@ -1,0 +1,49 @@
+{
+ "etiquette": "Les conseils de Margot · 5/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Un avis négatif ?",
+    "Pas de panique"
+   ],
+   "voix": "Un avis négatif vient de tomber ? Ne répondez pas à chaud. Voici comment faire."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Remerciez"
+   ],
+   "voix": "Un : remerciez la personne d'avoir pris le temps d'écrire."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Reconnaissez",
+    "les faits"
+   ],
+   "voix": "Deux : reconnaissez ce qui s'est mal passé, sans vous justifier longuement."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Proposez",
+    "d'en parler"
+   ],
+   "voix": "Trois : dites ce que vous avez changé, et proposez d'en reparler par téléphone."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

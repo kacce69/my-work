@@ -1,0 +1,52 @@
+{
+ "etiquette": "Les conseils de Margot · 10/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Fermé un jour férié ?",
+    "Dites-le avant"
+   ],
+   "voix": "Vous fermez un jour férié ? Vos clients doivent le savoir avant de se déplacer."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Votre fiche",
+    "Google"
+   ],
+   "voix": "Un : saisissez vos horaires exceptionnels sur votre fiche Google."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Réseaux",
+    "et répondeur"
+   ],
+   "voix": "Deux : annoncez-le sur vos réseaux, et changez le message du répondeur."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Sur la porte"
+   ],
+   "voix": "Trois : une affichette sur la porte, avec la date de réouverture."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vos horaires figurent sur la page de votre restaurant, et vous pouvez y afficher une annonce. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

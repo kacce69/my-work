@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 30/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre restaurant",
+    "en ligne : le point"
+   ],
+   "voix": "Dernier conseil de la série : votre présence en ligne tient en trois points."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Une fiche Google",
+    "à jour"
+   ],
+   "voix": "Un : une fiche Google à jour, avec vos horaires et vos photos."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Votre carte",
+    "en ligne"
+   ],
+   "voix": "Deux : votre carte en ligne, avec les prix et la date de mise à jour."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Des réponses",
+    "aux avis"
+   ],
+   "voix": "Trois : des réponses à vos avis, et des nouvelles régulières sur vos réseaux."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Pour la carte, Restaurant Site Internet vous donne une page à votre nom, avec un QR code. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne. Merci de m'avoir suivie pendant ces trente jours !"
+  }
+ ]
+}

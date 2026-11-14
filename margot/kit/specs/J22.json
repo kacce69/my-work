@@ -1,0 +1,52 @@
+{
+ "etiquette": "Les conseils de Margot · 22/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Et votre carte",
+    "des boissons ?"
+   ],
+   "voix": "On soigne la carte des plats, et on oublie celle des boissons. Trois idées pour la rendre lisible."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Par familles"
+   ],
+   "voix": "Un : rangez par familles. Sans alcool, bières, vins, boissons chaudes."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. La contenance",
+    "et le prix"
+   ],
+   "voix": "Deux : indiquez la contenance et le prix de chaque boisson."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Des vins",
+    "au verre"
+   ],
+   "voix": "Trois : proposez quelques vins au verre, bien visibles."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vos boissons s'ajoutent à votre carte en ligne, comme vos plats. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

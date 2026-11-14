@@ -1,0 +1,50 @@
+{
+ "etiquette": "Les conseils de Margot · 3/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Allergènes :",
+    "savez-vous répondre ?"
+   ],
+   "voix": "Un client vous demande s'il y a des fruits à coque dans un plat. Savez-vous répondre tout de suite ?"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Quatorze",
+    "allergènes"
+   ],
+   "voix": "Un : il existe quatorze allergènes à déclaration obligatoire. Gardez la liste sous la main."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Par écrit,",
+    "plat par plat"
+   ],
+   "voix": "Deux : l'information doit être disponible par écrit. Notez les allergènes plat par plat."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. À jour à chaque",
+    "changement"
+   ],
+   "voix": "Trois : mettez-la à jour à chaque changement de recette ou de fournisseur."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

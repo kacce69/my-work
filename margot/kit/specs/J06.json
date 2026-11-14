@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 6/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Table réservée,",
+    "personne ne vient ?"
+   ],
+   "voix": "Une table réservée, et personne ne vient ? Trois habitudes pour limiter les réservations non honorées."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Un numéro",
+    "de téléphone"
+   ],
+   "voix": "Un : prenez toujours un numéro de téléphone avec la réservation."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Un rappel",
+    "la veille"
+   ],
+   "voix": "Deux : envoyez un petit message de rappel la veille, ou le matin même."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Une annulation",
+    "facile"
+   ],
+   "voix": "Trois : dites clairement comment annuler. Un client qui sait comment prévenir a moins d'excuses."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vous pouvez activer la réservation de table en ligne, avec une confirmation par e-mail. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

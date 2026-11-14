@@ -1,0 +1,50 @@
+{
+ "etiquette": "Les conseils de Margot · 1/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre fiche Google",
+    "est-elle à jour ?"
+   ],
+   "voix": "Votre fiche Google est-elle vraiment à jour ? Voici trois points à vérifier aujourd'hui."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Les horaires",
+    "exceptionnels"
+   ],
+   "voix": "Un : vos horaires exceptionnels. Jours fériés, congés : annoncez-les avant, pas après."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Le lien",
+    "vers la carte"
+   ],
+   "voix": "Deux : le lien vers votre carte. Il doit mener à la carte du moment, avec les prix."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Des photos",
+    "récentes"
+   ],
+   "voix": "Trois : des photos récentes. La devanture, la salle, et quelques plats de la carte actuelle."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

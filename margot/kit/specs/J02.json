@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 2/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Vos photos de plats",
+    "donnent-elles faim ?"
+   ],
+   "voix": "Vos photos de plats donnent-elles vraiment faim ? Trois gestes simples, avec un téléphone."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. La lumière",
+    "du jour"
+   ],
+   "voix": "Un : la lumière du jour. Posez l'assiette près d'une fenêtre, sans flash."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Un objectif",
+    "propre"
+   ],
+   "voix": "Deux : essuyez l'objectif du téléphone, et le bord de l'assiette."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Un seul plat",
+    "bien cadré"
+   ],
+   "voix": "Trois : un seul plat par photo, cadré de près, sur une table dégagée."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vos photos s'affichent sur la page de votre restaurant, avec votre carte. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

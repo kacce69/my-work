@@ -1,0 +1,49 @@
+{
+ "etiquette": "Les conseils de Margot · 23/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Que voit-on",
+    "depuis la rue ?"
+   ],
+   "voix": "Un passant ne regarde votre vitrine que quelques secondes. Que voit-il ?"
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. La carte",
+    "et les prix"
+   ],
+   "voix": "Un : la carte et les prix, lisibles sans entrer."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Les horaires"
+   ],
+   "voix": "Deux : les horaires, et les jours de fermeture."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Propre",
+    "et éclairée"
+   ],
+   "voix": "Trois : une vitrine propre et éclairée, même en dehors du service."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

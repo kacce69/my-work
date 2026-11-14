@@ -1,0 +1,53 @@
+{
+ "etiquette": "Les conseils de Margot · 24/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre carte est-elle",
+    "passée à l'hiver ?"
+   ],
+   "voix": "Votre carte est-elle passée à l'hiver ? Trois idées simples."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Des produits",
+    "de saison"
+   ],
+   "voix": "Un : des produits de saison. Courges, poireaux, choux, agrumes."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Un plat",
+    "qui réchauffe"
+   ],
+   "voix": "Deux : au moins un plat mijoté, et une soupe ou un velouté."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Sans les plats",
+    "d'été"
+   ],
+   "voix": "Trois : retirez les plats d'été. Une carte courte, et de saison."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, vous changez votre carte en quelques minutes, et la date de mise à jour s'affiche. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

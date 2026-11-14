@@ -1,0 +1,50 @@
+{
+ "etiquette": "Les conseils de Margot · 29/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Cinq chiffres",
+    "à suivre"
+   ],
+   "voix": "Vous pilotez votre restaurant au ressenti ? Cinq chiffres suffisent, une fois par semaine."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "Couverts et",
+    "ticket moyen"
+   ],
+   "voix": "Le nombre de couverts, et le ticket moyen."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "Coût matière",
+    "et pertes"
+   ],
+   "voix": "Le coût matière, et ce que vous avez jeté."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "Réservations",
+    "non honorées"
+   ],
+   "voix": "Et les réservations non honorées. Notez ces cinq chiffres chaque lundi, dans un simple tableau."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

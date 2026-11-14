@@ -1,0 +1,47 @@
+{
+ "etiquette": "Les conseils de Margot · 9/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre QR code",
+    "est-il bien placé ?"
+   ],
+   "voix": "Un QR code que personne ne scanne ne sert à rien. Voici où le mettre."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Sur la table"
+   ],
+   "voix": "Un : sur chaque table, bien visible, avec une phrase simple : scannez pour voir la carte."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. En vitrine"
+   ],
+   "voix": "Deux : en vitrine, pour ceux qui hésitent à entrer."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Jamais seul"
+   ],
+   "voix": "Trois : gardez une carte papier et l'affichage des prix. Le QR code seul ne suffit pas."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

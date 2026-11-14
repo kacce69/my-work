@@ -1,0 +1,52 @@
+{
+ "etiquette": "Les conseils de Margot · 27/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "D'où viennent",
+    "vos produits ?"
+   ],
+   "voix": "Beaucoup de clients aiment savoir d'où vient ce qu'ils mangent. Dites-le sur votre carte."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Le producteur",
+    "ou la région"
+   ],
+   "voix": "Un : nommez le producteur ou la région, quand c'est vrai et régulier."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. L'origine",
+    "des viandes"
+   ],
+   "voix": "Deux : pour le bœuf, le porc, le mouton et la volaille, l'origine doit être indiquée.",
+   "puces": [
+    "Source : DGCCRF"
+   ]
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Restez exact"
+   ],
+   "voix": "Trois : restez exact. Si le fournisseur change, la carte change aussi."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

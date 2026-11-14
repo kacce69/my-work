@@ -1,0 +1,52 @@
+{
+ "etiquette": "Les conseils de Margot · 26/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Réveillon :",
+    "annoncez-le tôt"
+   ],
+   "voix": "Vous ouvrez pour le réveillon ? Dites-le dès maintenant."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Le menu",
+    "et le prix"
+   ],
+   "voix": "Un : le menu complet et son prix par personne."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Les horaires"
+   ],
+   "voix": "Deux : l'heure d'arrivée, et si la soirée se prolonge."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Comment",
+    "réserver"
+   ],
+   "voix": "Trois : comment réserver, et jusqu'à quelle date."
+  },
+  {
+   "fond": "prune",
+   "pose": "carte",
+   "titre": [
+    "Commentez",
+    "MENU"
+   ],
+   "puces": [
+    "restaurant-site-internet.fr"
+   ],
+   "voix": "Sur Restaurant Site Internet, votre menu de réveillon s'affiche sur votre page, avec la réservation de table en ligne si vous le souhaitez. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "etiquette": "Les conseils de Margot · 17/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Que jetez-vous",
+    "chaque semaine ?"
+   ],
+   "voix": "Savez-vous ce que vous jetez chaque semaine ? Trois habitudes pour le réduire."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Notez",
+    "ce qui part"
+   ],
+   "voix": "Un : pendant une semaine, notez ce qui part à la poubelle."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Repérez",
+    "ce qui revient"
+   ],
+   "voix": "Deux : repérez les produits qui reviennent le plus souvent."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Ajustez"
+   ],
+   "voix": "Trois : commandez-en moins, ou faites-en un plat du jour."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

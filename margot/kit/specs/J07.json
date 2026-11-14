@@ -1,0 +1,49 @@
+{
+ "etiquette": "Les conseils de Margot · 7/30",
+ "scenes": [
+  {
+   "fond": "creme",
+   "pose": "bonjour",
+   "titre": [
+    "Votre ardoise",
+    "se lit-elle vite ?"
+   ],
+   "voix": "Votre ardoise du jour se lit-elle en cinq secondes ? Sinon, voici comment la simplifier."
+  },
+  {
+   "fond": "prune",
+   "pose": "pouce",
+   "titre": [
+    "1. Peu de plats"
+   ],
+   "voix": "Un : peu de choix. Deux ou trois plats du jour suffisent."
+  },
+  {
+   "fond": "or",
+   "pose": "carte",
+   "titre": [
+    "2. Le plat,",
+    "puis le prix"
+   ],
+   "voix": "Deux : le nom du plat d'abord, en gros, puis le prix bien aligné."
+  },
+  {
+   "fond": "creme",
+   "pose": "pouce",
+   "titre": [
+    "3. Des mots",
+    "simples"
+   ],
+   "voix": "Trois : des mots simples. Le produit, la cuisson, la garniture."
+  },
+  {
+   "fond": "prune",
+   "pose": "bonjour",
+   "titre": [
+    "Enregistrez",
+    "et partagez"
+   ],
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+  }
+ ]
+}

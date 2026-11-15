@@ -163,7 +163,9 @@ Avec une prise enregistrée et calée, ces heures sont exactes. Avec la voix de 
 
 - texte trop long, sous-titre sur trois lignes, pastilles sur deux lignes ;
 - élément qui sort de la zone utile (à gauche de 16, à droite de 1064, au-dessus de 170 : boutons d'Instagram ; plus bas que 1446 quand il y a des sous-titres, 1640 sinon) ;
-- nom inconnu (plan, pose, geste, expression, accessoire, icône, écran, transition, bruitage), mot absent de la voix, chiffre sans source, image introuvable.
+- nom inconnu (plan, pose, geste, expression, accessoire, icône, écran, transition, bruitage), clé inconnue dans une scène ou au niveau du Reel (faute de frappe), mot absent de la voix, chiffre sans source, image introuvable.
+
+`"note": "…"` est accepté partout (Reel ou scène) pour laisser une remarque : le moteur l'ignore.
 
 On ne fabrique la vidéo que lorsqu'il n'y a plus d'alerte et que les planches ont été regardées.
 

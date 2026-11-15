@@ -2,6 +2,12 @@
 const root = document.getElementById("root"), S = [];
 const TRANSITIONS = ["cercle", "fondu", "coupe", "zoom", "rideau", "volet", "glisse-gauche", "glisse-droite", "glisse-haut", "glisse-bas", "pousse-gauche", "pousse-droite", "pousse-haut"];
 const karaoke = O.soustitres === "karaoke", sansSub = O.soustitres === "aucun";
+// Une clé mal orthographiée serait ignorée sans rien dire : on la signale.
+const CLES_SCENE = ["plan", "fond", "decor", "cercles", "voix", "dit", "duree", "avant", "apres", "duree_min", "transition", "son_transition", "camera", "secousses", "titre", "anime", "taille_titre",
+  "puces", "pose", "expression", "accessoire", "regard", "gestes", "miroir", "panneau", "entree", "margot", "elements", "sons", "soustitres", "bruitages", "etiquette", "telephone", "chiffre", "barres",
+  "liste", "compare", "question", "dialogue", "mythe", "image", "appel", "note", "debut", "fin", "parle0", "parle1", "subs", "mots"];
+const CLES_REEL = ["etiquette", "soustitres", "progression", "musique", "bruitages", "couverture", "note"];
+Object.keys(O).forEach(k => { if (!CLES_REEL.includes(k)) window.ALERTES.push(`clé inconnue au niveau du Reel : « ${k} »`); });
 
 D.scenes.forEach((sc, i) => {
   const th = THEME[sc.fond] || THEME.creme, d = E("div", "scene"), cam = E("div", "cam");
@@ -11,6 +17,7 @@ D.scenes.forEach((sc, i) => {
     son(t, nom, vol) { if (nom && O.bruitages !== false && sc.bruitages !== false) window.SONS.push({t: +(sc.debut + t).toFixed(3), son: nom, vol: vol ?? 1}); },
     secousse(t) { s.secousses.push(t); }};
   if (sc.fond && !THEME[sc.fond]) window.ALERTES.push(`scène ${i + 1} : fond inconnu « ${sc.fond} »`);
+  Object.keys(sc).forEach(k => { if (!CLES_SCENE.includes(k)) window.ALERTES.push(`scène ${i + 1} : clé inconnue « ${k} »`); });
   cam.innerHTML = sc.cercles === false ? "" : `<div class="deco" style="width:760px;height:760px;left:-300px;top:-240px;background:${th.deco}"></div>
   <div class="deco" style="width:560px;height:560px;right:-220px;top:1480px;background:${th.deco}"></div>`;
   if (sc.decor) {
@@ -42,7 +49,7 @@ D.scenes.forEach((sc, i) => {
     if (!TRANSITIONS.includes(tr)) window.ALERTES.push(`scène ${i + 1} : transition inconnue « ${tr} »`);
     const defaut = tr === "cercle" ? "pop" : tr === "fondu" || tr === "coupe" ? null : tr === "zoom" ? "impact" : "whoosh";
     const sn = sc.son_transition !== undefined ? sc.son_transition : defaut;
-    if (sn && O.bruitages !== false) window.SONS.push({t: sn === "pop" ? sc.debut : Math.max(0, +(sc.debut - 0.1).toFixed(3)), son: sn, vol: 1});
+    if (sn && O.bruitages !== false && sc.bruitages !== false) window.SONS.push({t: sn === "pop" ? sc.debut : Math.max(0, +(sc.debut - 0.1).toFixed(3)), son: sn, vol: 1});
   }
   (sc.sons || []).forEach(e => window.SONS.push({t: +(sc.debut + heure(e.quand, sc, 0, x)).toFixed(3), son: e.son, vol: e.volume ?? 1}));
 });

@@ -32,6 +32,10 @@ Un restaurateur décide en deux ou trois secondes. Dans les nouveaux Reels :
 
 Le modèle : `kit/specs/PRO1.json`.
 
+**Les Reels déjà programmés suivent cette règle depuis le 16/11/2026.** Le 15/11 au soir, à la demande d'Owen, l'image des 37 Reels à venir (J02 à J30, HS1 à HS8) a été refaite sans toucher aux mots ni à la voix : accroche lisible dès la première image, une illustration par conseil (icône, plat, personnage ou téléphone) calée sur la voix, la vraie page de démonstration du site dans le téléphone avant « Commentez MENU », appel animé en dernière scène. Modèle : `kit/specs/J02.json` ; la transformation est dans `kit/mettre_a_niveau.py`.
+
+Ce n'est pas un essai propre (tout a changé d'un coup), mais c'est une première mesure : comparer la part des vues abandonnées avant 3 secondes des Reels publiés à partir du 16/11 à celle des Reels du 14 et du 15/11 (62 à 95 %), sans rien conclure en dessous de 50 comptes touchés. Le point du jour et le point de la semaine relèvent ce chiffre.
+
 ## 4. Faire voir les vidéos aux restaurateurs
 
 Par ordre de coût. Claude prépare ; il ne contacte personne et ne dépense rien.

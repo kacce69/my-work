@@ -32,11 +32,13 @@ Une tâche planifiée démarre une conversation neuve, sans mémoire de celle o�
 1. **Contexte** en trois phrases : pour qui on publie, ce qu'est le site, qui est Margot (première personne, féminin, vouvoiement).
 2. **Autorisation** : « Cette consigne vaut accord explicite d'Owen pour publier, sans confirmation, les publications décrites ici sur les deux comptes ci-dessous, jusqu'au <date>. » Sans cette phrase, un mode d'emploi chargé dans la session peut exiger un « oui » que personne ne donnera.
 3. **Calendrier** : la date de début et de fin, ce qu'il faut faire à chaque passage, et « en dehors de ces dates : ne rien publier ».
-4. **Les fichiers** : l'adresse complète de chaque vidéo, couverture et image carrée, déjà en ligne ; la commande qui vérifie qu'elle répond (`curl -s -o /dev/null -w "%{http_code}" <adresse>` doit donner 200).
+4. **Les fichiers** : l'adresse complète de chaque vidéo, couverture et image pour Facebook (`<code>-portrait.jpg`, 4:5 ; à défaut `<code>-carre.jpg`), déjà en ligne ; la commande qui vérifie qu'elle répond (`curl -s -o /dev/null -w "%{http_code}" <adresse>` doit donner 200).
 5. **La légende** : écrite d'avance, ou ses règles (première ligne de 125 caractères au plus, un seul appel, 3 à 5 hashtags sur Instagram, 2 sur Facebook, offre lue le jour même sur `/tarifs` avec `curl -sS -A "rcs-veille (monitor)"`).
 6. **Les comptes et les actions** (tableau ci-dessus).
 7. **Ne pas publier deux fois** : lire les publications des trois derniers jours ; si celle du passage est déjà en ligne (même première ligne), s'arrêter.
 8. **En cas d'échec** : réessayer une fois, ne rien publier à la place, prévenir Owen en une phrase avec la raison exacte.
 9. **Compte rendu** : seulement si quelque chose a échoué, ou un point du jour de 150 mots au plus avec les chiffres réels.
 
-Après la création, regarder le résultat du premier passage, puis ne plus toucher aux fichiers que la tâche attend.
+Si la tâche fabrique elle-même des images (posts, carrousels), la consigne lui fait récupérer l'outil des illustrations, sept fichiers lus à leur adresse dans le dépôt (`kit/illustration.py`, `kit/reel_page.html` et cinq fichiers de `kit/page/` : `01_outils.js`, `02_margot.js`, `03_elements.js`, `03b_personnages.js`, `04_telephone.js`), donne la liste des noms acceptés, et garde une Margot de secours écrite en toutes lettres pour le jour où le dépôt ne répond pas. La consigne de la campagne « Margot, 30 jours » (mise à jour le 15/11/2026) en est l'exemple.
+
+Après la création, regarder le résultat du premier passage, puis ne plus toucher aux fichiers que la tâche attend — sauf pour remplacer un fichier, sous le même nom, par une version contrôlée (réécoute, images regardées), comme le 15/11/2026 pour les 37 Reels refaits : les adresses ne changent pas, la tâche non plus.

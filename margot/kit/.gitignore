@@ -3,5 +3,6 @@ node_modules/
 package*.json
 *_tmp/
 apercu/
+echantillons/
 __pycache__/
 *.part

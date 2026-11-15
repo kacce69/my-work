@@ -110,7 +110,7 @@ def caler(code, modeles):
     duree = len(son) / SR
 
     # Mots prévus, avec la scène et le rang du mot dans la scène
-    listes = [reel.jetons(sc["voix"]) for sc in spec["scenes"]]
+    listes = [reel.jetons(sc["voix"]) for sc in spec["scenes"] if reel.a_voix(sc)]     # les scènes muettes n'ont pas de prise
     prevus = [(n, si, ti) for si, toks in enumerate(listes) for ti, tok in enumerate(toks) for n in norm(tok)]
 
     with tempfile.TemporaryDirectory() as tmp:

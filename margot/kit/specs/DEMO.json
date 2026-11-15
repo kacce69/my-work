@@ -1,0 +1,59 @@
+{
+ "etiquette": "Les conseils de Margot",
+ "progression": true,
+ "soustitres": "karaoke",
+ "musique": "entrain",
+ "scenes": [
+  {
+   "plan": "accroche", "fond": "prune", "decor": "rayons", "pose": "index", "expression": "surprise",
+   "titre": ["Ce soir, un client", "cherche où *dîner*"],
+   "voix": "Ce soir, un client cherche où dîner. Suivons-le, pas à pas.",
+   "gestes": [{"quand": "@Suivons", "pose": "loupe"}, {"quand": "@Suivons", "expression": "malice"}]
+  },
+  {
+   "plan": "telephone", "fond": "creme", "decor": "rue", "transition": "glisse-gauche", "apres": 1.3,
+   "titre": ["Il sort", "son téléphone"],
+   "voix": "Il sort son téléphone, et il tape : restaurant ouvert ce soir.",
+   "telephone": {"ecran": {"type": "recherche", "requete": "restaurant ouvert ce soir", "quand": "@tape"}}
+  },
+  {
+   "plan": "telephone", "fond": "or", "transition": "pousse-gauche", "apres": 0.9,
+   "titre": ["Il trouve", "votre fiche"],
+   "voix": "Il trouve votre fiche. Les horaires, l'adresse… mais pas de carte.",
+   "telephone": {"ecran": {"type": "fiche", "manque": "Carte", "quand": "@pas"}},
+   "gestes": [{"quand": "@pas", "expression": "surprise"}, {"quand": "@pas", "geste": "sursaut"}]
+  },
+  {
+   "plan": "mythe", "fond": "nuit", "decor": "nappe", "transition": "fondu",
+   "mythe": {"texte": "S'il veut la carte, il appellera.", "verdict": "PAS SÛR", "quand": "@Pas"},
+   "voix": "On se dit : s'il veut la carte, il appellera. Pas sûr. Le restaurant suivant est à un clic."
+  },
+  {
+   "plan": "telephone", "fond": "creme", "transition": "glisse-haut", "expression": "joie",
+   "titre": ["Avec votre carte", "en ligne"],
+   "voix": "Avec votre carte en ligne, il voit vos plats, vos prix, et il a déjà faim.",
+   "telephone": {"ecran": {"type": "carte", "defile_de": "@plats"}, "touches": [{"quand": "@prix", "x": 0.82, "y": 0.5}]},
+   "gestes": [{"quand": "@faim", "expression": "rire"}, {"quand": "@faim", "geste": "rebond"}]
+  },
+  {
+   "plan": "liste", "fond": "prune", "decor": "points", "transition": "rideau", "pose": "index",
+   "titre": ["Ce qu'il veut voir"],
+   "liste": [{"texte": "Les plats du moment", "quand": "@plats"}, {"texte": "Les prix", "quand": "@prix"}, {"texte": "Les horaires", "quand": "@horaires"}],
+   "voix": "Ce qu'il veut voir tient en trois lignes : les plats du moment, les prix, les horaires."
+  },
+  {
+   "plan": "telephone", "fond": "or", "transition": "zoom", "apres": 1.0,
+   "titre": ["Et il *réserve*"],
+   "voix": "Il choisit, il réserve. Sa table est prise avant même le service.",
+   "telephone": {"ecran": {"type": "reservation", "quand": "@prise"}},
+   "gestes": [{"quand": "@prise", "pose": "pouce"}, {"quand": "@prise", "expression": "joie"}]
+  },
+  {
+   "plan": "fin", "fond": "prune", "pose": "carte",
+   "titre": ["Commentez", "MENU"], "puces": ["restaurant-site-internet.fr"],
+   "appel": {"genre": "commenter", "mot_quand": "@menu"},
+   "voix": "Votre carte n'est pas encore en ligne ? Écrivez menu en commentaire, et nous vous recontactons.",
+   "elements": [{"type": "particules", "genre": "confettis", "quand": "@recontactons"}]
+  }
+ ]
+}

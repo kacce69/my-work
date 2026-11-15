@@ -1,50 +1,152 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 19/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "On se perd parfois dans une carte. Trois règles pour bien ranger la vôtre.",
+   "decor": "salle",
    "titre": [
     "Votre carte est-elle",
     "bien rangée ?"
    ],
-   "voix": "On se perd parfois dans une carte. Trois règles pour bien ranger la vôtre."
+   "montre": {
+    "type": "icone",
+    "nom": "carte",
+    "badge": "loupe",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "telephone",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : suivez l'ordre du repas. Entrées, plats, desserts, puis boissons.",
    "titre": [
     "1. L'ordre",
     "du repas"
    ],
-   "voix": "Un : suivez l'ordre du repas. Entrées, plats, desserts, puis boissons."
+   "telephone": {
+    "ecran": {
+     "type": "carte"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : des noms de rubrique simples. Plats, plutôt que nos créations gourmandes.",
    "titre": [
     "2. Des rubriques",
     "aux noms simples"
    ],
-   "voix": "Deux : des noms de rubrique simples. Plats, plutôt que nos créations gourmandes."
+   "montre": {
+    "type": "icone",
+    "nom": "commentaire",
+    "quand": "@noms"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@noms",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@noms",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : peu de plats par rubrique. La carte se lit plus vite.",
    "titre": [
     "3. Peu de plats",
     "par rubrique"
    ],
-   "voix": "Trois : peu de plats par rubrique. La carte se lit plus vite."
+   "montre": {
+    "type": "icone",
+    "nom": "coche",
+    "quand": "@peu"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@peu",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@peu",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "bonjour",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "transition": "zoom",
    "titre": [
     "Enregistrez",
-    "et partagez"
+    "et *partagez*"
    ],
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+   "appel": {
+    "genre": "enregistrer",
+    "x": 322,
+    "y": 722,
+    "texte": "Enregistrez",
+    "quand": "@Enregistrez",
+    "delai": 0.45
+   },
+   "elements": [
+    {
+     "type": "appel",
+     "genre": "envoyer",
+     "x": 758,
+     "y": 722,
+     "texte": "Envoyez-la",
+     "quand": "@envoyez-la"
+    }
+   ],
+   "pose": "pouce",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@envoyez-la",
+     "geste": "hoche"
+    },
+    {
+     "quand": "@demain",
+     "pose": "bonjour"
+    }
+   ]
   }
  ]
 }

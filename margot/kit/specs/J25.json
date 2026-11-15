@@ -1,50 +1,172 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 25/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Proposez-vous des bons cadeaux pour Noël ? C'est simple à mettre en place.",
+   "accessoire": "bonnet",
+   "decor": "salle",
    "titre": [
     "Des bons cadeaux",
     "pour Noël ?"
    ],
-   "voix": "Proposez-vous des bons cadeaux pour Noël ? C'est simple à mettre en place."
+   "montre": {
+    "type": "icone",
+    "nom": "cadeau",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "neige"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : choisissez la formule. Un montant, ou un menu précis.",
+   "accessoire": "bonnet",
    "titre": [
     "1. Un montant",
     "ou un menu"
    ],
-   "voix": "Un : choisissez la formule. Un montant, ou un menu précis."
+   "montre": {
+    "type": "icone",
+    "nom": "billet",
+    "quand": "voix"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@montant",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@montant",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : indiquez une date de validité, et comment réserver.",
+   "accessoire": "bonnet",
    "titre": [
     "2. Une date",
     "de validité"
    ],
-   "voix": "Deux : indiquez une date de validité, et comment réserver."
+   "montre": {
+    "type": "icone",
+    "nom": "calendrier",
+    "quand": "@date"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@date",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@date",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : faites-le savoir. En salle, avec l'addition, sur vos réseaux.",
+   "accessoire": "bonnet",
    "titre": [
     "3. Faites-le",
     "savoir"
    ],
-   "voix": "Trois : faites-le savoir. En salle, avec l'addition, sur vos réseaux."
+   "montre": {
+    "type": "icone",
+    "nom": "megaphone",
+    "quand": "@savoir"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@savoir",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@savoir",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "bonjour",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "accessoire": "bonnet",
+   "transition": "zoom",
    "titre": [
     "Enregistrez",
-    "et partagez"
+    "et *partagez*"
    ],
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+   "appel": {
+    "genre": "enregistrer",
+    "x": 322,
+    "y": 722,
+    "texte": "Enregistrez",
+    "quand": "@Enregistrez",
+    "delai": 0.45
+   },
+   "elements": [
+    {
+     "type": "appel",
+     "genre": "envoyer",
+     "x": 758,
+     "y": 722,
+     "texte": "Envoyez-la",
+     "quand": "@envoyez-la"
+    }
+   ],
+   "pose": "pouce",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@envoyez-la",
+     "geste": "hoche"
+    },
+    {
+     "quand": "@demain",
+     "pose": "bonjour"
+    }
+   ]
   }
  ]
 }

@@ -1,50 +1,228 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 18/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "duo",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Un client content ne revient pas toujours. Trois gestes qui aident.",
+   "decor": "salle",
    "titre": [
     "Comment faire",
     "revenir un client ?"
    ],
-   "voix": "Un client content ne revient pas toujours. Trois gestes qui aident."
+   "duo": {
+    "role": "client",
+    "expression": "joie",
+    "quand": 0,
+    "entree": "aucune",
+    "gestes": [
+     {
+      "quand": 0.3,
+      "geste": "saut"
+     }
+    ]
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "duo",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : reconnaissez-le. Un bonjour par son nom, sa table préférée.",
    "titre": [
     "1. Reconnaissez-le"
    ],
-   "voix": "Un : reconnaissez-le. Un bonjour par son nom, sa table préférée."
+   "duo": {
+    "role": "serveur",
+    "expression": "joie",
+    "quand": "voix",
+    "gestes": [
+     {
+      "quand": "@bonjour",
+      "geste": "saut"
+     }
+    ],
+    "repliques": [
+     {
+      "qui": "serveur",
+      "texte": "Bonjour ! Votre table préférée ?",
+      "quand": "@bonjour"
+     }
+    ]
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@bonjour",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@bonjour",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : une petite attention. Un mot sur le plat qu'il aime, une nouveauté à goûter.",
    "titre": [
     "2. Une attention"
    ],
-   "voix": "Deux : une petite attention. Un mot sur le plat qu'il aime, une nouveauté à goûter."
+   "montre": {
+    "type": "plat",
+    "nom": "dessert",
+    "badge": "coeur",
+    "quand": "@attention"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@attention",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@attention",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : donnez des nouvelles. La carte qui change, une soirée à venir.",
    "titre": [
     "3. Des nouvelles"
    ],
-   "voix": "Trois : donnez des nouvelles. La carte qui change, une soirée à venir."
+   "montre": {
+    "type": "icone",
+    "nom": "message",
+    "quand": "@nouvelles"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@nouvelles",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@nouvelles",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, vos habitués retrouvent votre carte du moment, avec sa date de mise à jour.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Votre carte",
+    "*du moment*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-carte.png",
+     "defile": false
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    },
+    {
+     "type": "forme",
+     "forme": "cercle",
+     "x": 640,
+     "y": 704,
+     "rx": 182,
+     "ry": 46,
+     "couleur": "rouge",
+     "ep": 9,
+     "quand": "@date"
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, vos habitués retrouvent votre carte du moment, avec sa date de mise à jour. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

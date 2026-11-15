@@ -11,7 +11,7 @@
 |---|---|
 | `kit/preparer.sh` | Installe ce qu'il faut (`sh kit/preparer.sh` ; ajouter `kokoro` pour la voix de secours). |
 | `kit/reel.py` | Fabrique un Reel à partir d'un scénario : `python3 kit/reel.py kit/specs/<code>.json reels/<code>.mp4 --prise`. |
-| `kit/specs/<code>.json` | Les scénarios. `PRO1.json` est le modèle des nouveaux Reels (accroche lisible dès la première image, jeu fin, un personnage, une vraie page du site) ; `DEMO.json` fait le tour du moteur ; `J01`…`J30` et `HS0`…`HS8` sont ceux de la campagne. `specs/images/` : les captures utilisées par un scénario. |
+| `kit/specs/<code>.json` | Les scénarios. `PRO1.json` est le modèle des nouveaux Reels (accroche lisible dès la première image, jeu fin, un personnage, une vraie page du site) ; `DEMO.json` fait le tour du moteur ; `J01`…`J30` et `HS0`…`HS8` sont ceux de la campagne (`J02`…`J30` et `HS1`…`HS8` ont été mis à niveau le 15/11/2026 : mêmes mots, nouvelle image). `specs/images/` : les captures utilisées par un scénario, dont quatre vues de la page de démonstration du site (`page-haut`, `page-carte`, `page-plats`, `page-boissons`). |
 | `kit/CATALOGUE.md` | Tout ce qu'un scénario peut demander : plans, éléments, jeu de Margot, sons, contrôles. |
 | `kit/catalogue/*.jpg` | Les poses, expressions, accessoires, personnages, plats, icônes, écrans de téléphone et décors, en images. |
 | `kit/page/*.js`, `kit/reel_page.html` | Le moteur d'animation (une page web dessinée image par image). |
@@ -20,8 +20,10 @@
 | `kit/ecouter.py` | Contrôle final : transcrit le son d'une vidéo terminée et le compare au scénario. |
 | `kit/images_site.py` | Les vraies images du site : liste et télécharge les images publiques d'une page, ou photographie la page entière (`--capture`), avec le lecteur de veille qui ne fausse pas les statistiques. |
 | `kit/margot_svg.py` | Margot en image fixe (SVG, PNG à fond transparent) pour les posts et les carrousels : `python3 kit/margot_svg.py margot.svg --pose plateau --expression joie --accessoire toque --png 900`. |
+| `kit/illustration.py` | Toutes les illustrations du moteur en image fixe à fond transparent (Margot, personnages, plats, icônes, téléphone), pour les posts et les carrousels : `python3 kit/illustration.py chef.png --personnage chef --expression joie`. Ne demande que Python, Playwright et Chrome. |
 | `kit/planches_catalogue.py` | Refait les images de `kit/catalogue/` après un ajout au moteur. |
-| `kit/generer_specs.py` | A écrit les 30 scénarios de la campagne « Margot, 30 jours ». |
+| `kit/mettre_a_niveau.py` | A mis les 37 Reels de la campagne (J02 à J30, HS1 à HS8) au niveau du moteur le 15/11/2026, sans changer un mot dit : ses tables disent quelle illustration montre chaque scène. À relire avant de retoucher l'un de ces scénarios. |
+| `kit/generer_specs.py` | A écrit les 30 scénarios d'origine de la campagne « Margot, 30 jours » (plan `margot` partout) ; `mettre_a_niveau.py` les a transformés depuis. |
 
 ## Fabriquer un Reel
 
@@ -29,10 +31,10 @@
 2. Contrôler la mise en page sans voix : `python3 kit/reel.py kit/specs/<code>.json /tmp/<code>/x.mp4 --apercu=4 --muet`, corriger jusqu'à ce qu'il n'y ait plus d'alerte, regarder les planches.
 3. Faire la prise de voix (ci-dessous), la caler.
 4. Refaire l'aperçu avec `--prise` (les heures des mots sont alors exactes), regarder les planches.
-5. Fabriquer : `python3 kit/reel.py kit/specs/<code>.json reels/<code>.mp4 --prise`. Trois fichiers sortent : `<code>.mp4`, `<code>.jpg` (couverture) et `<code>-carre.jpg` (Facebook).
+5. Fabriquer : `python3 kit/reel.py kit/specs/<code>.json reels/<code>.mp4 --prise`. Quatre fichiers sortent : `<code>.mp4`, `<code>.jpg` (couverture), `<code>-portrait.jpg` (1080 × 1350, pour Facebook) et `<code>-carre.jpg` (1080 × 1080).
 6. Contrôler : `python3 kit/ecouter.py reels/<code>.mp4 kit/specs/<code>.json` (la voix doit rester compréhensible), puis regarder quelques images de la vidéo et sa couverture.
 
-Le moteur élargi (15/11/2026) rend les anciens scénarios comme avant : les 40 passent sans alerte, le son est identique et les images aussi (60 images comparées point par point : une seule diffère, d'un niveau sur 255 dans un carré de 8 pixels).
+Chaque ajout au moteur laisse les scénarios existants tels quels : vérifié le 15/11/2026 avec les 40 scénarios d'origine de la campagne (597 images d'aperçu comparées point par point avant et après les ajouts, aucune différence).
 
 Les ajouts du 15/11/2026 au soir (jeu fin, personnages, plats, plan `duo`, titre `fixe`, morceau de musique fourni) ne touchent à rien de ce qui existait : les 40 anciens scénarios (597 images d'aperçu) donnent exactement les mêmes images, ainsi que `DEMO` et cinq scénarios d'essai (128 images), rendus par le moteur d'avant et par celui d'après. Le jeu fin ne s'applique qu'aux scénarios qui le demandent (`"jeu": "fin"`).
 

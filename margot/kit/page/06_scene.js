@@ -5,7 +5,7 @@ const karaoke = O.soustitres === "karaoke", sansSub = O.soustitres === "aucun";
 // Une clé mal orthographiée serait ignorée sans rien dire : on la signale.
 const CLES_SCENE = ["plan", "fond", "decor", "cercles", "voix", "dit", "duree", "avant", "apres", "duree_min", "transition", "son_transition", "camera", "secousses", "titre", "anime", "taille_titre",
   "puces", "pose", "expression", "accessoire", "regard", "gestes", "miroir", "panneau", "entree", "margot", "elements", "sons", "soustitres", "bruitages", "etiquette", "telephone", "chiffre", "barres",
-  "liste", "compare", "question", "dialogue", "duo", "mythe", "image", "appel", "note", "debut", "fin", "parle0", "parle1", "subs", "mots"];
+  "liste", "compare", "question", "dialogue", "duo", "montre", "mythe", "image", "appel", "note", "debut", "fin", "parle0", "parle1", "subs", "mots"];
 const CLES_REEL = ["etiquette", "soustitres", "progression", "musique", "bruitages", "couverture", "jeu", "note"];
 if (O.jeu && O.jeu !== "fin") window.ALERTES.push(`jeu inconnu : « ${O.jeu} » (seul "fin" existe)`);
 Object.keys(O).forEach(k => { if (!CLES_REEL.includes(k)) window.ALERTES.push(`clé inconnue au niveau du Reel : « ${k} »`); });

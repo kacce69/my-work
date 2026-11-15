@@ -1,49 +1,171 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 15/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Pas d'idée pour Instagram ? Voici trois publications faciles à refaire chaque semaine.",
+   "decor": "salle",
    "titre": [
     "Instagram :",
     "quoi publier ?"
    ],
-   "voix": "Pas d'idée pour Instagram ? Voici trois publications faciles à refaire chaque semaine."
+   "montre": {
+    "type": "icone",
+    "nom": "photo",
+    "badge": "question",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : le plat du moment, en photo, à la lumière du jour.",
    "titre": [
     "1. Le plat",
     "du moment"
    ],
-   "voix": "Un : le plat du moment, en photo, à la lumière du jour."
+   "montre": {
+    "type": "plat",
+    "nom": "pizza",
+    "badge": "photo",
+    "quand": "@plat"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@plat",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@plat",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "duo",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : les coulisses. La mise en place, le marché, l'équipe qui prépare.",
    "titre": [
     "2. Les coulisses"
    ],
-   "voix": "Deux : les coulisses. La mise en place, le marché, l'équipe qui prépare."
+   "duo": {
+    "role": "cheffe",
+    "expression": "joie",
+    "quand": "@coulisses",
+    "gestes": [
+     {
+      "quand": {
+       "mot": "coulisses",
+       "decale": 0.3
+      },
+      "geste": "saut"
+     }
+    ]
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@coulisses",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@coulisses",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : les infos pratiques. Horaires, fermeture, soirée à venir.",
    "titre": [
     "3. Les infos",
     "pratiques"
    ],
-   "voix": "Trois : les infos pratiques. Horaires, fermeture, soirée à venir."
+   "montre": {
+    "type": "icone",
+    "nom": "horloge",
+    "quand": "@infos"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@infos",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@infos",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "bonjour",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "transition": "zoom",
    "titre": [
     "Enregistrez",
-    "et partagez"
+    "et *partagez*"
    ],
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+   "appel": {
+    "genre": "enregistrer",
+    "x": 322,
+    "y": 722,
+    "texte": "Enregistrez",
+    "quand": "@Enregistrez",
+    "delai": 0.45
+   },
+   "elements": [
+    {
+     "type": "appel",
+     "genre": "envoyer",
+     "x": 758,
+     "y": 722,
+     "texte": "Envoyez-la",
+     "quand": "@envoyez-la"
+    }
+   ],
+   "pose": "pouce",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@envoyez-la",
+     "geste": "hoche"
+    },
+    {
+     "quand": "@demain",
+     "pose": "bonjour"
+    }
+   ]
   }
  ]
 }

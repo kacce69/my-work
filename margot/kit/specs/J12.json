@@ -1,51 +1,197 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 12/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Poisson du jour, ça ne dit pas grand-chose. Voici une formule simple pour nommer un plat.",
+   "decor": "cuisine",
    "titre": [
     "« Poisson du jour »,",
     "c'est un peu court"
    ],
-   "voix": "Poisson du jour, ça ne dit pas grand-chose. Voici une formule simple pour nommer un plat."
+   "montre": {
+    "type": "plat",
+    "nom": "poisson",
+    "badge": "question",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : le produit précis. Filet de cabillaud, plutôt que poisson.",
    "titre": [
     "1. Le produit"
    ],
-   "voix": "Un : le produit précis. Filet de cabillaud, plutôt que poisson."
+   "montre": {
+    "type": "plat",
+    "nom": "poisson",
+    "quand": "@produit"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@produit",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@produit",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : la cuisson. Rôti, poêlé, confit : on imagine déjà l'assiette.",
    "titre": [
     "2. La cuisson"
    ],
-   "voix": "Deux : la cuisson. Rôti, poêlé, confit : on imagine déjà l'assiette."
+   "montre": {
+    "type": "icone",
+    "nom": "flamme",
+    "quand": "@cuisson"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@cuisson",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@cuisson",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : la garniture ou l'origine. Purée maison, légumes du marché.",
    "titre": [
     "3. La garniture",
     "ou l'origine"
    ],
-   "voix": "Trois : la garniture ou l'origine. Purée maison, légumes du marché."
+   "montre": {
+    "type": "plat",
+    "nom": "salade",
+    "quand": "@garniture"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@garniture",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@garniture",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, chaque plat de votre carte s'affiche avec son nom et son prix, lisible sur un téléphone.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Chaque plat,",
+    "*son nom, son prix*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-plats.png"
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, chaque plat de votre carte s'affiche avec son nom et son prix, lisible sur un téléphone. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

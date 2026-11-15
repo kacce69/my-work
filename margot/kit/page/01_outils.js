@@ -182,7 +182,15 @@ const ICONES = {
   flocon: '<path d="M50 10 V90 M15.4 30 L84.6 70 M15.4 70 L84.6 30 M40 18 L50 28 L60 18 M40 82 L50 72 L60 82"/>',
   interdit: '<circle cx="50" cy="50" r="36"/><path d="M25 25 L75 75"/>',
   question: '<path d="M34 36 C34 16 66 16 66 36 C66 50 50 50 50 64"/><circle cx="50" cy="82" r="4" fill="currentColor"/>',
-  exclamation: '<path d="M50 14 V62"/><circle cx="50" cy="82" r="4" fill="currentColor"/>'
+  exclamation: '<path d="M50 14 V62"/><circle cx="50" cy="82" r="4" fill="currentColor"/>',
+  soleil: '<circle cx="50" cy="50" r="18"/><path d="M50 8 V20 M50 80 V92 M8 50 H20 M80 50 H92 M20.3 20.3 L28.8 28.8 M71.2 71.2 L79.7 79.7 M20.3 79.7 L28.8 71.2 M71.2 28.8 L79.7 20.3"/>',
+  liste: '<rect x="20" y="12" width="60" height="76" rx="8"/><path d="M33 34 L39 40 L49 28 M58 36 H68 M33 60 L39 66 L49 54 M58 62 H68"/>',
+  calculette: '<rect x="22" y="10" width="56" height="80" rx="9"/><path d="M34 28 H66 M35 50 H36 M49.5 50 H50.5 M64 50 H65 M35 68 H36 M49.5 68 H50.5 M64 68 H65"/>',
+  balance: '<path d="M50 16 V84 M30 86 H70 M18 30 H82 M18 30 L7 58 H29 Z M82 30 L71 58 H93 Z"/>',
+  megaphone: '<path d="M14 42 V58 H30 L66 78 V22 L30 42 Z M32 60 L38 84 H48 L43 66 M78 38 C85 44 85 56 78 62"/>',
+  flamme: '<path d="M50 90 C28 90 20 70 28 54 C34 44 40 40 40 24 C52 30 57 42 56 52 C61 47 63 40 62 32 C77 46 81 60 76 73 C72 84 62 90 50 90 Z"/>',
+  poubelle: '<path d="M20 28 H80 M40 28 V17 H60 V28 M28 28 L33 88 H67 L72 28 M43 43 V73 M57 43 V73"/>',
+  rafraichir: '<path d="M82 50 A32 32 0 1 1 71 26 M72 8 V27 H53"/>'
 };
 const ico = (nom, taille = 100, c = "currentColor", ep = 8) =>
   `<svg class="ico" viewBox="0 0 100 100" width="${taille}" height="${taille}" fill="none" stroke="currentColor" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round" style="color:${c};display:block">${ICONES[nom] || ICONES.question}</svg>`;

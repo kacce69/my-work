@@ -1,49 +1,151 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 7/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Votre ardoise du jour se lit-elle en cinq secondes ? Sinon, voici comment la simplifier.",
+   "decor": "rue",
    "titre": [
     "Votre ardoise",
     "se lit-elle vite ?"
    ],
-   "voix": "Votre ardoise du jour se lit-elle en cinq secondes ? Sinon, voici comment la simplifier."
+   "montre": {
+    "type": "icone",
+    "nom": "ardoise",
+    "badge": "horloge",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "telephone",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : peu de choix. Deux ou trois plats du jour suffisent.",
    "titre": [
     "1. Peu de plats"
    ],
-   "voix": "Un : peu de choix. Deux ou trois plats du jour suffisent."
+   "telephone": {
+    "ecran": {
+     "type": "ardoise"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : le nom du plat d'abord, en gros, puis le prix bien aligné.",
    "titre": [
     "2. Le plat,",
     "puis le prix"
    ],
-   "voix": "Deux : le nom du plat d'abord, en gros, puis le prix bien aligné."
+   "montre": {
+    "type": "icone",
+    "nom": "euro",
+    "quand": "voix"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@prix",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@prix",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : des mots simples. Le produit, la cuisson, la garniture.",
    "titre": [
     "3. Des mots",
     "simples"
    ],
-   "voix": "Trois : des mots simples. Le produit, la cuisson, la garniture."
+   "montre": {
+    "type": "icone",
+    "nom": "commentaire",
+    "quand": "@mots"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@mots",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@mots",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "bonjour",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "transition": "zoom",
    "titre": [
     "Enregistrez",
-    "et partagez"
+    "et *partagez*"
    ],
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+   "appel": {
+    "genre": "enregistrer",
+    "x": 322,
+    "y": 722,
+    "texte": "Enregistrez",
+    "quand": "@Enregistrez",
+    "delai": 0.45
+   },
+   "elements": [
+    {
+     "type": "appel",
+     "genre": "envoyer",
+     "x": 758,
+     "y": 722,
+     "texte": "Envoyez-la",
+     "quand": "@envoyez-la"
+    }
+   ],
+   "pose": "pouce",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@envoyez-la",
+     "geste": "hoche"
+    },
+    {
+     "quand": "@demain",
+     "pose": "bonjour"
+    }
+   ]
   }
  ]
 }

@@ -1,53 +1,211 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 2/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Vos photos de plats donnent-elles vraiment faim ? Trois gestes simples, avec un téléphone.",
+   "decor": "cuisine",
    "titre": [
     "Vos photos de plats",
     "donnent-elles faim ?"
    ],
-   "voix": "Vos photos de plats donnent-elles vraiment faim ? Trois gestes simples, avec un téléphone."
+   "montre": {
+    "type": "plat",
+    "nom": "pates",
+    "badge": "photo",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : la lumière du jour. Coupez le flash, et posez l'assiette près d'une fenêtre.",
    "titre": [
     "1. La lumière",
     "du jour"
    ],
-   "voix": "Un : la lumière du jour. Coupez le flash, et posez l'assiette près d'une fenêtre."
+   "montre": {
+    "type": "icone",
+    "nom": "soleil",
+    "quand": "@lumière"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@lumière",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@lumière",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "duo",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : essuyez l'objectif du téléphone, et le bord de l'assiette.",
    "titre": [
     "2. Un objectif",
     "propre"
    ],
-   "voix": "Deux : essuyez l'objectif du téléphone, et le bord de l'assiette."
+   "duo": {
+    "role": "chef",
+    "expression": "joie",
+    "objet": "telephone",
+    "quand": "@essuyez",
+    "gestes": [
+     {
+      "quand": {
+       "mot": "essuyez",
+       "decale": 0.3
+      },
+      "geste": "saut"
+     }
+    ]
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@essuyez",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@essuyez",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : un seul plat par photo, cadré de près, sur une table dégagée.",
    "titre": [
     "3. Un seul plat",
     "bien cadré"
    ],
-   "voix": "Trois : un seul plat par photo, cadré de près, sur une table dégagée."
+   "montre": {
+    "type": "plat",
+    "nom": "steak",
+    "badge": "photo",
+    "quand": "@plat"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@plat",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@plat",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, vos photos s'affichent sur la page de votre restaurant, avec votre carte.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Vos photos",
+    "sur *votre page*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-haut.png",
+     "defile_de": "@page"
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, vos photos s'affichent sur la page de votre restaurant, avec votre carte. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

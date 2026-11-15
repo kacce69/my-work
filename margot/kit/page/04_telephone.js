@@ -2,7 +2,7 @@
 // Chaque écran reçoit ses réglages (ec) et un contexte (c.h = heure d'un « quand », c.son = bruitage)
 // et renvoie {html, init?(page) → fonction appelée à chaque image}.
 const ECRANS = {
-  carte(ec) {
+  carte(ec, c) {
     const d = {nom: "Chez Margot", sous: "Exemple de carte", info: "Ouvert · 12 h – 14 h", pied: "Carte mise à jour aujourd'hui", rubriques: [
       {titre: "Entrées", plats: [["Œuf mayonnaise", "6 €"], ["Soupe du jour", "7 €"]]},
       {titre: "Plats", plats: [["Bavette, frites maison", "18 €"], ["Poisson du marché", "19 €"], ["Risotto aux champignons", "16 €"]]},
@@ -10,7 +10,21 @@ const ECRANS = {
       {titre: "Boissons", plats: [["Café", "2 €"], ["Verre de vin", "5 €"], ["Jus de pomme", "4 €"]]}], ...ec};
     return {html: `<div class="ph-tete"><b>${esc(d.nom)}</b><i>${esc(d.sous)}</i></div><div class="ph-chips"><span>${esc(d.info)}</span><span class="pl">Réserver</span></div>`
       + d.rubriques.map(r => `<div class="ph-rub">${esc(r.titre)}</div>` + r.plats.map(p => `<div class="ph-plat"><span>${esc(p[0])}${p[2] ? `<small>${esc(p[2])}</small>` : ""}</span><b>${esc(p[1])}</b></div>`).join("")).join("")
-      + `<div class="ph-pied">${esc(d.pied)}</div>`};
+      + `<div class="ph-pied">${esc(d.pied)}</div>`,
+      // "change": {plat, prix, quand} : le prix de ce plat est remplacé à cet instant (un appui, puis le nouveau prix).
+      init(page) {
+        const ch = d.change; if (!ch) return null;
+        const rg = [...page.querySelectorAll(".ph-plat")].find(p => p.firstChild.textContent.startsWith(ch.plat)), b = rg && rg.querySelector("b");
+        if (!b) { window.ALERTES.push(`écran carte : plat « ${ch.plat} » introuvable pour "change"`); return null; }
+        const avant = b.textContent, tq = c.h(ch.quand, {part: 0.5});
+        c.son(tq, "clic"); c.son(tq + 0.3, "succes", 0.7);
+        return u => {
+          const a = u - tq - 0.3, k = a / 0.45;
+          rg.style.background = u >= tq - 0.05 ? "rgba(235,190,114,.38)" : ""; rg.style.borderRadius = "10px";
+          b.textContent = a >= 0 ? ch.prix : avant; b.style.display = "inline-block"; b.style.color = a >= 0 ? "#2F8F5B" : "";
+          b.style.transform = `scale(${a > 0 && k < 1 ? (1 + 0.45 * Math.sin(Math.PI * k)).toFixed(3) : 1})`;
+        };
+      }};
   },
   recherche(ec, c) {
     const d = {requete: "restaurant ouvert ce midi", resultats: [{titre: "Chez Margot", sous: "Exemple · 350 m", badge: "Carte en ligne", ok: true},

@@ -95,7 +95,10 @@ const PLATS = {
 FAB.plat = (def, x) => {
   const el = E("div", "el"), t = def.taille || 240, base = pose(el, def);
   if (!PLATS[def.nom]) window.ALERTES.push(`scène ${x.i + 1} : plat inconnu « ${def.nom} » (${Object.keys(PLATS).join(", ")})`);
-  el.innerHTML = `<svg viewBox="0 0 200 200" width="${t}" height="${t}" style="display:block;filter:drop-shadow(0 10px 14px rgba(42,10,32,.18))">${PLATS[def.nom] || assiette}</svg>`;
+  const dessin = `<svg viewBox="0 0 200 200" width="${t}" height="${t}" style="display:block;filter:drop-shadow(0 10px 14px rgba(42,10,32,.18))">${PLATS[def.nom] || assiette}</svg>`;
+  // "fond" : un disque de couleur derrière le plat ; "badge" : une petite icône sur son coin.
+  el.innerHTML = porte(def.fond ? `<div style="width:${t * 1.22}px;height:${t * 1.22}px;border-radius:50%;background:${coul(def.fond)};display:flex;align-items:center;justify-content:center">${dessin}</div>` : dessin, def, x, def.fond ? t * 1.22 : t * 0.9);
   const cy = cycle(def, x, 0.3, "pop"); x.son(cy.t0, def.son);
-  return {el, t0: cy.t0, type: "plat", anim(u) { applique(el, cy.etat(u), base); }};
+  const ba = badgeAnim(el, def, x, cy.t0);
+  return {el, t0: cy.t0, type: "plat", anim(u) { applique(el, cy.etat(u), base); ba(u); }};
 };

@@ -1,60 +1,168 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · hors-série",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Dans un jeu en monde ouvert, le GPS vous mène partout en un instant.",
    "titre": [
     "Dans le jeu,",
     "le GPS mène partout"
    ],
-   "voix": "Dans un jeu en monde ouvert, le GPS vous mène partout en un instant.",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "epingle",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Et dans la vraie vie, arrive-t-on aussi facilement jusqu'à votre restaurant ?",
    "titre": [
     "Et jusqu'à",
     "votre restaurant ?"
    ],
-   "voix": "Et dans la vraie vie, arrive-t-on aussi facilement jusqu'à votre restaurant ?",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "boutique",
+    "badge": "question",
+    "quand": "voix",
+    "badge_quand": "@restaurant"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@restaurant",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@restaurant",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Il faut deux boutons bien visibles : appeler, et itinéraire.",
    "titre": [
     "Deux boutons",
     "bien visibles"
    ],
-   "voix": "Il faut deux boutons bien visibles : appeler, et itinéraire.",
-   "puces": [
-    "Appeler",
-    "Itinéraire"
-   ]
+   "pose": "carte",
+   "expression": "joie",
+   "liste": {
+    "taille": 68,
+    "items": [
+     {
+      "texte": "Appeler",
+      "quand": "@appeler",
+      "puce": "telephone"
+     },
+     {
+      "texte": "Itinéraire",
+      "quand": "@itinéraire",
+      "puce": "epingle"
+     }
+    ]
+   },
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Sur votre page Restaurant Site Internet, ces deux boutons sont tout en haut, au-dessus de votre carte.",
    "titre": [
     "Tout en haut",
     "de votre page"
    ],
-   "voix": "Sur votre page Restaurant Site Internet, ces deux boutons sont tout en haut, au-dessus de votre carte."
+   "montre": {
+    "type": "icone",
+    "nom": "telephone",
+    "badge": "epingle",
+    "quand": "voix",
+    "badge_quand": "@boutons"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@boutons",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@boutons",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Envie d'essayer ? Écrivez menu en commentaire, et nous vous recontactons.",
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
-   "voix": "Envie d'essayer ? Écrivez menu en commentaire, et nous vous recontactons.",
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
+   ],
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
    ]
   }
  ]

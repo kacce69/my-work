@@ -1,53 +1,210 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 30/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Dernier conseil de la série : votre présence en ligne tient en trois points.",
+   "decor": "rue",
    "titre": [
     "Votre restaurant",
     "en ligne : le point"
    ],
-   "voix": "Dernier conseil de la série : votre présence en ligne tient en trois points."
+   "montre": {
+    "type": "icone",
+    "nom": "loupe",
+    "badge": "coche",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "telephone",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : une fiche Google à jour, avec vos horaires et vos photos.",
    "titre": [
     "1. Une fiche Google",
     "à jour"
    ],
-   "voix": "Un : une fiche Google à jour, avec vos horaires et vos photos."
+   "telephone": {
+    "ecran": {
+     "type": "fiche"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : votre carte en ligne, avec les prix et la date de mise à jour.",
    "titre": [
     "2. Votre carte",
     "en ligne"
    ],
-   "voix": "Deux : votre carte en ligne, avec les prix et la date de mise à jour."
+   "telephone": {
+    "ecran": {
+     "type": "carte"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : des réponses à vos avis, et des nouvelles régulières sur vos réseaux.",
    "titre": [
     "3. Des réponses",
     "aux avis"
    ],
-   "voix": "Trois : des réponses à vos avis, et des nouvelles régulières sur vos réseaux."
+   "montre": {
+    "type": "icone",
+    "nom": "etoile",
+    "badge": "commentaire",
+    "quand": "voix",
+    "badge_quand": "@avis"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@avis",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@avis",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Pour la carte, Restaurant Site Internet vous donne une page à votre nom, avec un QR code.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Une page",
+    "*à votre nom*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-haut.png",
+     "defile": false
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    },
+    {
+     "type": "forme",
+     "forme": "cercle",
+     "x": 585,
+     "y": 955,
+     "rx": 150,
+     "ry": 60,
+     "couleur": "rouge",
+     "ep": 9,
+     "quand": "@nom"
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne. Merci de m'avoir suivie pendant ces trente jours !",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Pour la carte, Restaurant Site Internet vous donne une page à votre nom, avec un QR code. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne. Merci de m'avoir suivie pendant ces trente jours !"
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    },
+    {
+     "quand": "@Merci",
+     "pose": "fete"
+    },
+    {
+     "quand": "@Merci",
+     "expression": "amour"
+    },
+    {
+     "quand": "@Merci",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    },
+    {
+     "type": "particules",
+     "genre": "coeurs",
+     "quand": "@Merci"
+    }
+   ]
   }
  ]
 }

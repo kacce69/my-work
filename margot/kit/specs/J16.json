@@ -1,53 +1,253 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 16/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Votre menu de fêtes est-il prêt ? Mieux vaut l'annoncer tôt.",
+   "accessoire": "bonnet",
+   "decor": "salle",
    "titre": [
     "Menu de fêtes :",
     "c'est le moment"
    ],
-   "voix": "Votre menu de fêtes est-il prêt ? Mieux vaut l'annoncer tôt."
+   "montre": {
+    "type": "icone",
+    "nom": "cadeau",
+    "badge": "etoile",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "neige"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : fixez le menu et son prix, en précisant si la boisson est comprise.",
+   "accessoire": "bonnet",
    "titre": [
     "1. Le menu",
     "et son prix"
    ],
-   "voix": "Un : fixez le menu et son prix, en précisant si la boisson est comprise."
+   "montre": {
+    "type": "icone",
+    "nom": "carte",
+    "badge": "euro",
+    "quand": "@menu"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@menu",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@menu",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : annoncez-le partout. En salle, sur vos réseaux, sur votre fiche Google.",
+   "accessoire": "bonnet",
    "titre": [
     "2. Annoncez-le",
     "partout"
    ],
-   "voix": "Deux : annoncez-le partout. En salle, sur vos réseaux, sur votre fiche Google."
+   "montre": {
+    "type": "icone",
+    "nom": "megaphone",
+    "quand": "@annoncez-le"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@annoncez-le",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@annoncez-le",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : donnez une date limite de réservation, et un moyen simple de réserver.",
+   "accessoire": "bonnet",
    "titre": [
     "3. Une date",
     "limite"
    ],
-   "voix": "Trois : donnez une date limite de réservation, et un moyen simple de réserver."
+   "montre": {
+    "type": "icone",
+    "nom": "calendrier",
+    "quand": "@date"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@date",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@date",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, vous ajoutez votre menu de fêtes à votre carte en ligne en quelques minutes.",
+   "accessoire": "bonnet",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Votre menu de fêtes",
+    "*en quelques minutes*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "carte",
+     "defile": false,
+     "rubriques": [
+      {
+       "titre": "Menu de fêtes",
+       "plats": [
+        [
+         "Velouté de châtaignes",
+         "9 €"
+        ],
+        [
+         "Chapon rôti, purée maison",
+         "24 €"
+        ],
+        [
+         "Bûche au chocolat",
+         "8 €"
+        ]
+       ]
+      },
+      {
+       "titre": "Plats",
+       "plats": [
+        [
+         "Bavette, frites maison",
+         "18 €"
+        ],
+        [
+         "Poisson du marché",
+         "19 €"
+        ]
+       ]
+      },
+      {
+       "titre": "Desserts",
+       "plats": [
+        [
+         "Tarte du jour",
+         "7 €"
+        ]
+       ]
+      }
+     ]
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "accessoire": "bonnet",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, vous ajoutez votre menu de fêtes à votre carte en ligne en quelques minutes. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

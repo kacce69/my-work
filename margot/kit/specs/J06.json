@@ -1,53 +1,199 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 6/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Une table réservée, et personne ne vient ? Trois habitudes pour limiter les réservations non honorées.",
+   "decor": "salle",
    "titre": [
     "Table réservée,",
     "personne ne vient ?"
    ],
-   "voix": "Une table réservée, et personne ne vient ? Trois habitudes pour limiter les réservations non honorées."
+   "montre": {
+    "type": "icone",
+    "nom": "assiette",
+    "badge": "question",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : prenez toujours un numéro de téléphone avec la réservation.",
    "titre": [
     "1. Un numéro",
     "de téléphone"
    ],
-   "voix": "Un : prenez toujours un numéro de téléphone avec la réservation."
+   "montre": {
+    "type": "icone",
+    "nom": "telephone",
+    "quand": "@numéro"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@numéro",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@numéro",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : envoyez un petit message de rappel la veille, ou le matin même.",
    "titre": [
     "2. Un rappel",
     "la veille"
    ],
-   "voix": "Deux : envoyez un petit message de rappel la veille, ou le matin même."
+   "telephone": {
+    "ecran": {
+     "type": "messages",
+     "titre": "Rappel (exemple)",
+     "messages": [
+      {
+       "de": "moi",
+       "texte": "Bonjour, nous vous attendons demain à 20 h. À demain !",
+       "quand": "@rappel"
+      }
+     ]
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : dites clairement comment annuler. Un client qui sait comment prévenir a moins d'excuses.",
    "titre": [
     "3. Une annulation",
     "facile"
    ],
-   "voix": "Trois : dites clairement comment annuler. Un client qui sait comment prévenir a moins d'excuses."
+   "montre": {
+    "type": "icone",
+    "nom": "calendrier",
+    "badge": "croix",
+    "quand": "voix",
+    "badge_quand": "@annuler"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@annuler",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@annuler",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, vous pouvez activer la réservation de table en ligne, avec une confirmation par e-mail.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "La réservation",
+    "*en ligne*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "reservation",
+     "quand": "@confirmation"
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, vous pouvez activer la réservation de table en ligne, avec une confirmation par e-mail. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

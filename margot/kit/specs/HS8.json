@@ -1,55 +1,165 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · hors-série",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Même les plus gros jeux reçoivent des mises à jour.",
    "titre": [
     "Même un jeu",
     "se met à jour"
    ],
-   "voix": "Même les plus gros jeux reçoivent des mises à jour.",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "rafraichir",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Et votre carte ? Un prix qui change, un plat retiré : est-elle encore juste ?",
    "titre": [
     "Et votre carte ?"
    ],
-   "voix": "Et votre carte ? Un prix qui change, un plat retiré : est-elle encore juste ?",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "carte",
+    "badge": "question",
+    "quand": "@carte"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@carte",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@carte",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "duo",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Une carte qui n'est plus à jour, c'est le risque d'un client déçu à l'arrivée.",
    "titre": [
     "Une carte",
     "qui date ?"
    ],
-   "voix": "Une carte qui n'est plus à jour, c'est le risque d'un client déçu à l'arrivée."
+   "duo": {
+    "role": "cliente",
+    "expression": "triste",
+    "quand": "voix"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@client",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@client",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Sur Restaurant Site Internet, la date de mise à jour s'affiche. Et si rien n'a changé, un clic prolonge la validité de votre carte.",
    "titre": [
     "La date de",
     "mise à jour"
    ],
-   "voix": "Sur Restaurant Site Internet, la date de mise à jour s'affiche. Et si rien n'a changé, un clic prolonge la validité de votre carte."
+   "montre": {
+    "type": "icone",
+    "nom": "calendrier",
+    "badge": "coche",
+    "quand": "voix",
+    "badge_quand": "@date"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@date",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@date",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Votre carte mérite d'être à jour. Écrivez menu en commentaire, et nous vous recontactons.",
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
-   "voix": "Votre carte mérite d'être à jour. Écrivez menu en commentaire, et nous vous recontactons.",
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
+   ],
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
    ]
   }
  ]

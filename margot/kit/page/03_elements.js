@@ -107,12 +107,32 @@ FAB.barres = (def, x) => {
   }};
 };
 
+// Badge : une petite icône ronde posée sur le coin haut-droit d'une icône ou d'un plat. "badge" : le nom de l'icône ;
+// "badge_quand" : l'instant où il arrive (par défaut 0,3 s après l'élément). D = le diamètre de ce qui le porte.
+function badgeHTML(def, x, D) {
+  if (!def.badge) return "";
+  if (!ICONES[def.badge]) window.ALERTES.push(`scène ${x.i + 1} : icône inconnue « ${def.badge} »`);
+  const bd = Math.round(Math.max(72, D * 0.3)), k = D / 2 * Math.SQRT1_2, clair = x.sc.fond === "or";
+  return `<div class="bdg" style="position:absolute;left:${(D / 2 + k - bd / 2).toFixed(0)}px;top:${(D / 2 - k - bd / 2).toFixed(0)}px;width:${bd}px;height:${bd}px;border-radius:50%;background:${clair ? C.creme : C.or};`
+    + `box-shadow:0 6px 14px rgba(42,10,32,.25);display:flex;align-items:center;justify-content:center">${ico(def.badge, Math.round(bd * 0.56), FONCE, 10)}</div>`;
+}
+function badgeAnim(el, def, x, t0) {
+  const b = el.querySelector(".bdg");
+  if (!b) return () => {};
+  const tb = def.badge_quand != null ? heure(def.badge_quand, x.sc, null, x) : t0 + 0.3;
+  if (def.son !== false) x.son(tb, "bulle", 0.6);
+  return u => { const k = (u - tb) / 0.3; b.style.transform = `scale(${k <= 0 ? 0 : rebond(k).toFixed(3)})`; };
+}
+const porte = (dessin, def, x, D) => def.badge ? `<div style="position:relative;width:${D}px;height:${D}px;display:flex;align-items:center;justify-content:center">${dessin}${badgeHTML(def, x, D)}</div>` : dessin;
+
 FAB.icone = (def, x) => {
   const el = E("div", "el"), t = def.taille || 160, base = pose(el, def), c = coul(def.couleur, x.th.trait);
   if (!ICONES[def.nom]) window.ALERTES.push(`scène ${x.i + 1} : icône inconnue « ${def.nom} »`);
-  el.innerHTML = def.fond ? `<div style="width:${t * 1.6}px;height:${t * 1.6}px;border-radius:50%;background:${coul(def.fond)};display:flex;align-items:center;justify-content:center">${ico(def.nom, t, c, def.ep)}</div>` : ico(def.nom, t, c, def.ep);
+  el.innerHTML = porte(def.fond ? `<div style="width:${t * 1.6}px;height:${t * 1.6}px;border-radius:50%;background:${coul(def.fond)};display:flex;align-items:center;justify-content:center">${ico(def.nom, t, c, def.ep)}</div>` : ico(def.nom, t, c, def.ep),
+    def, x, def.fond ? t * 1.6 : t);
   const cy = cycle(def, x, 0.3, "pop"); x.son(cy.t0, def.son);
-  return {el, type: "icone", anim(u) { applique(el, cy.etat(u), base); }};
+  const ba = badgeAnim(el, def, x, cy.t0);
+  return {el, t0: cy.t0, type: "icone", anim(u) { applique(el, cy.etat(u), base); ba(u); }};
 };
 
 // Trait dessiné à la main : flèche, cercle, soulignement, trait, croix (coordonnées de la scène, 1080 × 1920).

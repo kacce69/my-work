@@ -1,53 +1,209 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 20/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "duo",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Une réservation notée trop vite, et c'est l'erreur. Voici ce qu'il faut toujours demander.",
+   "decor": "salle",
    "titre": [
     "Réservation",
     "au téléphone"
    ],
-   "voix": "Une réservation notée trop vite, et c'est l'erreur. Voici ce qu'il faut toujours demander."
+   "duo": {
+    "role": "serveur",
+    "expression": "doute",
+    "objet": "telephone",
+    "quand": 0,
+    "entree": "aucune",
+    "gestes": [
+     {
+      "quand": 0.3,
+      "geste": "non"
+     }
+    ]
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : le nom, la date et l'heure. Répétez-les à voix haute.",
    "titre": [
     "1. Nom, date",
     "et heure"
    ],
-   "voix": "Un : le nom, la date et l'heure. Répétez-les à voix haute."
+   "montre": {
+    "type": "icone",
+    "nom": "calendrier",
+    "badge": "horloge",
+    "quand": "voix",
+    "badge_quand": "@date"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@date",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@date",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : le nombre de couverts, et un numéro de téléphone.",
    "titre": [
     "2. Couverts",
     "et téléphone"
    ],
-   "voix": "Deux : le nombre de couverts, et un numéro de téléphone."
+   "montre": {
+    "type": "icone",
+    "nom": "couverts",
+    "badge": "telephone",
+    "quand": "voix",
+    "badge_quand": "@couverts"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@couverts",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@couverts",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : les demandes particulières. Allergie, chaise haute, anniversaire.",
    "titre": [
     "3. Les demandes",
     "particulières"
    ],
-   "voix": "Trois : les demandes particulières. Allergie, chaise haute, anniversaire."
+   "montre": {
+    "type": "icone",
+    "nom": "exclamation",
+    "quand": "@demandes"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@demandes",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@demandes",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Et pour les heures où vous ne pouvez pas décrocher, Restaurant Site Internet propose la réservation de table en ligne.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "La réservation",
+    "*en ligne*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "reservation"
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Et pour les heures où vous ne pouvez pas décrocher, Restaurant Site Internet propose la réservation de table en ligne. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

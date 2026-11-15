@@ -1,56 +1,188 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · hors-série",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Entre deux missions, même le meilleur joueur finit par avoir faim.",
    "titre": [
     "Entre deux missions,",
     "il faut bien manger"
    ],
-   "voix": "Entre deux missions, même le meilleur joueur finit par avoir faim.",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "montre": {
+    "type": "plat",
+    "nom": "burger",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "telephone",
    "fond": "prune",
-   "pose": "pouce",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Alors il pose la manette, et il cherche où manger près de chez lui.",
    "titre": [
     "Il cherche",
     "où manger"
    ],
-   "voix": "Alors il pose la manette, et il cherche où manger près de chez lui.",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "telephone": {
+    "ecran": {
+     "type": "recherche",
+     "requete": "où manger près de moi",
+     "quand": "@cherche"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Que voit-il quand il trouve votre restaurant ? Une carte, des prix, des horaires ? Ou rien du tout ?",
    "titre": [
     "Que voit-il de",
     "votre restaurant ?"
    ],
-   "voix": "Que voit-il quand il trouve votre restaurant ? Une carte, des prix, des horaires ? Ou rien du tout ?"
+   "telephone": {
+    "ecran": {
+     "type": "fiche",
+     "manque": "Carte",
+     "quand": "@rien"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "duo",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "S'il n'y a rien à voir, il risque de passer au restaurant suivant.",
    "titre": [
     "Rien à voir ?",
     "Il passe au suivant"
    ],
-   "voix": "S'il n'y a rien à voir, il risque de passer au restaurant suivant."
+   "duo": {
+    "role": "client",
+    "expression": "doute",
+    "objet": "telephone",
+    "quand": "@rien",
+    "gestes": [
+     {
+      "quand": {
+       "mot": "rien",
+       "decale": 0.3
+      },
+      "geste": "non"
+     }
+    ]
+   },
+   "pose": "bonjour",
+   "gestes": [
+    {
+     "quand": "@rien",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@rien",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Montrez votre carte en ligne avec Restaurant Site Internet.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Votre carte",
+    "*en ligne*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-carte.png",
+     "defile_de": 0.3
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
-   "voix": "Montrez votre carte en ligne avec Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
+   ],
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
    ]
   }
  ]

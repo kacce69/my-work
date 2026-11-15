@@ -1,61 +1,188 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · hors-série",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "decor": "ville",
+   "accessoire": "masque",
+   "voix": "Dans les jeux vidéo, avant un braquage, on fait toujours du repérage.",
    "titre": [
     "Avant un braquage,",
     "on fait du repérage"
    ],
-   "voix": "Dans les jeux vidéo, avant un braquage, on fait toujours du repérage.",
-   "accessoire": "masque",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "loupe",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "carte",
+   "decor": "ville",
+   "accessoire": "masque",
+   "voix": "On étudie les lieux, les horaires, le plan. Personne ne fonce à l'aveugle.",
    "titre": [
     "Les lieux,",
     "les horaires, le plan"
    ],
-   "voix": "On étudie les lieux, les horaires, le plan. Personne ne fonce à l'aveugle.",
-   "accessoire": "masque",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "epingle",
+    "badge": "horloge",
+    "quand": "@lieux"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@lieux",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@lieux",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
    "fond": "or",
-   "pose": "pouce",
+   "voix": "Vos clients font pareil. Avant de venir, ils repèrent votre carte, vos prix, vos horaires.",
    "titre": [
     "Vos clients",
     "font pareil"
    ],
-   "voix": "Vos clients font pareil. Avant de venir, ils repèrent votre carte, vos prix, vos horaires.",
-   "puces": [
-    "La carte",
-    "Les prix",
-    "Les horaires"
-   ]
+   "pose": "pouce",
+   "expression": "joie",
+   "liste": {
+    "taille": 68,
+    "items": [
+     {
+      "texte": "La carte",
+      "quand": "@carte"
+     },
+     {
+      "texte": "Les prix",
+      "quand": "@prix"
+     },
+     {
+      "texte": "Les horaires",
+      "quand": "@horaires"
+     }
+    ]
+   },
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Et s'ils ne trouvent pas votre carte en ligne ? Mission annulée : ils risquent d'aller ailleurs.",
    "titre": [
     "Pas de carte en ligne ?",
     "Mission annulée"
    ],
-   "voix": "Et s'ils ne trouvent pas votre carte en ligne ? Mission annulée : ils risquent d'aller ailleurs."
+   "telephone": {
+    "ecran": {
+     "type": "vide"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Mettez votre carte en ligne avec Restaurant Site Internet.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Votre carte",
+    "*en ligne*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-carte.png",
+     "defile_de": 0.3
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
-   "voix": "Mettez votre carte en ligne avec Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
+   ],
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
    ]
   }
  ]

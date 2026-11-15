@@ -1,52 +1,218 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 26/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Vous ouvrez pour le réveillon ? Dites-le dès maintenant.",
+   "accessoire": "fete",
+   "decor": "salle",
    "titre": [
     "Réveillon :",
     "annoncez-le tôt"
    ],
-   "voix": "Vous ouvrez pour le réveillon ? Dites-le dès maintenant."
+   "montre": {
+    "type": "plat",
+    "nom": "dessert",
+    "badge": "etoile",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : le menu complet et son prix par personne.",
+   "accessoire": "fete",
    "titre": [
     "1. Le menu",
     "et le prix"
    ],
-   "voix": "Un : le menu complet et son prix par personne."
+   "montre": {
+    "type": "icone",
+    "nom": "carte",
+    "badge": "euro",
+    "quand": "@menu"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@menu",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@menu",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : l'heure d'arrivée, et si la soirée se prolonge.",
+   "accessoire": "fete",
    "titre": [
     "2. Les horaires"
    ],
-   "voix": "Deux : l'heure d'arrivée, et si la soirée se prolonge."
+   "montre": {
+    "type": "icone",
+    "nom": "horloge",
+    "quand": "@heure"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@heure",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@heure",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : comment réserver, et jusqu'à quelle date.",
+   "accessoire": "fete",
    "titre": [
     "3. Comment",
     "réserver"
    ],
-   "voix": "Trois : comment réserver, et jusqu'à quelle date."
+   "montre": {
+    "type": "icone",
+    "nom": "calendrier",
+    "quand": "@réserver"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@réserver",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@réserver",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, votre menu de réveillon s'affiche sur votre page, avec la réservation de table en ligne si vous le souhaitez.",
+   "accessoire": "fete",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Menu de réveillon",
+    "*et réservation*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "reservation",
+     "champs": [
+      [
+       "Date",
+       "31 décembre"
+      ],
+      [
+       "Heure",
+       "20 h"
+      ],
+      [
+       "Personnes",
+       "4"
+      ]
+     ]
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "accessoire": "fete",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, votre menu de réveillon s'affiche sur votre page, avec la réservation de table en ligne si vous le souhaitez. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

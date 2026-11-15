@@ -1,61 +1,196 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · hors-série",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Vous cherchez un code de triche pour votre restaurant ? Désolée, il n'y en a pas.",
    "titre": [
     "Un code de triche",
     "pour votre restaurant ?"
    ],
-   "voix": "Vous cherchez un code de triche pour votre restaurant ? Désolée, il n'y en a pas.",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "eclair",
+    "badge": "question",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "decor": "ville",
+   "accessoire": "lunettes",
+   "voix": "Mais il existe trois raccourcis simples pour être trouvé sur internet.",
    "titre": [
     "Mais il y a",
     "trois raccourcis"
    ],
-   "voix": "Mais il existe trois raccourcis simples pour être trouvé sur internet.",
-   "accessoire": "lunettes",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "loupe",
+    "quand": "@raccourcis"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@raccourcis",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@raccourcis",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Une fiche Google à jour. Une carte en ligne. Et un QR code en salle.",
    "titre": [
     "Les trois",
     "raccourcis"
    ],
-   "voix": "Une fiche Google à jour. Une carte en ligne. Et un QR code en salle.",
-   "puces": [
-    "Fiche Google",
-    "Carte en ligne",
-    "QR code"
-   ]
+   "pose": "carte",
+   "expression": "joie",
+   "liste": {
+    "taille": 68,
+    "items": [
+     {
+      "texte": "Fiche Google",
+      "quand": "@fiche"
+     },
+     {
+      "texte": "Carte en ligne",
+      "quand": "@carte"
+     },
+     {
+      "texte": "QR code",
+      "quand": "@QR"
+     }
+    ]
+   },
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Aucune triche là-dedans. Juste trois choses concrètes, à mettre en place puis à tenir à jour.",
    "titre": [
     "Aucune triche,",
     "juste du concret"
    ],
-   "voix": "Aucune triche là-dedans. Juste trois choses concrètes, à mettre en place puis à tenir à jour."
+   "montre": {
+    "type": "icone",
+    "nom": "coche",
+    "quand": "voix"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@concrètes",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@concrètes",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Pour la carte et le QR code, il y a Restaurant Site Internet.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "La carte",
+    "*et le QR code*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "qr"
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
-   "voix": "Pour la carte et le QR code, il y a Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
+   ],
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
    ]
   }
  ]

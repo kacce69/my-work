@@ -1,47 +1,161 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 9/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Un QR code que personne ne scanne ne sert à rien. Voici où le mettre.",
+   "decor": "salle",
    "titre": [
     "Votre QR code",
     "est-il bien placé ?"
    ],
-   "voix": "Un QR code que personne ne scanne ne sert à rien. Voici où le mettre."
+   "montre": {
+    "type": "icone",
+    "nom": "qr",
+    "badge": "question",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : sur chaque table, bien visible, avec une phrase simple : scannez pour voir la carte.",
    "titre": [
     "1. Sur la table"
    ],
-   "voix": "Un : sur chaque table, bien visible, avec une phrase simple : scannez pour voir la carte."
+   "montre": {
+    "type": "icone",
+    "nom": "qr",
+    "badge": "couverts",
+    "quand": "@table"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@table",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@table",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : en vitrine, pour ceux qui hésitent à entrer.",
    "titre": [
     "2. En vitrine"
    ],
-   "voix": "Deux : en vitrine, pour ceux qui hésitent à entrer."
+   "montre": {
+    "type": "icone",
+    "nom": "boutique",
+    "quand": "@vitrine"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@vitrine",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@vitrine",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : gardez une carte papier et l'affichage des prix. Le QR code seul ne suffit pas.",
    "titre": [
     "3. Jamais seul"
    ],
-   "voix": "Trois : gardez une carte papier et l'affichage des prix. Le QR code seul ne suffit pas."
+   "montre": {
+    "type": "icone",
+    "nom": "carte",
+    "badge": "euro",
+    "quand": "@carte"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@carte",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@carte",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "bonjour",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "transition": "zoom",
    "titre": [
     "Enregistrez",
-    "et partagez"
+    "et *partagez*"
    ],
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+   "appel": {
+    "genre": "enregistrer",
+    "x": 322,
+    "y": 722,
+    "texte": "Enregistrez",
+    "quand": "@Enregistrez",
+    "delai": 0.45
+   },
+   "elements": [
+    {
+     "type": "appel",
+     "genre": "envoyer",
+     "x": 758,
+     "y": 722,
+     "texte": "Envoyez-la",
+     "quand": "@envoyez-la"
+    }
+   ],
+   "pose": "pouce",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@envoyez-la",
+     "geste": "hoche"
+    },
+    {
+     "quand": "@demain",
+     "pose": "bonjour"
+    }
+   ]
   }
  ]
 }

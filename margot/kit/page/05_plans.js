@@ -85,6 +85,15 @@ const PLANS = {
     return [...etq(sc), ...ttl(sc, {haut: 300, taille: 80}), {type: "choix", haut: 650, ...q}, ...mgt(sc, {x: 540, y: 1272, taille: 0.46, expression: "doute", gestes: [{quand: tr, expression: "joie"}, {quand: tr, geste: "saut"}]})];
   },
   dialogue: sc => [...etq(sc), {type: "chat", haut: 330, repliques: sc.dialogue || []}, ...mgt(sc, {x: 540, y: 1262, taille: 0.48})],
+  // Montre : Margot, à gauche, montre du doigt ce qui apparaît à droite — une icône ou un plat (une chose, ou une liste de choses).
+  // Par défaut l'illustration est posée sur un disque, flotte doucement, et accepte "badge" (une petite icône sur son coin).
+  montre: sc => {
+    const clair = !sc.fond || sc.fond === "creme" || sc.fond === "or";
+    const els = [].concat(sc.montre || []).map(m => ({x: 800, y: 972, quand: 0.35, boucle: "flotte",
+      ...(m.type === "icone" ? {taille: 250, fond: clair ? "prune" : "creme", couleur: clair ? "creme" : "prune"} : m.type === "plat" ? (clair ? {taille: 340, fond: "prune"} : {taille: 410}) : {}), ...m}));
+    return [...etq(sc), ...ttl(sc, {haut: 300, taille: 84}), ...(sc.puces && sc.puces.length ? [{type: "puces", haut: 520, items: sc.puces, quand: 0.5}] : []), ...els,
+      ...mgt(sc, {x: 290, y: 1010, taille: 0.78, pose: "pointe", regard: "droite"})];
+  },
   // Duo : Margot et un personnage (le restaurateur, un client) côte à côte ; leurs répliques s'affichent en bulles.
   duo: sc => {
     const d = sc.duo || {}, rs = d.repliques || [], moi = r => r.qui === "margot", h = (r, j) => r.quand ?? {part: j / Math.max(1, rs.length)};

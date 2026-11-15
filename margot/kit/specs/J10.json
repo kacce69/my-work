@@ -1,52 +1,212 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 10/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Vous fermez un jour férié ? Vos clients doivent le savoir avant de se déplacer.",
+   "decor": "rue",
    "titre": [
     "Fermé un jour férié ?",
     "Dites-le avant"
    ],
-   "voix": "Vous fermez un jour férié ? Vos clients doivent le savoir avant de se déplacer."
+   "montre": {
+    "type": "icone",
+    "nom": "calendrier",
+    "badge": "croix",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : saisissez vos horaires exceptionnels sur votre fiche Google.",
    "titre": [
     "1. Votre fiche",
     "Google"
    ],
-   "voix": "Un : saisissez vos horaires exceptionnels sur votre fiche Google."
+   "montre": {
+    "type": "icone",
+    "nom": "epingle",
+    "badge": "horloge",
+    "quand": "@horaires"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@horaires",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@horaires",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : annoncez-le sur vos réseaux, et changez le message du répondeur.",
    "titre": [
     "2. Réseaux",
     "et répondeur"
    ],
-   "voix": "Deux : annoncez-le sur vos réseaux, et changez le message du répondeur."
+   "montre": {
+    "type": "icone",
+    "nom": "megaphone",
+    "quand": "@annoncez-le"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@annoncez-le",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@annoncez-le",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : une affichette sur la porte, avec la date de réouverture.",
    "titre": [
     "3. Sur la porte"
    ],
-   "voix": "Trois : une affichette sur la porte, avec la date de réouverture."
+   "montre": {
+    "type": "icone",
+    "nom": "boutique",
+    "quand": "voix"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@porte",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@porte",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, vos horaires figurent sur la page de votre restaurant, et vous pouvez y afficher une annonce.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Vos horaires",
+    "*sur votre page*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-haut.png",
+     "defile_de": 0.3,
+     "defile_a": "@page"
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    },
+    {
+     "type": "forme",
+     "forme": "cercle",
+     "x": 668,
+     "y": 1178,
+     "rx": 205,
+     "ry": 160,
+     "couleur": "rouge",
+     "ep": 9,
+     "quand": "@votre restaurant"
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, vos horaires figurent sur la page de votre restaurant, et vous pouvez y afficher une annonce. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

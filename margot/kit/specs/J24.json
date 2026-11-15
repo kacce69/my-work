@@ -1,53 +1,224 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 24/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Votre carte est-elle passée à l'hiver ? Trois idées simples.",
+   "accessoire": "bonnet",
+   "decor": "rue",
    "titre": [
     "Votre carte est-elle",
     "passée à l'hiver ?"
    ],
-   "voix": "Votre carte est-elle passée à l'hiver ? Trois idées simples."
+   "montre": {
+    "type": "icone",
+    "nom": "flocon",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "neige"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : des produits de saison. Courges, poireaux, choux, agrumes.",
+   "accessoire": "bonnet",
    "titre": [
     "1. Des produits",
     "de saison"
    ],
-   "voix": "Un : des produits de saison. Courges, poireaux, choux, agrumes."
+   "montre": {
+    "type": "icone",
+    "nom": "feuille",
+    "quand": "voix"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@saison",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@saison",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : au moins un plat mijoté, et une soupe ou un velouté.",
+   "accessoire": "bonnet",
    "titre": [
     "2. Un plat",
     "qui réchauffe"
    ],
-   "voix": "Deux : au moins un plat mijoté, et une soupe ou un velouté."
+   "montre": {
+    "type": "plat",
+    "nom": "soupe",
+    "quand": "voix"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@soupe",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@soupe",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : retirez les plats d'été. Une carte courte, et de saison.",
+   "accessoire": "bonnet",
    "titre": [
     "3. Sans les plats",
     "d'été"
    ],
-   "voix": "Trois : retirez les plats d'été. Une carte courte, et de saison."
+   "montre": {
+    "type": "plat",
+    "nom": "salade",
+    "badge": "croix",
+    "quand": "voix",
+    "badge_quand": "@été"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@été",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@été",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, vous changez votre carte en quelques minutes, et la date de mise à jour s'affiche.",
+   "accessoire": "bonnet",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "La date de",
+    "*mise à jour*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-carte.png",
+     "defile": false
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    },
+    {
+     "type": "forme",
+     "forme": "cercle",
+     "x": 640,
+     "y": 704,
+     "rx": 182,
+     "ry": 46,
+     "couleur": "rouge",
+     "ep": 9,
+     "quand": "@date"
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "accessoire": "bonnet",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, vous changez votre carte en quelques minutes, et la date de mise à jour s'affiche. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

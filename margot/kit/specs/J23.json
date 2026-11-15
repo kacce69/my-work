@@ -1,49 +1,162 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 23/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Un passant ne regarde votre vitrine que quelques secondes. Que voit-il ?",
+   "decor": "rue",
    "titre": [
     "Que voit-on",
     "depuis la rue ?"
    ],
-   "voix": "Un passant ne regarde votre vitrine que quelques secondes. Que voit-il ?"
+   "montre": {
+    "type": "icone",
+    "nom": "boutique",
+    "badge": "oeil",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : la carte et les prix, lisibles sans entrer.",
    "titre": [
     "1. La carte",
     "et les prix"
    ],
-   "voix": "Un : la carte et les prix, lisibles sans entrer."
+   "montre": {
+    "type": "icone",
+    "nom": "carte",
+    "badge": "euro",
+    "quand": "@carte"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@carte",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@carte",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : les horaires, et les jours de fermeture.",
    "titre": [
     "2. Les horaires"
    ],
-   "voix": "Deux : les horaires, et les jours de fermeture."
+   "montre": {
+    "type": "icone",
+    "nom": "horloge",
+    "quand": "@horaires"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@horaires",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@horaires",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : une vitrine propre et éclairée, même en dehors du service.",
    "titre": [
     "3. Propre",
     "et éclairée"
    ],
-   "voix": "Trois : une vitrine propre et éclairée, même en dehors du service."
+   "montre": {
+    "type": "icone",
+    "nom": "ampoule",
+    "quand": "voix"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@éclairée",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@éclairée",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "bonjour",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "transition": "zoom",
    "titre": [
     "Enregistrez",
-    "et partagez"
+    "et *partagez*"
    ],
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !"
+   "appel": {
+    "genre": "enregistrer",
+    "x": 322,
+    "y": 722,
+    "texte": "Enregistrez",
+    "quand": "@Enregistrez",
+    "delai": 0.45
+   },
+   "elements": [
+    {
+     "type": "appel",
+     "genre": "envoyer",
+     "x": 758,
+     "y": 722,
+     "texte": "Envoyez-la",
+     "quand": "@envoyez-la"
+    }
+   ],
+   "pose": "pouce",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@envoyez-la",
+     "geste": "hoche"
+    },
+    {
+     "quand": "@demain",
+     "pose": "bonjour"
+    }
+   ]
   }
  ]
 }

@@ -1,53 +1,199 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 8/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Vos plats les plus commandés sont-ils aussi ceux qui vous rapportent ?",
+   "decor": "cuisine",
    "titre": [
     "Vos plats stars",
     "sont-ils rentables ?"
    ],
-   "voix": "Vos plats les plus commandés sont-ils aussi ceux qui vous rapportent ?"
+   "montre": {
+    "type": "plat",
+    "nom": "burger",
+    "badge": "etoile",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : comptez les ventes de chaque plat sur un mois.",
    "titre": [
     "1. Comptez",
     "les ventes"
    ],
-   "voix": "Un : comptez les ventes de chaque plat sur un mois."
+   "montre": {
+    "type": "icone",
+    "nom": "graphique",
+    "quand": "@comptez"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@comptez",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@comptez",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : calculez la marge de chaque plat. Prix de vente, moins coût matière.",
    "titre": [
     "2. Calculez",
     "la marge"
    ],
-   "voix": "Deux : calculez la marge de chaque plat. Prix de vente, moins coût matière."
+   "montre": {
+    "type": "icone",
+    "nom": "calculette",
+    "quand": "@calculez"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@calculez",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@calculez",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : classez. Un plat populaire et rentable se met en avant. Un plat ni l'un ni l'autre se discute.",
    "titre": [
     "3. Classez",
     "vos plats"
    ],
-   "voix": "Trois : classez. Un plat populaire et rentable se met en avant. Un plat ni l'un ni l'autre se discute."
+   "montre": {
+    "type": "icone",
+    "nom": "cible",
+    "quand": "@classez"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@classez",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@classez",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, vous modifiez votre carte en ligne quand vous voulez, depuis votre téléphone.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Modifiable",
+    "*quand vous voulez*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-plats.png"
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, vous modifiez votre carte en ligne quand vous voulez, depuis votre téléphone. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

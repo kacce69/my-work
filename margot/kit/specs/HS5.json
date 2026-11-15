@@ -1,56 +1,163 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · hors-série",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "decor": "ville",
+   "accessoire": "masque",
+   "voix": "Dans un braquage, personne n'y va sans savoir ce qu'il y a dans le coffre.",
    "titre": [
     "Qu'y a-t-il",
     "dans le coffre ?"
    ],
-   "voix": "Dans un braquage, personne n'y va sans savoir ce qu'il y a dans le coffre.",
-   "accessoire": "masque",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "cadenas",
+    "badge": "question",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "decor": "ville",
+   "accessoire": "masque",
+   "voix": "Vos clients, eux, veulent savoir ce qu'il y a dans l'assiette. Et combien ça coûte.",
    "titre": [
     "Et dans",
     "l'assiette ?"
    ],
-   "voix": "Vos clients, eux, veulent savoir ce qu'il y a dans l'assiette. Et combien ça coûte.",
-   "accessoire": "masque",
-   "decor": "ville"
+   "montre": {
+    "type": "plat",
+    "nom": "steak",
+    "badge": "euro",
+    "quand": "voix",
+    "badge_quand": "@assiette"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@assiette",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@assiette",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Des plats, des prix, et pas de surprise au moment de l'addition.",
    "titre": [
     "Des prix,",
     "sans surprise"
    ],
-   "voix": "Des plats, des prix, et pas de surprise au moment de l'addition."
+   "montre": {
+    "type": "icone",
+    "nom": "billet",
+    "badge": "coche",
+    "quand": "@prix"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@prix",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@prix",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Affichez votre carte et vos prix en ligne. Vous les modifiez en quelques secondes, depuis votre téléphone.",
    "titre": [
     "Affichez vos prix",
     "en ligne"
    ],
-   "voix": "Affichez votre carte et vos prix en ligne. Vous les modifiez en quelques secondes, depuis votre téléphone."
+   "telephone": {
+    "ecran": {
+     "type": "carte",
+     "defile": false,
+     "change": {
+      "plat": "Bavette",
+      "prix": "19 €",
+      "quand": "@modifiez"
+     }
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "C'est ce que propose Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
-   "voix": "C'est ce que propose Restaurant Site Internet. Écrivez menu en commentaire, et nous vous recontactons.",
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
+   ],
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
    ]
   }
  ]

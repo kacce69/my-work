@@ -1,53 +1,193 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · 14/30",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "telephone",
    "fond": "creme",
-   "pose": "bonjour",
+   "voix": "Quand on cherche un restaurant dans votre ville, apparaissez-vous ?",
+   "decor": "rue",
    "titre": [
     "Vous trouve-t-on",
     "sur Google ?"
    ],
-   "voix": "Quand on cherche un restaurant dans votre ville, apparaissez-vous ?"
+   "telephone": {
+    "ecran": {
+     "type": "recherche",
+     "requete": "restaurant près de moi",
+     "quand": 0.4
+    },
+    "quand": 0,
+    "entree": "aucune"
+   },
+   "expression": "malice",
+   "anime": "fixe",
+   "taille_titre": 88,
+   "entree": "aucune"
   },
   {
+   "plan": "telephone",
    "fond": "prune",
-   "pose": "pouce",
+   "voix": "Un : une fiche Google complète. Catégorie, horaires, photos.",
    "titre": [
     "1. Une fiche Google",
     "complète"
    ],
-   "voix": "Un : une fiche Google complète. Catégorie, horaires, photos."
+   "telephone": {
+    "ecran": {
+     "type": "fiche"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Deux : le même nom, la même adresse et le même téléphone partout où vous apparaissez.",
    "titre": [
     "2. Les mêmes infos",
     "partout"
    ],
-   "voix": "Deux : le même nom, la même adresse et le même téléphone partout où vous apparaissez."
+   "montre": {
+    "type": "icone",
+    "nom": "epingle",
+    "badge": "coche",
+    "quand": "voix",
+    "badge_quand": "@adresse"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@adresse",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@adresse",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Trois : répondez à vos avis. Une fiche vivante inspire confiance.",
    "titre": [
     "3. Des avis",
     "avec réponse"
    ],
-   "voix": "Trois : répondez à vos avis. Une fiche vivante inspire confiance."
+   "montre": {
+    "type": "icone",
+    "nom": "etoile",
+    "badge": "commentaire",
+    "quand": "voix",
+    "badge_quand": "@avis"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@avis",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@avis",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Sur Restaurant Site Internet, votre restaurant a sa page dans un répertoire, classée par ville et par type de cuisine.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Votre page",
+    "*dans le répertoire*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-haut.png",
+     "defile": false
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    },
+    {
+     "type": "forme",
+     "forme": "cercle",
+     "x": 642,
+     "y": 1023,
+     "rx": 193,
+     "ry": 27,
+     "couleur": "rouge",
+     "ep": 9,
+     "quand": "@ville"
+    }
+   ]
+  },
+  {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
    ],
-   "voix": "Sur Restaurant Site Internet, votre restaurant a sa page dans un répertoire, classée par ville et par type de cuisine. Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne."
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    },
+    {
+     "quand": {
+      "mot": "carte",
+      "n": 1
+     },
+     "pose": "carte"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
+   ]
   }
  ]
 }

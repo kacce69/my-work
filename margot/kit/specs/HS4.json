@@ -1,61 +1,199 @@
 {
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
  "etiquette": "Les conseils de Margot · hors-série",
+ "jeu": "fin",
+ "soustitres": "karaoke",
+ "progression": true,
  "scenes": [
   {
+   "plan": "montre",
    "fond": "creme",
-   "pose": "bonjour",
+   "decor": "ville",
+   "accessoire": "masque",
+   "voix": "Dans une histoire de braquage, une bonne planque, c'est un endroit que personne ne trouve.",
    "titre": [
     "Une bonne planque,",
     "ça reste caché"
    ],
-   "voix": "Dans une histoire de braquage, une bonne planque, c'est un endroit que personne ne trouve.",
-   "accessoire": "masque",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "cadenas",
+    "quand": 0.25
+   },
+   "pose": "bonjour",
+   "anime": "fixe",
+   "taille_titre": 100,
+   "entree": "aucune",
+   "expression": "malice",
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "pose": "pointe"
+    },
+    {
+     "quand": {
+      "part": 0.5
+     },
+     "expression": "joie"
+    }
+   ]
   },
   {
+   "plan": "montre",
    "fond": "prune",
-   "pose": "pouce",
+   "decor": "ville",
+   "accessoire": "masque",
+   "voix": "Un restaurant, c'est tout l'inverse. Il faut qu'on vous trouve, et qu'on sache ce qu'on y mange.",
    "titre": [
     "Un restaurant,",
     "c'est l'inverse"
    ],
-   "voix": "Un restaurant, c'est tout l'inverse. Il faut qu'on vous trouve, et qu'on sache ce qu'on y mange.",
-   "accessoire": "masque",
-   "decor": "ville"
+   "montre": {
+    "type": "icone",
+    "nom": "boutique",
+    "badge": "epingle",
+    "quand": "@inverse"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@inverse",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@inverse",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "telephone",
    "fond": "or",
-   "pose": "carte",
+   "voix": "Sans carte en ligne, votre restaurant ressemble à une planque : personne ne sait ce qu'il y a à l'intérieur.",
    "titre": [
     "Sans carte",
     "en ligne ?"
    ],
-   "voix": "Sans carte en ligne, votre restaurant ressemble à une planque : personne ne sait ce qu'il y a à l'intérieur."
+   "telephone": {
+    "ecran": {
+     "type": "vide"
+    }
+   },
+   "expression": "joie",
+   "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
    "fond": "creme",
-   "pose": "pouce",
+   "voix": "Sortez de la planque. Montrez votre carte, vos prix et vos horaires.",
    "titre": [
     "Sortez",
     "de la planque"
    ],
-   "voix": "Sortez de la planque. Montrez votre carte, vos prix et vos horaires.",
-   "puces": [
-    "Votre carte",
-    "Vos prix",
-    "Vos horaires"
+   "pose": "pouce",
+   "expression": "joie",
+   "liste": {
+    "taille": 68,
+    "items": [
+     {
+      "texte": "Votre carte",
+      "quand": "@carte"
+     },
+     {
+      "texte": "Vos prix",
+      "quand": "@prix"
+     },
+     {
+      "texte": "Vos horaires",
+      "quand": "@horaires"
+     }
+    ]
+   },
+   "transition": "glisse-gauche"
+  },
+  {
+   "plan": "telephone",
+   "fond": "or",
+   "voix": "Restaurant Site Internet vous donne une page à votre nom.",
+   "apres": 0.25,
+   "transition": "glisse-gauche",
+   "titre": [
+    "Une page",
+    "*à votre nom*"
+   ],
+   "telephone": {
+    "ecran": {
+     "type": "image",
+     "src": "images/page-haut.png",
+     "defile": false
+    }
+   },
+   "expression": "joie",
+   "elements": [
+    {
+     "type": "texte",
+     "style": "pastille",
+     "texte": "Page d'exemple",
+     "taille": 32,
+     "x": 205,
+     "y": 1000,
+     "quand": 0.5
+    },
+    {
+     "type": "forme",
+     "forme": "cercle",
+     "x": 585,
+     "y": 955,
+     "rx": 150,
+     "ry": 60,
+     "couleur": "rouge",
+     "ep": 9,
+     "quand": "@nom"
+    }
    ]
   },
   {
+   "plan": "fin",
    "fond": "prune",
-   "pose": "carte",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
+   "avant": 0.2,
+   "transition": "zoom",
    "titre": [
     "Commentez",
-    "MENU"
+    "*MENU*"
    ],
-   "voix": "Restaurant Site Internet vous donne une page à votre nom. Écrivez menu en commentaire, et nous vous recontactons.",
+   "appel": {
+    "genre": "commenter",
+    "mot": "MENU",
+    "mot_quand": "@Écrivez"
+   },
    "puces": [
     "restaurant-site-internet.fr"
+   ],
+   "pose": "telephone",
+   "expression": "joie",
+   "gestes": [
+    {
+     "quand": "@recontactons",
+     "pose": "pouce"
+    },
+    {
+     "quand": "@recontactons",
+     "geste": "saut"
+    }
+   ],
+   "elements": [
+    {
+     "type": "particules",
+     "genre": "confettis",
+     "quand": {
+      "mot": "Écrivez",
+      "decale": 0.9
+     }
+    }
    ]
   }
  ]

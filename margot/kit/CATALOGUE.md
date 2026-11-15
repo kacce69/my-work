@@ -133,7 +133,11 @@ Couleurs : `creme`, `prune`, `or`, `nuit`, `fonce`, `vert`, `rouge`, `rose`, `bl
 | `notification` | `heure`, `jour`, `app`, `titre`, `texte`, `quand` | Écran verrouillé et notification. |
 | `ardoise` | `titre`, `lignes: [["Blanquette", "15 €"]]`, `pied` | L'ardoise du jour. |
 | `qr` | `titre`, `sous` | Un QR code d'illustration (il ne mène nulle part). |
-| `image` | `src` | Une vraie capture d'écran, qui défile si elle est haute. |
+| `image` | `src`, `defile_de`, `defile_a` | Une vraie capture d'écran, qui défile si elle est haute (voir « Les vraies images du site » ci-dessous). |
+
+**Les vraies images du site.** `python3 images_site.py /exemples` liste les images publiques d'une page de restaurant-site-internet.fr ; `--prendre 1,3 --vers dossier` (ou `--prendre tout`) les télécharge ; `--capture page.png` photographie la page entière telle qu'un téléphone l'affiche (`--largeur 1200` pour un écran d'ordinateur, `--hauteur 1900` pour n'en garder que le haut : une capture plus courte défile plus lentement). Tout passe par le lecteur de veille du site, qui ne compte pas dans ses statistiques ; la page est reconstituée ici, sans ses scripts, sans jamais être visitée par un navigateur. Dans un scénario : `"telephone": {"ecran": {"type": "image", "src": "page.png", "defile_de": "@carte"}}`, ou le plan `image`.
+
+Les pages de démonstration (`/exemples`, `/exemple/…`) sont celles du site : ce sont elles qu'on montre de préférence. La page d'un vrai restaurant et les photos qu'il y a déposées (dossier `/uploads/`) lui appartiennent : pas de publication sans son accord, et jamais de photo où l'on reconnaît une personne.
 
 ## 7. Icônes
 

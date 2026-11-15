@@ -17,6 +17,7 @@
 | `kit/sons.py` | Bruitages et musiques de fond, fabriqués par calcul. |
 | `kit/caler_voix.py`, `kit/voix/` | Les prises de voix et leur calage sur le scénario. |
 | `kit/ecouter.py` | Contrôle final : transcrit le son d'une vidéo terminée et le compare au scénario. |
+| `kit/images_site.py` | Les vraies images du site : liste et télécharge les images publiques d'une page, ou photographie la page entière (`--capture`), avec le lecteur de veille qui ne fausse pas les statistiques. |
 | `kit/margot_svg.py` | Margot en image fixe (SVG, PNG à fond transparent) pour les posts et les carrousels : `python3 kit/margot_svg.py margot.svg --pose plateau --expression joie --accessoire toque --png 900`. |
 | `kit/planches_catalogue.py` | Refait les images de `kit/catalogue/` après un ajout au moteur. |
 | `kit/generer_specs.py` | A écrit les 30 scénarios de la campagne « Margot, 30 jours ». |

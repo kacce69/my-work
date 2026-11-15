@@ -434,6 +434,9 @@ def main():
                     str(sortie.with_suffix(".jpg"))], check=True)
     subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", t0, "-i", str(sortie), "-frames:v", "1", "-vf", "crop=1080:1080:0:285", "-q:v", "2",
                     str(sortie.with_name(sortie.stem + "-carre.jpg"))], check=True)
+    # Même image au format 4:5 (1080 × 1350) : elle garde l'étiquette, le titre et les personnages en pied des nouveaux plans.
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", t0, "-i", str(sortie), "-frames:v", "1", "-vf", "crop=1080:1350:0:198", "-q:v", "2",
+                    str(sortie.with_name(sortie.stem + "-portrait.jpg"))], check=True)
     print("Vidéo :", sortie, f"({sortie.stat().st_size / 1e6:.1f} Mo)")
 
 

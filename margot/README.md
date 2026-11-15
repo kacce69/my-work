@@ -2,6 +2,7 @@
 
 - `kit/` : de quoi fabriquer un Reel vertical (1080 × 1920) où Margot parle.
 - `reels/` : les vidéos publiées sur Instagram (une par jour de campagne, plus les hors-série `HS…`), avec leur image de couverture et une image carrée pour Facebook.
+- `PUBLIER.md` : les comptes, les actions de publication, la procédure Canva pour les images, la trame d'une tâche planifiée.
 
 ## Le kit
 

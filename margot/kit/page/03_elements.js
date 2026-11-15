@@ -16,7 +16,7 @@ FAB.titre = (def, x) => {
   const divs = [...el.children], t0 = heure(def.quand, sc, 0.16, x), t1 = def.jusqu != null ? heure(def.jusqu, sc, null, x) : null;
   let ms = [], hm = [];
   if (parMots) { ms = [...el.querySelectorAll(".m")]; hm = anime === "voix" ? heuresVoix(ms.map(m => m.textContent), sc, t0) : ms.map((_, j) => t0 + (def.pas || 0.09) * j); }
-  return {el, type: "titre",
+  return {el, type: "titre", t0,
     ajuste() {                                             // réduit un titre trop large jusqu'à ce que chaque ligne tienne
       let taille = parseFloat(getComputedStyle(el).fontSize);
       divs.forEach(l => { l.style.whiteSpace = "nowrap"; });
@@ -28,7 +28,7 @@ FAB.titre = (def, x) => {
       if (t1 != null) { const q = (u - t1) / 0.25; if (q >= 1) { el.style.display = "none"; return; } el.style.display = ""; el.style.opacity = q > 0 ? 1 - q : 1; }
       if (parMots) ms.forEach((m, j) => { const k = (u - hm[j]) / 0.3; m.style.opacity = clamp(k * 3); m.style.transform = `translateY(${((1 - sortie(k)) * 34).toFixed(1)}px) scale(${k <= 0 ? 0.7 : (0.7 + 0.3 * rebond(k)).toFixed(3)})`; });
       else if (anime === "machine") { let n = Math.max(0, Math.floor((u - t0) * (def.vitesse || 26))); divs.forEach((l, j) => { const v = Math.min(textes[j].length, n); n -= v; l.firstChild.textContent = textes[j].slice(0, v); l.lastChild.textContent = textes[j].slice(v); }); }
-      else divs.forEach((l, j) => { const k = sortie((u - t0 - 0.12 * j) / 0.4); l.style.opacity = k; l.style.transform = `translateY(${(1 - k) * 56}px)`; });
+      else if (anime !== "fixe") divs.forEach((l, j) => { const k = sortie((u - t0 - 0.12 * j) / 0.4); l.style.opacity = k; l.style.transform = `translateY(${(1 - k) * 56}px)`; });   // "fixe" : là dès la première image
     }};
 };
 
@@ -64,7 +64,7 @@ FAB.liste = (def, x) => {
   }).join("");
   const rangs = [...el.children], ts = items.map((it, j) => it.quand != null ? heure(it.quand, sc, null, x) : p0 + span * j / n + 0.05);
   ts.forEach(t => x.son(t, def.son === undefined ? "tic" : def.son));
-  return {el, type: "liste", anim(u) {
+  return {el, type: "liste", instants: ts.map((t, j) => ({t, el: rangs[j]})), anim(u) {
     rangs.forEach((r, j) => { const k = (u - ts[j]) / 0.35; r.style.opacity = clamp(k * 2.5); r.style.transform = `translateX(${((1 - sortie(k)) * -70).toFixed(1)}px)`; r.firstChild.style.transform = `scale(${k <= 0 ? 0 : rebond(k).toFixed(3)})`; });
   }};
 };
@@ -98,7 +98,7 @@ FAB.barres = (def, x) => {
   if (!def.source && !def.exemple) window.ALERTES.push(`scène ${x.i + 1} : barres sans source (ajoutez "source", ou "exemple": true)`);
   const rangs = [...el.querySelectorAll(".ln")].map(r => [r, r.querySelector(".re"), r.querySelector(".va")]), t0 = heure(def.quand, x.sc, 0.4, x);
   ds.forEach((_, j) => x.son(t0 + 0.28 * j, def.son === undefined ? "glisse" : def.son));
-  return {el, type: "barres", anim(u) {
+  return {el, type: "barres", instants: rangs.map((r, j) => ({t: t0 + 0.28 * j, el: r[0]})), anim(u) {
     rangs.forEach(([r, re, va], j) => {
       const a = u - t0 - 0.28 * j, k = sortie(a / 0.8), w = 100 * k * ds[j].valeur / max;
       r.style.opacity = clamp(a / 0.2); re.style.width = w.toFixed(1) + "%";

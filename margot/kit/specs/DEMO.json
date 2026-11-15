@@ -2,11 +2,12 @@
  "etiquette": "Les conseils de Margot",
  "progression": true,
  "soustitres": "karaoke",
+ "jeu": "fin",
  "musique": "entrain",
  "scenes": [
   {
    "plan": "accroche", "fond": "prune", "decor": "rayons", "pose": "index", "expression": "surprise",
-   "titre": ["Ce soir, un client", "cherche où *dîner*"],
+   "titre": ["Ce soir, un client", "cherche où *dîner*"], "anime": "fixe", "entree": "aucune",
    "voix": "Ce soir, un client cherche où dîner. Suivons-le, pas à pas.",
    "gestes": [{"quand": "@Suivons", "pose": "loupe"}, {"quand": "@Suivons", "expression": "malice"}]
   },

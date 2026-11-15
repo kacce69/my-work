@@ -96,6 +96,68 @@ function margotSVG(id, dD, dG, acc, def) {
   </g></g></svg>`;
 }
 
+// ── Jeu fin ("jeu": "fin" à la racine du scénario) : la bouche prend la forme des sons, les bras glissent d'une pose
+// à l'autre, le regard va vers ce qui apparaît. Sans cette clé, rien ne change : les anciens Reels restent identiques.
+const FIN = O.jeu === "fin", DG = 0.32;
+// Formes de bouche : [largeur, ouverture, arrondi]. A = a ; E = é, è, in ; I = i ; O = o, on ; U = ou, u, eu ; M = m, b, p ; F = f, v ; C = autres consonnes.
+const VIS = {A: [1.03, 1.3, 0], E: [1.1, 0.82, 0], I: [1.17, 0.5, 0], O: [0.66, 1.05, 1], U: [0.55, 0.66, 1], M: [0.9, 0.03, 0], F: [0.97, 0.24, 0], C: [0.95, 0.52, 0], _: [1, 0.1, 0]};
+function sonsDuMot(mot) {                                  // les sons d'un mot, d'après son orthographe (approximation suffisante pour une bouche)
+  const brut = String(mot).toLowerCase().replace(/[^a-zàâäéèêëîïôöùûüçœ]/g, "");
+  let w = simple(brut).replace(/[^a-z]/g, "");
+  if (w.length > 3 && /(er|ez)$/.test(w)) w = w.slice(0, -1);
+  else if (w.length > 3 && /es$/.test(brut)) w = w.slice(0, -2);
+  else if (w.length > 3 && /e$/.test(brut)) w = w.slice(0, -1);
+  else for (let n = 0; n < 2 && w.length > 2 && /[stdxzp]$/.test(w); n++) w = w.slice(0, -1);
+  const out = [], cons = c => c === undefined || !"aeiouynm".includes(c);
+  for (let i = 0; i < w.length;) {
+    const r = w.slice(i);
+    if (r.startsWith("eau")) { out.push("O"); i += 3; }
+    else if (/^(ain|ein|aim)/.test(r) && cons(w[i + 3])) { out.push("E"); i += 3; }
+    else if (r.startsWith("oeu")) { out.push("U"); i += 3; }
+    else if (r.startsWith("ill") && i > 0) { out.push("I"); i += 3; }
+    else if (r.startsWith("au")) { out.push("O"); i += 2; }
+    else if (r.startsWith("ou")) { out.push("U"); i += 2; }
+    else if (r.startsWith("oi")) { out.push("U", "A"); i += 2; }
+    else if (/^(an|am|en|em)/.test(r) && cons(w[i + 2])) { out.push("A"); i += 2; }
+    else if (/^(on|om)/.test(r) && cons(w[i + 2])) { out.push("O"); i += 2; }
+    else if (/^(in|im|yn|ym)/.test(r) && cons(w[i + 2])) { out.push("E"); i += 2; }
+    else if (/^(un|um)/.test(r) && cons(w[i + 2])) { out.push("U"); i += 2; }
+    else if (/^(ai|ei)/.test(r)) { out.push("E"); i += 2; }
+    else if (r.startsWith("eu")) { out.push("U"); i += 2; }
+    else if (r.startsWith("ph")) { out.push("F"); i += 2; }
+    else if (/^(ch|gn|th|qu|ss|ll|tt|nn|rr)/.test(r)) { out.push("C"); i += 2; }
+    else { const c = w[i]; out.push(c === "a" ? "A" : c === "e" ? "E" : c === "i" || c === "y" ? "I" : c === "o" ? "O" : c === "u" ? "U" : "mbp".includes(c) ? "M" : "fv".includes(c) ? "F" : c === "h" ? null : "C"); i++; }
+  }
+  const sons = out.filter(Boolean);
+  return sons.length ? sons : ["E", "A"];                  // un nombre, un sigle : la bouche bouge quand même
+}
+function pisteBouche(sc) {                                 // les formes de bouche de la scène, placées dans le temps d'après l'heure de chaque mot
+  const ks = [];
+  (sc.mots || []).forEach(([a, b, mot], j, tous) => {
+    const ph = sonsDuMot(mot), pds = ph.map(p => "AEIOU".includes(p) ? 1.5 : 0.8), tot = pds.reduce((q, v) => q + v, 0);
+    if (!j || a - tous[j - 1][1] > 0.14) ks.push({t: a - 0.05, v: VIS._});
+    let c = 0;
+    ph.forEach((p, n) => { ks.push({t: a + (b - a) * (c + pds[n] / 2) / tot, v: VIS[p]}); c += pds[n]; });
+    if (!tous[j + 1] || tous[j + 1][0] - b > 0.14) ks.push({t: b + 0.05, v: VIS._});
+  });
+  return ks;
+}
+function formeBouche(ks, t) {
+  if (!ks.length || t <= ks[0].t || t >= ks[ks.length - 1].t) return VIS._;
+  let a = 0, b = ks.length - 1;
+  while (b - a > 1) { const m = (a + b) >> 1; if (ks[m].t <= t) a = m; else b = m; }
+  const k = (t - ks[a].t) / (ks[b].t - ks[a].t || 1);
+  return [0, 1, 2].map(n => mel(ks[a].v[n], ks[b].v[n], k));
+}
+// Géométrie d'un bras : les quatre points de sa courbe, son épaisseur, le centre et le rayon de la main.
+function geoBras(pz, def) {
+  const o = typeof pz.o === "function" ? pz.o(def) : pz.o;
+  const m = /d="M([\d.]+) ([\d.]+) C([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+) ([\d.]+)"[^>]*stroke-width="([\d.]+)"/.exec(pz.b), p = m.slice(1, 9).map(Number);
+  const c = new RegExp(`<circle cx="([\\d.]+)" cy="([\\d.]+)" r="([\\d.]+)" fill="${P}"`).exec(pz.b + o) || /<ellipse cx="([\d.]+)" cy="([\d.]+)" rx="([\d.]+)"/.exec(o);
+  return {p, w: +m[9], main: c ? [+c[1], +c[2], c[0].startsWith("<e") ? 30 : +c[3]] : [p[6], p[7], 30]};
+}
+const tourne = (p, [cx, cy], deg) => { const a = deg * Math.PI / 180, co = Math.cos(a), si = Math.sin(a), o = []; for (let j = 0; j < p.length; j += 2) { const dx = p[j] - cx, dy = p[j + 1] - cy; o.push(cx + dx * co - dy * si, cy + dx * si + dy * co); } return o; };
+
 let NM = 0;
 const GD = {saut: 0.55, hoche: 0.7, non: 0.75, sursaut: 0.45, penche: 1.2, tourne: 0.6, tremble: 0.6, rebond: 0.5, clin: 0.35, danse: 1.6};
 const REGARDS = {face: [0, 0], gauche: [-13, 0], droite: [13, 0], haut: [0, -12], bas: [0, 12]};
@@ -129,14 +191,49 @@ FAB.margot = (def, x) => {
   const vec = (r, cx, cy, cs) => { if (typeof r === "string") return REGARDS[r] || [0, 0]; const dx = r.x - cx, dy = r.y - (cy - 150 * cs), n = Math.hypot(dx, dy) || 1; return [13 * dx / n, 12 * dy / n]; };
   const en = def.entree || "pop";
   let marchait = false;
+  const bouche = FIN && def.parle !== false ? pisteBouche(sc) : [];
+  let cibles = [];
+  const passage = (suite, reg, cls) => {                   // jeu fin : un bras « de passage », dessiné pendant qu'il va d'une pose à l'autre
+    if (!FIN || suite.length < 2) return null;
+    const gs2 = qa("." + cls), g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("display", "none"); g.innerHTML = `<path fill="none" stroke="${P}" stroke-linecap="round"/><circle fill="${P}"/>`;
+    gs2[gs2.length - 1].after(g);
+    const geo = {}; new Set(suite.map(z => z.p)).forEach(p => { geo[p] = geoBras(reg[p], def); });
+    return {g, trait: g.firstChild, rond: g.lastChild, geo};
+  };
+  const pasD = passage(suiteD, POSES, "bras"), pasG = passage(suiteG, BRASG, "bg");
 
-  const brasAnim = (suite, reg, clsB, clsO, u) => {
+  const brasAnim = (suite, reg, clsB, clsO, u, pas) => {
     let j = suite.length - 1; while (j > 0 && suite[j].t > u) j--;
-    const cur = suite[j], age = u - Math.max(cur.t, tq), prec = j > 0 ? suite[j - 1] : null;
+    const cur = suite[j], prec = j > 0 ? suite[j - 1] : null;
+    let age = u - Math.max(cur.t, tq);
+    if (pas) {                                             // jeu fin : le bras glisse de l'ancienne pose à la nouvelle
+      if (prec && age < DG) {
+        const k = sortie(age / DG), A = pas.geo[prec.p], B = pas.geo[cur.p], zp = reg[prec.p];
+        const a0 = zp.a ? zp.a(Math.max(0, cur.t - Math.max(prec.t, tq) - (j > 1 ? DG : 0))) : 0;   // l'ancien bras part de là où son balancement l'avait laissé
+        const pa = a0 ? tourne(A.p, zp.piv, a0) : A.p, ma = a0 ? tourne(A.main.slice(0, 2), zp.piv, a0) : A.main;
+        const pt = pa.map((v, n) => mel(v, B.p[n], k).toFixed(1)), hx = mel(ma[0], B.main[0], k), hy = mel(ma[1], B.main[1], k);
+        pas.g.removeAttribute("display");
+        pas.trait.setAttribute("d", `M${pt[0]} ${pt[1]} C${pt[2]} ${pt[3]} ${pt[4]} ${pt[5]} ${pt[6]} ${pt[7]}`); pas.trait.setAttribute("stroke-width", mel(A.w, B.w, k).toFixed(1));
+        pas.rond.setAttribute("cx", hx.toFixed(1)); pas.rond.setAttribute("cy", hy.toFixed(1)); pas.rond.setAttribute("r", mel(A.main[2], B.main[2], k).toFixed(1));
+        for (const p of new Set(suite.map(z => z.p))) {
+          const gb = grp[clsB + ":" + p], go = grp[clsO + ":" + p];
+          if (gb) gb.setAttribute("display", "none");
+          if (!go) continue;
+          const M = p === prec.p ? ma : B.main, e2 = p === prec.p ? clamp(1 - k / 0.4) : p === cur.p ? rebond((k - 0.45) / 0.55) : 0;   // l'objet tenu rétrécit, ou pousse, dans la main qui se déplace
+          if (p !== prec.p && p !== cur.p || e2 <= 0.001 || (p === cur.p && k < 0.45)) { go.setAttribute("display", "none"); continue; }
+          go.removeAttribute("display");
+          go.setAttribute("transform", `translate(${hx.toFixed(1)} ${hy.toFixed(1)}) scale(${e2.toFixed(3)}) translate(${(-M[0]).toFixed(1)} ${(-M[1]).toFixed(1)})`);
+        }
+        return;
+      }
+      pas.g.setAttribute("display", "none");
+      if (prec) age -= DG;
+    }
     for (const p of new Set(suite.map(s => s.p))) {
       const pz = reg[p];
       let s = p === cur.p ? 1 : 0;
-      if (prec && age < 0.36) { if (p === cur.p) s = age < 0.08 ? 0 : rebond((age - 0.08) / 0.28); else if (p === prec.p) s = clamp(1 - age / 0.12); }
+      if (!pas && prec && age < 0.36) { if (p === cur.p) s = age < 0.08 ? 0 : rebond((age - 0.08) / 0.28); else if (p === prec.p) s = clamp(1 - age / 0.12); }
       for (const g of [grp[clsB + ":" + p], grp[clsO + ":" + p]]) {
         if (!g) continue;
         if (s <= 0.001) { g.setAttribute("display", "none"); continue; }
@@ -149,7 +246,7 @@ FAB.margot = (def, x) => {
     }
   };
 
-  return {el: wrap, type: "margot", boite: () => R.svg.getBoundingClientRect(),
+  return {el: wrap, type: "margot", boite: () => R.svg.getBoundingClientRect(), regarde(c) { cibles = c; },
     anim(u, t, ouv) {
       const ue = u - tq;
       if (ue < 0 || (t1 != null && u > t1 + 0.3)) { wrap.style.display = "none"; return; }
@@ -196,7 +293,7 @@ FAB.margot = (def, x) => {
       const parle = def.parle !== false && t >= sc.parle0 - 0.1 && t <= sc.parle1 + 0.1 ? ouv : 0;
       const bob = 5 * Math.sin(2 * Math.PI * t / 1.7), rot = 1.2 * Math.sin(2 * Math.PI * t / 2.3);
       R.haut.setAttribute("transform", `translate(0 ${(bob - parle * 3).toFixed(2)}) rotate(${rot.toFixed(2)} 475 640)`);
-      brasAnim(suiteD, POSES, "bras", "objet", u); brasAnim(suiteG, BRASG, "bg", "og", u);
+      brasAnim(suiteD, POSES, "bras", "objet", u, pasD); brasAnim(suiteG, BRASG, "bg", "og", u, pasG);
       if (marche || marchait) {
         const w = marche ? 22 * Math.sin(2 * Math.PI * 3.2 * marche) : 0;
         R.jg.setAttribute("transform", `translate(0 ${(-Math.max(0, w)).toFixed(1)})`); R.jd.setAttribute("transform", `translate(0 ${(-Math.max(0, -w)).toFixed(1)})`);
@@ -206,12 +303,19 @@ FAB.margot = (def, x) => {
       let je = exs.length - 1; while (je > 0 && exs[je].t > u) je--;
       let e = exs[je].e;
       if (je > 0) { const kk = (u - exs[je].t) / 0.16; if (kk < 1) e = melE(exs[je - 1].e, e, clamp(kk)); }
-      const cl = (t + 0.4 * x.i) % 2.9, ferme = cl > 1.1 && cl < 1.24 && !(x.i === 0 && t > sc.fin - 0.6);   // pas de clin d'œil sur l'image de couverture
+      const cl = (t + 0.4 * x.i) % 2.9, couv = x.i === 0 && t > sc.fin - 0.6;                                 // pas de clin d'œil sur l'image de couverture
+      const ferme = !couv && ((cl > 1.1 && cl < 1.24) || cibles.some(c => u >= c.t + 0.02 && u < c.t + 0.09));          // jeu fin : elle cligne en tournant les yeux
       R.yeux.forEach((o, j) => { o.setAttribute("ry", ferme || (clin && j === 1) ? 5 : e.ry); o.setAttribute("rx", e.rx); });
       R.pup.setAttribute("opacity", ferme ? 0 : 1);
       let jr = regs.length - 1; while (jr > 0 && regs[jr].t > u) jr--;
       let [vx, vy] = vec(regs[jr].r, cx, cy, cs);
       if (jr > 0) { const kk = sortie((u - regs[jr].t) / 0.18); if (kk < 1) { const [ax, ay] = vec(regs[jr - 1].r, cx, cy, cs); vx = mel(ax, vx, kk); vy = mel(ay, vy, kk); } }
+      for (const c of cibles) {                             // jeu fin : un coup d'œil vers ce qui vient d'apparaître, puis le regard revient
+        const a = u - c.t;
+        if (a < 0 || a > 0.6 || !c.p) continue;
+        const [gx, gy] = vec(c.p, cx, cy, cs), w = Math.min(sortie(a / 0.14), 1 - douce((a - 0.38) / 0.22));
+        vx = mel(vx, gx, w); vy = mel(vy, gy, w);
+      }
       if (def.miroir) vx = -vx;
       R.pup.setAttribute("transform", `translate(${(3 * Math.sin(t * 0.9) + vx + e.px).toFixed(2)} ${(2 * Math.cos(t * 0.7) + vy + e.py).toFixed(2)})`);
       R.pus.forEach(p => p.setAttribute("r", 21 * e.pr)); R.res.forEach(p => p.setAttribute("r", 7 * e.pr));
@@ -227,11 +331,13 @@ FAB.margot = (def, x) => {
         R.sg.setAttribute("transform", `translate(0 ${e.sgY.toFixed(1)}) rotate(${e.sgA.toFixed(1)} 414 306)`); R.sd.setAttribute("transform", `translate(0 ${e.sdY.toFixed(1)}) rotate(${(-e.sdA).toFixed(1)} 536 306)`);
       } else R.sour.setAttribute("display", "none");
       R.joues.setAttribute("opacity", (e.jo * 0.62).toFixed(2));
-      const pb = Math.max(parle, e.mmin * 0.3);
+      let pb = Math.max(parle, e.mmin * 0.3), ml = 1, mr = 0;
+      if (bouche.length) { const v = formeBouche(bouche, t); ml = v[0]; mr = v[2]; pb = Math.max(Math.min(1.3, v[1] * (0.42 + 0.8 * parle)), e.mmin * 0.3); }   // jeu fin : la forme du son
       if (e.rond) R.bouche.setAttribute("d", `M449 492 Q475 ${(466 - 8 * pb).toFixed(1)} 501 492 Q475 ${(522 + 26 * pb).toFixed(1)} 449 492 Z`);
       else {
-        const sm = e.mb >= e.my, haut = e.mb - (sm ? 70 : 28) * pb, bas = e.mb + (sm ? 30 : 62) * pb, r1 = v => +v.toFixed(1);
-        R.bouche.setAttribute("d", `M${r1(475 - e.mw)} ${r1(e.my)} Q475 ${haut.toFixed(1)} ${r1(475 + e.mw)} ${r1(e.my + e.mt)} Q475 ${bas.toFixed(1)} ${r1(475 - e.mw)} ${r1(e.my)} Z`);
+        const sm = e.mb >= e.my, r1 = v => +v.toFixed(1), q = clamp(pb), mw = e.mw * ml;
+        const haut = mel(e.mb - (sm ? 70 : 28) * pb, e.my - 34 * q, mr), bas = mel(e.mb + (sm ? 30 : 62) * pb, e.my + 30 + 62 * q, mr);
+        R.bouche.setAttribute("d", `M${r1(475 - mw)} ${r1(e.my)} Q475 ${haut.toFixed(1)} ${r1(475 + mw)} ${r1(e.my + e.mt)} Q475 ${bas.toFixed(1)} ${r1(475 - mw)} ${r1(e.my)} Z`);
       }
     }};
 };

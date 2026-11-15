@@ -5,8 +5,9 @@ const karaoke = O.soustitres === "karaoke", sansSub = O.soustitres === "aucun";
 // Une clé mal orthographiée serait ignorée sans rien dire : on la signale.
 const CLES_SCENE = ["plan", "fond", "decor", "cercles", "voix", "dit", "duree", "avant", "apres", "duree_min", "transition", "son_transition", "camera", "secousses", "titre", "anime", "taille_titre",
   "puces", "pose", "expression", "accessoire", "regard", "gestes", "miroir", "panneau", "entree", "margot", "elements", "sons", "soustitres", "bruitages", "etiquette", "telephone", "chiffre", "barres",
-  "liste", "compare", "question", "dialogue", "mythe", "image", "appel", "note", "debut", "fin", "parle0", "parle1", "subs", "mots"];
-const CLES_REEL = ["etiquette", "soustitres", "progression", "musique", "bruitages", "couverture", "note"];
+  "liste", "compare", "question", "dialogue", "duo", "mythe", "image", "appel", "note", "debut", "fin", "parle0", "parle1", "subs", "mots"];
+const CLES_REEL = ["etiquette", "soustitres", "progression", "musique", "bruitages", "couverture", "jeu", "note"];
+if (O.jeu && O.jeu !== "fin") window.ALERTES.push(`jeu inconnu : « ${O.jeu} » (seul "fin" existe)`);
 Object.keys(O).forEach(k => { if (!CLES_REEL.includes(k)) window.ALERTES.push(`clé inconnue au niveau du Reel : « ${k} »`); });
 
 D.scenes.forEach((sc, i) => {
@@ -30,11 +31,18 @@ D.scenes.forEach((sc, i) => {
   plan(sc, x).concat(sc.elements || []).forEach(def => {
     const f = FAB[def.type];
     if (!f) { window.ALERTES.push(`scène ${i + 1} : type d'élément inconnu « ${def.type} »`); return; }
-    const a = f(def, x); a.def = def;
+    x.t0 = null;
+    const a = f(def, x); a.def = def; if (a.t0 == null && x.t0 != null) a.t0 = x.t0;
     if (a.el) { if (a.derriere && premier) cam.insertBefore(a.el, premier); else cam.appendChild(a.el); premier = premier || a.el; }
     s.acteurs.push(a);
   });
   d.appendChild(cam);
+  if (FIN) {                                               // jeu fin : Margot jette un œil à ce qui apparaît en cours de scène (au plus toutes les 0,6 s)
+    const dur = sc.fin - sc.debut, vus = [];
+    s.acteurs.forEach(a => { if (a.el && !a.regarde && !["particules", "etiquette", "grosmots"].includes(a.type) && a.def.suivi !== false) (a.instants || (a.t0 != null ? [{t: a.t0, el: a.el}] : [])).forEach(c => { if (c.t >= 0.6 && c.t <= dur - 0.5) vus.push({t: c.t, el: c.el}); }); });
+    s.cibles = vus.sort((a, b) => a.t - b.t).filter((c, j, l) => { c.ok = !j || c.t - l.slice(0, j).filter(z => z.ok).pop().t >= 0.6; return c.ok; });
+    s.acteurs.forEach(a => { if (a.regarde && a.def.suit !== false) a.regarde(s.cibles); });
+  }
   if (O.progression) {
     const p = E("div", "prog", D.scenes.map(z => `<i style="flex:${(z.fin - z.debut).toFixed(2)};background:${th.voile}"><b style="background:${th.titre}"></b></i>`).join(""));
     d.appendChild(p); s.prog = [...p.querySelectorAll("b")];
@@ -127,6 +135,14 @@ function verifier() {
     });
   });
 }
+// Jeu fin : où se trouve, une fois en place, chaque chose que Margot regardera.
+function reperer() {
+  S.forEach(s => (s.cibles || []).forEach(c => {
+    render(s.sc.debut + Math.min(c.t + 0.5, s.sc.fin - s.sc.debut - 0.02));
+    const r = c.el.getBoundingClientRect();
+    if (r.width) c.p = {x: r.left + r.width / 2, y: r.top + r.height / 2};
+  }));
+}
 const images = [...document.images].map(im => im.complete ? 0 : new Promise(r => { im.addEventListener("load", r); im.addEventListener("error", r); }));
 document.fonts.load('900 104px Fraunces').catch(() => 0).then(() => document.fonts.load('600 64px Fraunces')).catch(() => 0).then(() => document.fonts.ready).then(() => Promise.all(images))
-  .then(() => { ajuster(); verifier(); render(0); window.PRET = true; });
+  .then(() => { ajuster(); verifier(); reperer(); render(0); window.PRET = true; });

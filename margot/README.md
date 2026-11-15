@@ -3,6 +3,7 @@
 - `kit/` : de quoi fabriquer un Reel vertical (1080 × 1920) où Margot parle.
 - `reels/` : les vidéos publiées sur Instagram (une par jour de campagne, plus les hors-série `HS…`), avec leur image de couverture et une image carrée pour Facebook.
 - `PUBLIER.md` : les comptes, les actions de publication, la procédure Canva pour les images, la trame d'une tâche planifiée.
+- `STRATEGIE.md` : le but (des restaurateurs inscrits), le constat chiffré, la règle de la première seconde, les moyens de faire voir les vidéos, la preuve, la méthode d'essais, la série « Margot vous répond ».
 
 ## Le kit
 
@@ -10,9 +11,9 @@
 |---|---|
 | `kit/preparer.sh` | Installe ce qu'il faut (`sh kit/preparer.sh` ; ajouter `kokoro` pour la voix de secours). |
 | `kit/reel.py` | Fabrique un Reel à partir d'un scénario : `python3 kit/reel.py kit/specs/<code>.json reels/<code>.mp4 --prise`. |
-| `kit/specs/<code>.json` | Les scénarios. `DEMO.json` montre le moteur élargi ; `J01`…`J30` et `HS0`…`HS8` sont ceux de la campagne. |
+| `kit/specs/<code>.json` | Les scénarios. `PRO1.json` est le modèle des nouveaux Reels (accroche lisible dès la première image, jeu fin, un personnage, une vraie page du site) ; `DEMO.json` fait le tour du moteur ; `J01`…`J30` et `HS0`…`HS8` sont ceux de la campagne. `specs/images/` : les captures utilisées par un scénario. |
 | `kit/CATALOGUE.md` | Tout ce qu'un scénario peut demander : plans, éléments, jeu de Margot, sons, contrôles. |
-| `kit/catalogue/*.jpg` | Les poses, expressions, accessoires, icônes, écrans de téléphone et décors, en images. |
+| `kit/catalogue/*.jpg` | Les poses, expressions, accessoires, personnages, plats, icônes, écrans de téléphone et décors, en images. |
 | `kit/page/*.js`, `kit/reel_page.html` | Le moteur d'animation (une page web dessinée image par image). |
 | `kit/sons.py` | Bruitages et musiques de fond, fabriqués par calcul. |
 | `kit/caler_voix.py`, `kit/voix/` | Les prises de voix et leur calage sur le scénario. |
@@ -32,6 +33,8 @@
 6. Contrôler : `python3 kit/ecouter.py reels/<code>.mp4 kit/specs/<code>.json` (la voix doit rester compréhensible), puis regarder quelques images de la vidéo et sa couverture.
 
 Le moteur élargi (15/11/2026) rend les anciens scénarios comme avant : les 40 passent sans alerte, le son est identique et les images aussi (60 images comparées point par point : une seule diffère, d'un niveau sur 255 dans un carré de 8 pixels).
+
+Les ajouts du 15/11/2026 au soir (jeu fin, personnages, plats, plan `duo`, titre `fixe`, morceau de musique fourni) ne touchent à rien de ce qui existait : les 40 anciens scénarios (597 images d'aperçu) donnent exactement les mêmes images, ainsi que `DEMO` et cinq scénarios d'essai (128 images), rendus par le moteur d'avant et par celui d'après. Le jeu fin ne s'applique qu'aux scénarios qui le demandent (`"jeu": "fin"`).
 
 ## La voix
 
@@ -58,4 +61,5 @@ Deux prises du même texte ne sont jamais identiques : on garde le fichier plut�
 - une prise sur cinq environ a un défaut (mot avalé, syllabe en trop). `caler_voix.py` le signale dans « écarts » : on refait alors la prise, c'est l'affaire de quelques centimes ;
 - si le même mot résiste à deux prises (« tombe sur » était entendu « tourne sur »), on reformule la phrase dans le scénario plutôt que d'insister ;
 - en cas de doute sur un mot, une troisième écoute indépendante tranche : la transcription Speko (`audio.transcribe`) du lien de téléchargement de la prise ;
+- le calage peut laisser passer un petit mot avalé en début de phrase (« Nous la saisissons » entendu « La la saisissons » par le contrôle final et « Ne la saisissons » par Speko) : c'est `ecouter.py`, sur la vidéo terminée, qui le rattrape. On reformule pour que le mot porte l'accent (« Et c'est nous qui la saisissons ») ;
 - ne jamais lancer deux transcriptions à la fois, ni une transcription pendant un rendu : la mémoire n'y suffit pas.

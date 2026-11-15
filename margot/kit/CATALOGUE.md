@@ -1,6 +1,6 @@
 # Catalogue du moteur de Reels de Margot
 
-Tout ce qu'un scénario (`specs/<code>.json`) peut demander à `reel.py`. Les images du dossier `catalogue/` montrent les poses, les expressions, les accessoires, les icônes, les écrans de téléphone et les décors. `specs/DEMO.json` est un exemple complet qui utilise la plupart de ces possibilités.
+Tout ce qu'un scénario (`specs/<code>.json`) peut demander à `reel.py`. Les images du dossier `catalogue/` montrent les poses, les expressions, les accessoires, les personnages, les plats, les icônes, les écrans de téléphone et les décors. `specs/DEMO.json` est un exemple complet qui utilise la plupart de ces possibilités.
 
 L'image fait 1080 × 1920. Les positions sont en pixels depuis le coin haut gauche. Les anciens scénarios (J01 à J30, HS0 à HS8) restent valables tels quels : ils utilisent le plan `margot`.
 
@@ -17,7 +17,8 @@ L'image fait 1080 × 1920. Les positions sont en pixels depuis le coin haut gauc
 | `etiquette` | texte | La pastille en haut de chaque scène (nom de la série, « 3/8 »…). |
 | `soustitres` | `"bloc"` (défaut), `"karaoke"`, `"aucun"` | `karaoke` : le mot en cours de prononciation est surligné. |
 | `progression` | `true` | Barre de progression en haut, un segment par scène. |
-| `musique` | `"entrain"`, `"douce"`, `"suspense"`, `"fete"` ou `{"nom": "douce", "volume": -3}` | Musique de fond ; elle s'efface quand Margot parle. `volume` en décibels. Sans cette clé : pas de musique. |
+| `musique` | `"entrain"`, `"douce"`, `"suspense"`, `"fete"`, `{"nom": "douce", "volume": -3}` ou `{"fichier": "musiques/morceau.mp3", "volume": 0, "debut": 12}` | Musique de fond ; elle s'efface quand Margot parle. `volume` en décibels. `fichier` : un vrai morceau (§ 9). Sans cette clé : pas de musique. |
+| `jeu` | `"fin"` | Margot joue plus finement (§ 4) : sa bouche prend la forme des sons, ses bras glissent d'une pose à l'autre, elle regarde ce qui apparaît. Sans cette clé, le jeu d'origine : les Reels déjà publiés ne changent pas. |
 | `bruitages` | `false` | Coupe les bruitages automatiques (ceux de `sons` restent). |
 | `couverture` | `{"scene": 1, "instant": 3.2}` | Image de couverture. Par défaut : la fin de la première scène. |
 
@@ -33,7 +34,7 @@ L'image fait 1080 × 1920. Les positions sont en pixels depuis le coin haut gauc
 | `avant`, `apres`, `duree_min` | secondes | Silence avant et après la voix (0,45 et 0,35 par défaut) ; durée minimale de la scène. |
 | `transition` | `cercle` (défaut), `fondu`, `coupe`, `zoom`, `rideau`, `volet`, `glisse-gauche`, `glisse-droite`, `glisse-haut`, `glisse-bas`, `pousse-gauche`, `pousse-droite`, `pousse-haut` | Arrivée de la scène. `son_transition` : un bruitage, ou `false`. |
 | `camera` | `avance`, `recule`, `derive` | Mouvement lent de toute la scène. `secousses: ["@mot", 2.4]` : petits tremblements. |
-| `titre` | liste de lignes | Titre du plan. `*mot*` met un mot en valeur. `anime` : `lignes` (défaut), `mots`, `voix` (chaque mot arrive quand il est dit), `machine` (se tape lettre à lettre). `taille_titre` en pixels. |
+| `titre` | liste de lignes | Titre du plan. `*mot*` met un mot en valeur. `anime` : `lignes` (défaut), `mots`, `voix` (chaque mot arrive quand il est dit), `machine` (se tape lettre à lettre), `fixe` (là dès la première image : pour l'accroche de la scène 1). `taille_titre` en pixels. |
 | `pose`, `expression`, `accessoire`, `regard`, `gestes`, `miroir`, `panneau`, `entree` | voir § 4 | Jeu de Margot dans le plan. `margot: {"x": …, "y": …, "taille": …}` la déplace, `margot: false` la retire. |
 | `elements` | liste, voir § 5 | Éléments ajoutés par-dessus le plan. |
 | `sons` | `[{"quand": "@prix", "son": "caisse", "volume": 0.8}]` | Bruitages placés à la main. |
@@ -53,6 +54,7 @@ L'image fait 1080 × 1920. Les positions sont en pixels depuis le coin haut gauc
 | `compare` | Deux cartons côte à côte : sans / avec, avant / après. | `titre`, `compare: {"gauche": {"entete": "Sans", "lignes": ["…"]}, "droite": {"entete": "Avec", "lignes": ["…"], "quand": "@avec"}}` |
 | `question` | Une question, 2 à 4 réponses, une barre de temps, puis la bonne réponse s'allume. | `titre`, `question: {"options": ["…", "…"], "bonne": 2, "revele": "@réponse"}` |
 | `dialogue` | Bulles façon messagerie (3 au plus). | `dialogue: [{"de": "client", "texte": "…"}, {"de": "margot", "texte": "…", "quand": "@oui"}]` ; `de` : `client`, `chef`, `margot` |
+| `duo` | Margot et un personnage côte à côte (le restaurateur, un serveur, un client), leurs répliques en bulles. | `titre`, `duo: {"role": "chef", "expression": "doute", "repliques": [{"qui": "chef", "texte": "Je n'ai pas le temps.", "quand": "@temps"}, {"qui": "margot", "texte": "Dix minutes suffisent.", "quand": "@dix"}], "gestes": […]}` ; les autres clés du personnage (§ 5) s'y mettent aussi. Une réplique remplace la précédente du même personnage. Il n'y a qu'une voix, celle de Margot : c'est elle qui raconte l'échange. |
 | `mythe` | Une idée reçue entre guillemets, puis un tampon qui tombe dessus. | `mythe: {"texte": "…", "verdict": "FAUX", "quand": "@faux"}` ; `verdict` libre (`VRAI`, `PAS SÛR`…) |
 | `image` | Une image dans un cadre, Margot dans le coin. | `titre`, `image: {"src": "photo.jpg", "legende": "…", "cadre": "polaroid"}` (chemin écrit par rapport au scénario) |
 | `fin` | Titre, appel à l'action animé, pastille d'adresse. | `titre`, `puces`, `appel` : `"commenter"`, `"abonner"`, `"enregistrer"`, `"envoyer"`, `"lien"` ou `{"genre": "commenter", "mot": "MENU", "mot_quand": "@menu"}` |
@@ -83,6 +85,12 @@ Dans un plan, ces clés se mettent sur la scène. Dans `elements`, elles se mett
 
 Gestes : `saut`, `hoche` (oui), `non`, `sursaut`, `penche` (`"cote": "gauche"`), `tourne`, `tremble`, `rebond`, `clin` (clin d'œil), `danse`. Options : `duree`, `force`. Pendant un `deplace`, elle marche.
 
+**Le jeu fin** (`"jeu": "fin"` à la racine du scénario) change trois choses, sans rien demander d'autre au scénario :
+
+- **la bouche** prend la forme du son prononcé (ouverte sur « a », étirée sur « i » et « é », ronde sur « o » et « ou », fermée sur « m », « b », « p »), d'après l'orthographe et l'heure de chaque mot : avec une prise enregistrée et calée, elle suit la voix de près ;
+- **les bras** glissent d'une pose à la suivante en un tiers de seconde, et l'objet tenu (plateau, loupe, téléphone…) rétrécit ou pousse dans la main, au lieu d'apparaître d'un coup ;
+- **le regard** va une demi-seconde vers ce qui apparaît en cours de scène (un point de liste, un tampon, un plat, un personnage), avec un battement de paupières, puis revient. `"suivi": false` sur un élément l'en dispense ; `"margot": {"suit": false}` coupe ces coups d'œil pour une scène.
+
 **Margot en image fixe** (posts, carrousels, stories, documents) : `python3 margot_svg.py margot.svg --pose plateau --expression joie --accessoire toque,lunettes --png 900` écrit un SVG et un PNG à fond transparent, avec les mêmes poses, expressions et accessoires. Autres options : `--gauche`, `--regard`, `--panneau`, `--bouche`, `--miroir`.
 
 ## 5. Les éléments
@@ -103,6 +111,8 @@ Couleurs : `creme`, `prune`, `or`, `nuit`, `fonce`, `vert`, `rouge`, `rose`, `bl
 | `image` | `src`, `l` (800), `h` (600), `cadre` : `arrondi`, `polaroid`, `aucun` ; `legende`, `zoom` (`[1, 1.08]`), `ajuste`, `position` | Photo ou capture d'écran, avec un zoom lent. |
 | `bulle` | `texte`, `l` (640 au plus), `taille` (46), `queue` : `bas-gauche`, `bas-droite`, `haut-gauche`, `haut-droite`, `gauche`, `droite`, `aucune` ; `machine: true` (le texte se tape) | Bulle de parole. |
 | `avatar` | `role` : `client`, `chef` ; `taille` (150) | Petit personnage rond (un client, un cuisinier). |
+| `personnage` | `role` : `chef`, `cheffe`, `serveur`, `client`, `cliente` ; `taille` (320, largeur en pixels ; la hauteur vaut 1,55 fois plus) ; `expression` : `neutre`, `joie`, `doute`, `surprise`, `triste`, `colere` ; `teint` : `clair`, `mat`, `fonce` ; `objet` : `telephone`, `carte`, `plateau` ; `regard` : `gauche`, `droite` ; `miroir` ; `couleur` (du haut), `cheveux`, `moustache: false` ; `gestes` : `[{"quand": "@oui", "expression": "joie", "geste": "saut"}]` (gestes : `saut`, `non`, `hoche`) ; `parle: true` | Un personnage en pied, dessiné dans le trait de Margot : le restaurateur, la cheffe, le serveur, un client, une cliente. Ce sont des personnages inventés, jamais le portrait de quelqu'un. |
+| `plat` | `nom` : `pates`, `burger`, `pizza`, `salade`, `soupe`, `steak`, `poisson`, `dessert`, `glace`, `fromage`, `cafe`, `vin` ; `taille` (240) | Un plat dessiné, pour donner faim sans photo. |
 | `tampon` | `texte`, `taille` (120), `couleur`, `angle`, `quand` | Tampon qui tombe, avec secousse et bruit. |
 | `carton` | `entete`, `lignes`, `icone`, `ton` : `plus`, `moins`, `neutre` | Carte blanche avec en-tête et lignes. |
 | `citation` | `texte`, `taille` (64), `auteur`, `tampon: {"texte": "FAUX", "quand": …}` | Phrase entre guillemets. |
@@ -160,6 +170,7 @@ Avec une prise enregistrée et calée, ces heures sont exactes. Avec la voix de 
 - **Bruitages** : `pop`, `whoosh`, `glisse`, `ding`, `cloche`, `tic`, `clic`, `bulle`, `impact`, `tampon`, `compte`, `succes`, `tada`, `caisse`, `erreur`. Beaucoup d'éléments ont le leur (une liste fait `tic`, un chiffre `compte` puis `ding`, un tampon `tampon`, des confettis `tada`, une transition `pop`, `whoosh` ou `impact`). `"son": false` sur un élément le coupe.
 - **Musiques** : `entrain` (enjouée), `douce` (calme), `suspense` (à pas de loup), `fete` (festive).
 - Tous sont fabriqués par calcul dans `sons.py` : aucun fichier, aucun droit à payer. `python3 sons.py` écrit un échantillon de chacun dans `echantillons/`.
+- **Un vrai morceau** : `"musique": {"fichier": "musiques/morceau.mp3"}` (chemin écrit par rapport au scénario, au kit, ou au dossier `musiques/` du kit ; mp3, wav, m4a, flac…). Le moteur le joue en boucle sur la durée du Reel, le ramène au niveau des musiques du kit (13 décibels sous la voix), l'efface quand Margot parle, et le fond à l'entrée et à la sortie. `debut` : d'où partir dans le morceau, en secondes ; `volume` : plus ou moins fort, en décibels. Seulement un morceau dont Owen a le droit d'usage pour une publication professionnelle sur Instagram et Facebook (morceau composé pour lui, ou licence qui le dit) : garder la preuve de la licence à côté du fichier. Les musiques de la bibliothèque d'Instagram ne sont pas des fichiers et ne passent pas par ici.
 
 ## 10. Contrôler avant de fabriquer
 
@@ -180,6 +191,7 @@ On ne fabrique la vidéo que lorsqu'il n'y a plus d'alerte et que les planches o
 | une pose, une expression, un accessoire, un geste | `page/02_margot.js` | `POSES`, `BRASG`, `EXPR`, `CHAPEAUX`, la boucle des gestes (et `GD` pour sa durée) |
 | une icône, une entrée, une boucle | `page/01_outils.js` | `ICONES`, `ENTREES`, `BOUCLES` |
 | un type d'élément | `page/03_elements.js` | `FAB.<type> = (def, x) => ({el, type, anim(u, t, ouv)})` |
+| un personnage, une expression de personnage, un plat | `page/03b_personnages.js` | `ROLES` et `personnageSVG`, `PEXPR`, `PLATS` |
 | un écran de téléphone | `page/04_telephone.js` | `ECRANS` |
 | un décor, un plan | `page/05_plans.js` | `DECORS`, `PLANS` |
 | une transition, un mouvement de caméra | `page/06_scene.js` | `TRANSITIONS` et `render` |

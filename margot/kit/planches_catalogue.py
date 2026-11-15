@@ -62,6 +62,29 @@ def main():
             els += [dict(type="telephone", x=x, y=900, taille=0.7, quand=0, entree="aucune", ecran=ec, zone=False, son=False),
                     dict(type="texte", x=x, y=1270, taille=30, l=330, texte=n, couleur="creme", quand=0, entree="aucune", zone=False)]
         planche(f"ecrans-{p // 3 + 1}", els, fond="prune", duree=3.2)
+    # Personnages et plats
+    pp = lire("03b_personnages.js")
+    roles, plats = re.findall(r'"(\w+)"', re.search(r"const ROLES = \[(.*?)\];", pp).group(1)), cles(pp, "PLATS")
+    pex = re.findall(r"(\w+): \{", re.search(r"const PEXPR = \{\n(.*?)\n\};", pp, re.S).group(1))
+    els = [titre("Personnages")]
+
+    def rang(liste, y, taille, fabrique, etiquettes):
+        for k, n in enumerate(liste):
+            x = 1080 * (k + 0.5) / len(liste)
+            els.append(dict(type="personnage", x=x, y=y, taille=taille, quand=0, entree="aucune", zone=False, **fabrique(n)))
+            els.append(dict(type="texte", x=x, y=y + 0.78 * taille + 34, taille=26, l=1080 // len(liste), texte=etiquettes[k], quand=0, entree="aucune", zone=False))
+
+    rang(roles, 500, 186, lambda n: dict(role=n), roles)
+    rang(pex, 890, 150, lambda n: dict(role="client", expression=n), [f"expression : {n}" for n in pex])
+    rang(["telephone", "carte", "plateau", "clair", "mat", "fonce"], 1250, 150,
+         lambda n: dict(role="serveur" if n == "plateau" else "cliente", objet=n) if n in ("telephone", "carte", "plateau") else dict(role="chef", teint=n),
+         ["objet : telephone", "objet : carte", "objet : plateau", "teint : clair", "teint : mat", "teint : fonce"])
+    planche("personnages", els)
+    els = [titre("Plats illustrés")]
+    for k, n in enumerate(plats):
+        x, y = 1080 * (k % 3 + 0.5) / 3, 440 + 300 * (k // 3)
+        els += [dict(type="plat", nom=n, x=x, y=y, taille=210, quand=0, entree="aucune", zone=False), dict(type="texte", x=x, y=y + 138, taille=28, l=340, texte=n, quand=0, entree="aucune", zone=False)]
+    planche("plats", els)
     for d in decors:
         planche(f"decor-{d}", [dict(type="texte", x=540, y=900, taille=90, texte=d, quand=0, entree="aucune", zone=False)], decor=d, cercles=True, fond="creme" if len(noms) % 2 else "prune")
 

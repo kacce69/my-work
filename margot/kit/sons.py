@@ -191,7 +191,7 @@ def _douce(buf, t0, T, acc, m):
 
 def _suspense(buf, t0, T, acc, m):
     f, t, q = ACC[acc]
-    for k, (n, o) in enumerate([(f, 2), None, (f, 2), (q, 2), (f, 2), None, (t, 3), (q, 2)]):
+    for k, (n, o) in enumerate([(f, 2), (None, 0), (f, 2), (q, 2), (f, 2), (None, 0), (t, 3), (q, 2)]):   # None = un silence
         if n:
             _pose(buf, _note(hz(n, o), 0.3, SRM, PIZZ), t0 + k * T / 2, 0.36, -0.1)
     for k in (1, 3):

@@ -349,10 +349,27 @@ def main():
         if musique:
             import sons as bruits
             m_nom, m_vol = (musique, 0) if isinstance(musique, str) else (musique.get("nom"), musique.get("volume", 0))
-            try:
-                sf.write(tmp / "musique.wav", bruits.musique(m_nom, duree) * 10 ** (m_vol / 20), bruits.SRM)
-            except KeyError:
-                print("ALERTE : musique inconnue :", m_nom); musique = None
+            m_fichier = None if isinstance(musique, str) else musique.get("fichier")
+            if m_fichier:
+                # Un morceau fourni (dont Owen a les droits) : joué en boucle sur la durée du Reel, ramené au niveau des musiques du kit
+                # (environ -29 LUFS, la voix est à -16), avec une entrée et une sortie en fondu. « debut » = d'où partir dans le morceau.
+                src = next((q for q in (chemin.resolve().parent / m_fichier, ICI / m_fichier, ICI / "musiques" / m_fichier) if q.exists()), None)
+                mesure = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(src), "-af", "loudnorm=print_format=json", "-f", "null", "-"],
+                                        capture_output=True, text=True).stderr if src else ""
+                niveau = re.search(r'"input_i"\s*:\s*"(-?[\d.]+)"', mesure)
+                if not niveau:
+                    print("ALERTE : musique introuvable ou illisible :", m_fichier); musique = None
+                else:
+                    gain, d0 = -29.0 - float(niveau.group(1)) + m_vol, float(musique.get("debut", 0))
+                    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-stream_loop", "-1", "-i", str(src), "-af",
+                                    f"atrim=start={d0:.3f},asetpts=PTS-STARTPTS,volume={gain:.2f}dB,afade=t=in:d=0.25,afade=t=out:st={max(0.0, duree - 1.4):.3f}:d=1.4",
+                                    "-t", f"{duree:.3f}", "-ar", str(bruits.SRM), "-ac", "2", str(tmp / "musique.wav")], check=True)
+                    m_nom = f"{src.name} (niveau d'origine {float(niveau.group(1)):.1f} LUFS, réglé à {-29 + m_vol:.0f})"
+            else:
+                try:
+                    sf.write(tmp / "musique.wav", bruits.musique(m_nom, duree) * 10 ** (m_vol / 20), bruits.SRM)
+                except KeyError:
+                    print("ALERTE : musique inconnue :", m_nom); musique = None
 
         if apercu:
             par_scene = int(apercu.split("=")[1]) if "=" in apercu else 3

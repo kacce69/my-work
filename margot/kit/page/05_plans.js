@@ -85,6 +85,16 @@ const PLANS = {
     return [...etq(sc), ...ttl(sc, {haut: 300, taille: 80}), {type: "choix", haut: 650, ...q}, ...mgt(sc, {x: 540, y: 1272, taille: 0.46, expression: "doute", gestes: [{quand: tr, expression: "joie"}, {quand: tr, geste: "saut"}]})];
   },
   dialogue: sc => [...etq(sc), {type: "chat", haut: 330, repliques: sc.dialogue || []}, ...mgt(sc, {x: 540, y: 1262, taille: 0.48})],
+  // Duo : Margot et un personnage (le restaurateur, un client) côte à côte ; leurs répliques s'affichent en bulles.
+  duo: sc => {
+    const d = sc.duo || {}, rs = d.repliques || [], moi = r => r.qui === "margot", h = (r, j) => r.quand ?? {part: j / Math.max(1, rs.length)};
+    const bulles = rs.map((r, j) => {
+      const k = rs.findIndex((z, n) => n > j && moi(z) === moi(r));
+      return {type: "bulle", texte: r.texte, taille: r.taille || 44, l: 470, quand: h(r, j), ...(k > 0 ? {jusqu: h(rs[k], k)} : {}), ...(moi(r) ? {gauche: 56, bas: 1084, queue: "bas-gauche"} : {droite: 1024, bas: 840, queue: "bas-droite"})};
+    });
+    return [...etq(sc), ...ttl(sc, {haut: 300, taille: 76}), {type: "personnage", role: "chef", x: 806, y: 1150, taille: 372, quand: 0.15, regard: "gauche", ...d, repliques: undefined},
+      ...mgt(sc, {x: 270, y: 1283, taille: 0.56, regard: "droite"}), ...bulles];
+  },
   mythe: sc => {
     const m = sc.mythe || {}, v = m.verdict || "FAUX", tq = m.quand ?? {part: 0.7}, contre = /faux|non|pas/i.test(v);
     return [...etq(sc), {type: "citation", haut: 350, l: 920, texte: m.texte, taille: m.taille, auteur: m.auteur, tampon: {texte: v, quand: tq, couleur: m.couleur ?? (contre ? "rouge" : "vert")}},

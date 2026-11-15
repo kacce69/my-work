@@ -104,6 +104,7 @@ function cycle(def, x, dq = 0.2, de = "pop", dd = 0.45) {
   const sc = x.sc, t0 = heure(def.quand, sc, dq, x), t1 = def.jusqu != null ? heure(def.jusqu, sc, null, x) : null;
   const en = typeof def.entree === "object" && def.entree ? def.entree : {type: def.entree || de};
   const f = ENTREES[en.type] || ENTREES.pop, dur = en.duree || dd, bo = BOUCLES[def.boucle];
+  x.t0 = t0;                                              // l'heure d'arrivée, pour que Margot puisse y jeter un œil (jeu fin)
   if (def.entree && !ENTREES[en.type]) window.ALERTES.push(`scène ${x.i + 1} : entrée inconnue « ${en.type} »`);
   return {t0, t1, etat(u) {
     const a = u - t0;

@@ -83,6 +83,8 @@ Dans un plan, ces clés se mettent sur la scène. Dans `elements`, elles se mett
 
 Gestes : `saut`, `hoche` (oui), `non`, `sursaut`, `penche` (`"cote": "gauche"`), `tourne`, `tremble`, `rebond`, `clin` (clin d'œil), `danse`. Options : `duree`, `force`. Pendant un `deplace`, elle marche.
 
+**Margot en image fixe** (posts, carrousels, stories, documents) : `python3 margot_svg.py margot.svg --pose plateau --expression joie --accessoire toque,lunettes --png 900` écrit un SVG et un PNG à fond transparent, avec les mêmes poses, expressions et accessoires. Autres options : `--gauche`, `--regard`, `--panneau`, `--bouche`, `--miroir`.
+
 ## 5. Les éléments
 
 Clés communes : `x`, `y` (centre de l'élément) ou `haut`, `bas`, `gauche`, `droite` (le bord correspondant) ; `l` (largeur) ; `rot` (degrés) ; `z` (ordre d'empilement) ; `quand` ; `jusqu` (moment où il disparaît) ; `entree` : `pop`, `monte`, `descend`, `de-gauche`, `de-droite`, `de-bas`, `fondu`, `zoom`, `tombe`, `tourne`, `aucune` (ou `{"type": "pop", "duree": 0.6}`) ; `boucle` : `flotte`, `pulse`, `balance`, `tourne`, `tremble` ; `son` (un bruitage, ou `false`).

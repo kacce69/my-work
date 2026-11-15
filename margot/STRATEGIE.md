@@ -38,9 +38,9 @@ Par ordre de coût. Claude prépare ; il ne contacte personne et ne dépense rie
 
 1. **La prospection d'Owen, avec une vidéo.** Il écrit déjà aux restaurants par Facebook et par e-mail : le message gagne à tenir en trois phrases et à porter le lien d'un Reel qui répond à l'objection du restaurateur. Sur Instagram, une première prise de contact avec quelqu'un qui ne vous suit pas ne passe que du texte : la vidéo part après sa réponse. Peu de messages, écrits un par un : des envois en série identiques font restreindre un compte.
 2. **Les groupes de restaurateurs** (Facebook). Lire le règlement de chaque groupe ; y apporter un conseil complet, utile sans le site ; ne mettre un lien que si le règlement le permet, sinon répondre à ceux qui demandent.
-3. **La mise en avant payante** du Reel qui retient le mieux (le moins d'abandons avant 3 secondes). C'est une dépense : Owen la décide, la règle et la paie lui-même depuis Instagram. Petit budget, une seule audience, une semaine, puis on lit le coût d'une visite de profil et les commentaires « MENU ».
+3. **La mise en avant payante** du Reel qui retient le mieux (le moins d'abandons avant 3 secondes). C'est une dépense : Owen la décide, la règle et la paie lui-même depuis Instagram. Petit budget, une seule audience, une semaine, puis on lit les abandons avant 3 secondes, les visites du profil et les commentaires « MENU ». Conditions d'après le guide cité plus bas : compte professionnel, Reel de 60 secondes au plus, sans musique d'un tiers, non partagé sur Facebook. Proposition de départ remise à Owen le 15/11/2026 : `PRO1`, objectif « visites du profil », France, 25 à 60 ans, centres d'intérêt de la restauration, 5 € par jour pendant 6 jours.
 
-Les « Reels d'essai » d'Instagram (montrés d'abord aux seuls non-abonnés) demandent 1 000 abonnés d'après les outils de publication qui les proposent : pas pour ce compte aujourd'hui.
+Les « Reels d'essai » d'Instagram (montrés d'abord aux seuls non-abonnés) demandent un compte public, éligible aux recommandations, d'au moins 200 abonnés pour un compte professionnel, d'après l'aide de Metricool (un autre outil, Publer, écrit encore 1 000) : pas pour ce compte aujourd'hui, mais c'est un palier à viser. Un Reel d'essai ne peut pas être mis en avant.
 
 ## 5. La preuve
 
@@ -85,7 +85,8 @@ Une objection de restaurateur par épisode, la réponse montrée plutôt que dit
 
 ## Sources des règles citées (lues le 15/11/2026)
 
-- Première prise de contact en message privé limitée au texte : https://www.blogdumoderateur.com/instagram-nouvelle-option-limiter-spams-dm/
-- Reels d'essai, seuil de 1 000 abonnés : https://help.metricool.com/fr/how-to-publish-instagram-trial-reels-in-metricool-q27tj et https://publer.com/help/fr/article/comment-programmer-des-reels-dessai-sur-instagram-p8brtq/
-- Mettre un Reel en avant (objectif, audience, budget, durée) : https://blog.hootsuite.com/boost-instagram-reels/
+- Première prise de contact en message privé limitée à une invitation en texte (article du 4 août 2023) : https://www.blogdumoderateur.com/instagram-nouvelle-option-limiter-spams-dm/
+- Reels d'essai, conditions : https://help.metricool.com/fr/how-to-publish-instagram-trial-reels-in-metricool-q27tj (200 abonnés) et https://publer.com/help/fr/article/comment-programmer-des-reels-dessai-sur-instagram-p8brtq/ (1 000 abonnés)
+- Mettre un Reel en avant (objectif, audience, budget, durée, conditions) : https://blog.hootsuite.com/boost-instagram-reels/
+- Le plan d'action remis à Owen (messages de prospection, publication pour un groupe, réglages de mise en avant, demande d'accord) : https://claude.ai/artifact/JN9YdASGuqfoP3M9BSCKmY
 - Offre et fonctions du site : https://restaurant-site-internet.fr/tarifs et https://restaurant-site-internet.fr/restaurateurs

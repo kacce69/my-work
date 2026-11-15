@@ -22,6 +22,7 @@
 | `kit/margot_svg.py` | Margot en image fixe (SVG, PNG à fond transparent) pour les posts et les carrousels : `python3 kit/margot_svg.py margot.svg --pose plateau --expression joie --accessoire toque --png 900`. |
 | `kit/illustration.py` | Toutes les illustrations du moteur en image fixe à fond transparent (Margot, personnages, plats, icônes, téléphone), pour les posts et les carrousels : `python3 kit/illustration.py chef.png --personnage chef --expression joie`. Ne demande que Python, Playwright et Chrome. |
 | `kit/planches_catalogue.py` | Refait les images de `kit/catalogue/` après un ajout au moteur. |
+| `posts/<date>-<sujet>/` | Les images d'un post ou d'un carrousel fait à la main, à l'adresse où une tâche planifiée les lit, avec sa légende (`legende.md`) et le fichier qui les fabrique. Modèle : `posts/2026-11-16-nouveaute/fabrication.py`. |
 | `kit/mettre_a_niveau.py` | A mis les 37 Reels de la campagne (J02 à J30, HS1 à HS8) au niveau du moteur le 15/11/2026, sans changer un mot dit : ses tables disent quelle illustration montre chaque scène. À relire avant de retoucher l'un de ces scénarios. |
 | `kit/generer_specs.py` | A écrit les 30 scénarios d'origine de la campagne « Margot, 30 jours » (plan `margot` partout) ; `mettre_a_niveau.py` les a transformés depuis. |
 

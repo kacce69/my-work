@@ -70,8 +70,15 @@ document.fonts.load('900 60px Fraunces').catch(() => 0).then(() => document.font
     else acteur.el.querySelectorAll("*").forEach(e => {{
       if (e.closest("defs, clipPath")) return;
       for (let p = e; p && p !== acteur.el.parentElement; p = p.parentElement) {{ const s = getComputedStyle(p); if (s.display === "none" || s.visibility === "hidden" || +s.opacity === 0) return; }}
-      const st = getComputedStyle(e), svg = e.namespaceURI.includes("svg"), r = e.getBoundingClientRect();
+      const st = getComputedStyle(e), svg = e.namespaceURI.includes("svg");
+      let r = e.getBoundingClientRect();
       if (!r.width || !r.height) return;
+      for (let p = e.parentElement; p && p !== acteur.el.parentElement; p = p.parentElement) {{       // ce qu'un cadre coupe ne compte pas (la page qui dépasse de l'écran du téléphone)
+        if (getComputedStyle(p).overflow === "visible") continue;
+        const c = p.getBoundingClientRect(), g = Math.max(r.left, c.left), h = Math.max(r.top, c.top), d = Math.min(r.right, c.right), b = Math.min(r.bottom, c.bottom);
+        if (d <= g || b <= h) return;
+        r = {{left: g, top: h, right: d, bottom: b, width: d - g, height: b - h}};
+      }}
       if (svg) {{ if (e.children.length || e.tagName === "svg") return; }}
       else if (e.tagName !== "IMG" && st.backgroundColor === "rgba(0, 0, 0, 0)" && st.backgroundImage === "none" && st.boxShadow === "none" && !parseFloat(st.borderTopWidth) && (e.children.length || !e.textContent.trim())) return;
       prend(r, svg ? (parseFloat(st.strokeWidth) || 0) * 0.6 * r.width / Math.max(1, e.getBBox().width || 1) : st.boxShadow === "none" ? 0 : 26);

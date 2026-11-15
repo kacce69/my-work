@@ -6,9 +6,10 @@ Mise à jour le 15/11/2026. À relire avant de proposer un plan de contenu, un e
 
 Les vues ne sont qu'un moyen. Ce qui compte : le nombre de restaurants dont la carte est en ligne, puis les commentaires « MENU » (un restaurateur à recontacter).
 
-- **Mesure** : les pages du répertoire, `curl -sS -A "rcs-veille (monitor)" https://restaurant-site-internet.fr/restaurants`, liens qui commencent par `/restaurant/`.
-- **Repère** : 7 pages le 15/11/2026 (dav-chawarma-cotonou, ftiechoka974-gol, le-bistrot-conde-sur-sarthe, maison-dimelly-lyon, okimono-agen, pizza-a-marcinelle-marcinelle, pizza-rega-agen).
-- **Objectif de départ** : 12 pages le 14/12/2026, puis 5 de plus chaque mois. Owen peut le changer.
+- **Mesure** : les pages du répertoire, `curl -sS -A "rcs-veille (monitor)" https://restaurant-site-internet.fr/restaurants`, liens qui commencent par `/restaurant/`. Une page ne compte que si sa carte est publiée : on lit chaque page de la même façon, et celle qui affiche « La carte n'a pas encore été publiée » ne compte pas.
+- **Repère** : le 15/11/2026, 7 pages, dont 5 avec une carte publiée (dav-chawarma-cotonou, ftiechoka974-gol, maison-dimelly-lyon, okimono-agen, pizza-rega-agen) et 2 sans carte (le-bistrot-conde-sur-sarthe, pizza-a-marcinelle-marcinelle).
+- **Objectif de départ** : 10 cartes publiées le 14/12/2026, puis 5 de plus chaque mois. Owen peut le changer.
+- **Le plus court chemin** : un restaurateur qui a créé sa page sans publier sa carte est à une photo du but. Le signaler à Owen à chaque point, pour qu'il le relance.
 - **Limite** : une page en ligne n'est pas forcément un restaurateur inscrit de lui-même (Owen peut en créer). Le nombre de comptes créés n'est lisible que par lui : le lui demander à chaque point.
 - **Le point de la semaine** : la tâche planifiée « Margot – point de la semaine » (chaque lundi, 8 h 37, heure de Paris) refait ces mesures et écrit à Owen en 180 mots.
 

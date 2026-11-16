@@ -1,4 +1,6 @@
-# Post « Je ne suis plus seule ! » — lundi 16 novembre 2026
+# Post « Je ne suis plus seule ! » — brouillon, non publié
+
+**Non publié.** Préparé le 15/11/2026 au soir pour le 16/11 : Owen parlait d'une autre nouveauté (la carte reconnue à partir d'une photo, voir `../2026-11-16-carte-en-photo/`). Gardé comme brouillon : à publier seulement s'il le demande.
 
 Demandé par Owen le 15/11/2026 (« Prévoit un post pour parler de la nouveauté demain »). Carrousel de 7 images (1080 × 1350) sur Instagram ; sur Facebook, l'image 1 et le même texte. Un seul appel : s'abonner.
 

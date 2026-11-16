@@ -25,9 +25,9 @@ ICI = pathlib.Path(__file__).resolve().parent
 
 
 def polices():
-    f = ICI / "node_modules/@fontsource/fraunces/files"
+    f = next((d for d in (ICI / "node_modules/@fontsource/fraunces/files", pathlib.Path("/home/claude/insta/node_modules/@fontsource/fraunces/files")) if d.exists()), None)
     face = (f"@font-face{{font-family:Fraunces;font-weight:900;src:url({f.as_uri()}/fraunces-latin-900-normal.woff2)}}"
-            f"@font-face{{font-family:Fraunces;font-weight:600;src:url({f.as_uri()}/fraunces-latin-600-normal.woff2)}}") if f.exists() else ""
+            f"@font-face{{font-family:Fraunces;font-weight:600;src:url({f.as_uri()}/fraunces-latin-600-normal.woff2)}}") if f else ""
     inter = ICI / "node_modules/@fontsource/inter/files"
     try:
         connues = subprocess.run(["fc-list", ":family"], capture_output=True, text=True).stdout

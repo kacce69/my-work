@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 25/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Proposez-vous des bons cadeaux pour Noël ? C'est simple à mettre en place.",
+   "voix": "Proposez-vous des bons cadeaux pour Noël ? Trois étapes, et le bon moment pour en parler à vos clients.",
    "accessoire": "bonnet",
    "decor": "salle",
    "titre": [
@@ -103,7 +103,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Trois : faites-le savoir. En salle, avec l'addition, sur vos réseaux.",
+   "voix": "Trois : faites-le savoir. En salle, sur vos réseaux, et au bon moment : avec l'addition.",
    "accessoire": "bonnet",
    "titre": [
     "3. Faites-le",
@@ -128,9 +128,53 @@
    "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
+   "fond": "or",
+   "voix": "À retenir : une formule, une date de validité, et un mot avec l'addition.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 61,
+    "items": [
+     {
+      "texte": "Un montant ou un menu",
+      "quand": 0.35
+     },
+     {
+      "texte": "Une date de validité",
+      "quand": 0.8
+     },
+     {
+      "texte": "Faites-le savoir",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   },
+   "accessoire": "bonnet"
+  },
+  {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur.",
    "accessoire": "bonnet",
    "transition": "zoom",
    "titre": [
@@ -163,7 +207,9 @@
      "geste": "hoche"
     },
     {
-     "quand": "@demain",
+     "quand": {
+      "avant_fin": 0.7
+     },
      "pose": "bonjour"
     }
    ]

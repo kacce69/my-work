@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · hors-série",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -10,7 +10,7 @@
    "fond": "creme",
    "decor": "ville",
    "accessoire": "lunettes",
-   "voix": "Vous cherchez un code de triche pour votre restaurant ? Désolée, il n'y en a pas.",
+   "voix": "Vous cherchez un code de triche pour votre restaurant ? Il n'y en a pas. Mais j'ai trois raccourcis.",
    "titre": [
     "Un code de triche",
     "pour votre restaurant ?"
@@ -46,7 +46,7 @@
    "fond": "prune",
    "decor": "ville",
    "accessoire": "lunettes",
-   "voix": "Mais il existe trois raccourcis simples pour être trouvé sur internet.",
+   "voix": "Trois raccourcis simples, pour être trouvé sur internet.",
    "titre": [
     "Mais il y a",
     "trois raccourcis"
@@ -101,7 +101,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Aucune triche là-dedans. Juste trois choses concrètes, à mettre en place puis à tenir à jour.",
+   "voix": "À retenir : aucune triche. Trois choses concrètes, à mettre en place puis à tenir à jour.",
    "titre": [
     "Aucune triche,",
     "juste du concret"

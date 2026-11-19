@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 16/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Votre menu de fêtes est-il prêt ? Mieux vaut l'annoncer tôt.",
+   "voix": "Votre menu de fêtes est-il prêt ? Trois étapes pour l'annoncer, et une date à ne pas oublier.",
    "accessoire": "bonnet",
    "decor": "salle",
    "titre": [
@@ -105,7 +105,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Trois : donnez une date limite de réservation, et un moyen simple de réserver.",
+   "voix": "Trois, la date à ne pas oublier : donnez une date limite de réservation, et un moyen simple de réserver.",
    "accessoire": "bonnet",
    "titre": [
     "3. Une date",
@@ -128,6 +128,50 @@
     }
    ],
    "transition": "glisse-gauche"
+  },
+  {
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : un menu, un prix, une annonce, et une date limite.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 67,
+    "items": [
+     {
+      "texte": "Le menu et son prix",
+      "quand": 0.35
+     },
+     {
+      "texte": "Annoncez-le partout",
+      "quand": 0.8
+     },
+     {
+      "texte": "Une date limite",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   },
+   "accessoire": "bonnet"
   },
   {
    "plan": "telephone",
@@ -203,7 +247,7 @@
   {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
    "accessoire": "bonnet",
    "avant": 0.2,
    "transition": "zoom",
@@ -232,8 +276,7 @@
     },
     {
      "quand": {
-      "mot": "carte",
-      "n": 1
+      "avant_fin": 0.6
      },
      "pose": "carte"
     }

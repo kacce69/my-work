@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 22/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "On soigne la carte des plats, et on oublie celle des boissons. Trois idées pour la rendre lisible.",
+   "voix": "On soigne la carte des plats, on oublie celle des boissons. Trois idées, et ce qu'il faut écrire à côté de chaque prix.",
    "decor": "salle",
    "titre": [
     "Et votre carte",
@@ -68,9 +68,35 @@
   {
    "plan": "montre",
    "fond": "or",
-   "voix": "Deux : indiquez la contenance et le prix de chaque boisson.",
+   "voix": "Deux : proposez quelques vins au verre, bien visibles.",
    "titre": [
-    "2. La contenance",
+    "2. Des vins",
+    "au verre"
+   ],
+   "montre": {
+    "type": "plat",
+    "nom": "vin",
+    "quand": "@vins"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@vins",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@vins",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
+  },
+  {
+   "plan": "montre",
+   "fond": "creme",
+   "voix": "Trois, à côté de chaque prix : indiquez la contenance de chaque boisson.",
+   "titre": [
+    "3. La contenance",
     "et le prix"
    ],
    "montre": {
@@ -93,30 +119,47 @@
    "transition": "glisse-gauche"
   },
   {
-   "plan": "montre",
-   "fond": "creme",
-   "voix": "Trois : proposez quelques vins au verre, bien visibles.",
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : des familles, des vins au verre, la contenance et le prix.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
    "titre": [
-    "3. Des vins",
-    "au verre"
+    "À *retenir*"
    ],
-   "montre": {
-    "type": "plat",
-    "nom": "vin",
-    "quand": "@vins"
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 71,
+    "items": [
+     {
+      "texte": "Par familles",
+      "quand": 0.35
+     },
+     {
+      "texte": "Des vins au verre",
+      "quand": 0.8
+     },
+     {
+      "texte": "Contenance et prix",
+      "quand": 1.25
+     }
+    ]
    },
-   "pose": "pouce",
    "gestes": [
     {
-     "quand": "@vins",
-     "pose": "pointe"
-    },
-    {
-     "quand": "@vins",
+     "quand": {
+      "part": 0.55
+     },
      "expression": "joie"
     }
    ],
-   "transition": "glisse-gauche"
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "telephone",
@@ -150,7 +193,7 @@
   {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
    "avant": 0.2,
    "transition": "zoom",
    "titre": [
@@ -178,8 +221,7 @@
     },
     {
      "quand": {
-      "mot": "carte",
-      "n": 1
+      "avant_fin": 0.6
      },
      "pose": "carte"
     }

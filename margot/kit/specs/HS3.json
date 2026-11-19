@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · hors-série",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -10,7 +10,7 @@
    "fond": "creme",
    "decor": "ville",
    "accessoire": "lunettes",
-   "voix": "Entre deux missions, même le meilleur joueur finit par avoir faim.",
+   "voix": "Entre deux missions, même le meilleur joueur finit par avoir faim. Et là, votre restaurant a une partie à jouer.",
    "titre": [
     "Entre deux missions,",
     "il faut bien manger"
@@ -63,7 +63,7 @@
   {
    "plan": "telephone",
    "fond": "or",
-   "voix": "Que voit-il quand il trouve votre restaurant ? Une carte, des prix, des horaires ? Ou rien du tout ?",
+   "voix": "Quand il trouve votre restaurant, que voit-il ? Une carte, des prix, des horaires ? Ou rien du tout ?",
    "titre": [
     "Que voit-il de",
     "votre restaurant ?"
@@ -81,7 +81,7 @@
   {
    "plan": "duo",
    "fond": "creme",
-   "voix": "S'il n'y a rien à voir, il risque de passer au restaurant suivant.",
+   "voix": "Sans rien à voir, il risque de passer au restaurant suivant.",
    "titre": [
     "Rien à voir ?",
     "Il passe au suivant"
@@ -113,6 +113,49 @@
     }
    ],
    "transition": "glisse-gauche"
+  },
+  {
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : une carte visible en ligne, c'est une chance d'être choisi.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 72,
+    "items": [
+     {
+      "texte": "Votre carte",
+      "quand": 0.35
+     },
+     {
+      "texte": "Vos prix",
+      "quand": 0.8
+     },
+     {
+      "texte": "Vos horaires",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "telephone",

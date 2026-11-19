@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 11/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Trop de plats sur la carte ? Trois questions pour savoir lesquels retirer.",
+   "voix": "Trop de plats sur votre carte ? Quand un plat doit-il la quitter ? Réponse en trois questions.",
    "decor": "cuisine",
    "titre": [
     "Votre carte est-elle",
@@ -124,9 +124,52 @@
    "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
+   "fond": "or",
+   "voix": "À retenir : peu vendu, peu rentable, compliqué à servir : le plat peut partir.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 72,
+    "items": [
+     {
+      "texte": "Se vend-il ?",
+      "quand": 0.35
+     },
+     {
+      "texte": "Est-il rentable ?",
+      "quand": 0.8
+     },
+     {
+      "texte": "Simple à servir ?",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
+  },
+  {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur.",
    "transition": "zoom",
    "titre": [
     "Enregistrez",
@@ -158,7 +201,9 @@
      "geste": "hoche"
     },
     {
-     "quand": "@demain",
+     "quand": {
+      "avant_fin": 0.7
+     },
      "pose": "bonjour"
     }
    ]

@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 29/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Vous pilotez votre restaurant au ressenti ? Cinq chiffres suffisent, une fois par semaine.",
+   "voix": "Vous pilotez votre restaurant au ressenti ? Cinq chiffres, une fois par semaine. Le dernier se compte en tables vides.",
    "decor": "cuisine",
    "titre": [
     "Cinq chiffres",
@@ -96,7 +96,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Et les réservations non honorées. Notez ces cinq chiffres chaque lundi, dans un simple tableau.",
+   "voix": "Et le dernier, celui des tables vides : les réservations non honorées.",
    "titre": [
     "Réservations",
     "non honorées"
@@ -121,9 +121,55 @@
    "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
+   "fond": "or",
+   "voix": "À retenir : notez ces cinq chiffres chaque lundi, dans un simple tableau.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 64,
+    "items": [
+     {
+      "texte": "Couverts",
+      "quand": 0.35
+     },
+     {
+      "texte": "Ticket moyen",
+      "quand": 0.8
+     },
+     {
+      "texte": "Coût matière",
+      "quand": 1.25
+     },
+     {
+      "texte": "Pertes",
+      "quand": 1.7
+     },
+     {
+      "texte": "Tables restées vides",
+      "quand": 2.15
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ]
+  },
+  {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur.",
    "transition": "zoom",
    "titre": [
     "Enregistrez",
@@ -155,7 +201,9 @@
      "geste": "hoche"
     },
     {
-     "quand": "@demain",
+     "quand": {
+      "avant_fin": 0.7
+     },
      "pose": "bonjour"
     }
    ]

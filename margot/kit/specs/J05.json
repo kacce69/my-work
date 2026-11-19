@@ -130,7 +130,7 @@
    "pose": "index",
    "expression": "malice",
    "liste": {
-    "taille": 67,
+    "taille": 58,
     "items": [
      {
       "texte": "Remerciez",
@@ -153,7 +153,12 @@
      },
      "expression": "joie"
     }
-   ]
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "fin",

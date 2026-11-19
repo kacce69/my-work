@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 19/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "On se perd parfois dans une carte. Trois règles pour bien ranger la vôtre.",
+   "voix": "On se perd parfois dans une carte. Trois règles pour ranger la vôtre, et un nom de rubrique à éviter.",
    "decor": "salle",
    "titre": [
     "Votre carte est-elle",
@@ -59,35 +59,9 @@
   {
    "plan": "montre",
    "fond": "or",
-   "voix": "Deux : des noms de rubrique simples. Plats, plutôt que nos créations gourmandes.",
+   "voix": "Deux : peu de plats par rubrique. La carte se lit plus vite.",
    "titre": [
-    "2. Des rubriques",
-    "aux noms simples"
-   ],
-   "montre": {
-    "type": "icone",
-    "nom": "commentaire",
-    "quand": "@noms"
-   },
-   "pose": "carte",
-   "gestes": [
-    {
-     "quand": "@noms",
-     "pose": "pointe"
-    },
-    {
-     "quand": "@noms",
-     "expression": "joie"
-    }
-   ],
-   "transition": "glisse-gauche"
-  },
-  {
-   "plan": "montre",
-   "fond": "creme",
-   "voix": "Trois : peu de plats par rubrique. La carte se lit plus vite.",
-   "titre": [
-    "3. Peu de plats",
+    "2. Peu de plats",
     "par rubrique"
    ],
    "montre": {
@@ -109,9 +83,78 @@
    "transition": "glisse-gauche"
   },
   {
+   "plan": "montre",
+   "fond": "creme",
+   "voix": "Trois : des noms de rubrique simples. Écrivez plats, plutôt que nos créations gourmandes.",
+   "titre": [
+    "3. Des rubriques",
+    "aux noms simples"
+   ],
+   "montre": {
+    "type": "icone",
+    "nom": "commentaire",
+    "quand": "@noms"
+   },
+   "pose": "carte",
+   "gestes": [
+    {
+     "quand": "@noms",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@noms",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
+  },
+  {
+   "plan": "liste",
+   "fond": "or",
+   "voix": "À retenir : l'ordre du repas, peu de plats, des noms simples.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 72,
+    "items": [
+     {
+      "texte": "L'ordre du repas",
+      "quand": 0.35
+     },
+     {
+      "texte": "Peu de plats",
+      "quand": 0.8
+     },
+     {
+      "texte": "Des noms simples",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
+  },
+  {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur.",
    "transition": "zoom",
    "titre": [
     "Enregistrez",
@@ -143,7 +186,9 @@
      "geste": "hoche"
     },
     {
-     "quand": "@demain",
+     "quand": {
+      "avant_fin": 0.7
+     },
      "pose": "bonjour"
     }
    ]

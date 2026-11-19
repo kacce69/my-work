@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · hors-série",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -10,7 +10,7 @@
    "fond": "creme",
    "decor": "ville",
    "accessoire": "lunettes",
-   "voix": "Dans un jeu en monde ouvert, le GPS vous mène partout en un instant.",
+   "voix": "Dans le jeu, le GPS vous mène partout en un instant. Chez vous, tout tient en deux boutons. Lesquels ?",
    "titre": [
     "Dans le jeu,",
     "le GPS mène partout"
@@ -73,7 +73,7 @@
   {
    "plan": "liste",
    "fond": "or",
-   "voix": "Il faut deux boutons bien visibles : appeler, et itinéraire.",
+   "voix": "Il faut deux boutons bien visibles : appeler, et itinéraire. C'est tout ce qu'il y a à retenir.",
    "titre": [
     "Deux boutons",
     "bien visibles"

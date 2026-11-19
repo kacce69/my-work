@@ -24,6 +24,7 @@
 | `kit/planches_catalogue.py` | Refait les images de `kit/catalogue/` après un ajout au moteur. |
 | `posts/<date>-<sujet>/` | Les images d'un post ou d'un carrousel fait à la main, à l'adresse où une tâche planifiée les lit, avec sa légende (`legende.md`) et le fichier qui les fabrique. Modèle : `posts/2026-11-16-nouveaute/fabrication.py`. |
 | `kit/mettre_a_niveau.py` | A mis les 37 Reels de la campagne (J02 à J30, HS1 à HS8) au niveau du moteur le 15/11/2026, sans changer un mot dit : ses tables disent quelle illustration montre chaque scène. À relire avant de retoucher l'un de ces scénarios. |
+| `kit/trois_temps.py` | A récrit le 19/11/2026 les 32 Reels restants (J05 à J30, HS3 à HS8) « en trois temps », à la demande d'Owen : accroche de moins de 12 mots suivie d'une question dont la réponse n'arrive qu'au dernier conseil, meilleur conseil en dernier, scène « À retenir », appel raccourci. Ses textes sont dans sa table ; chaque Reel a une nouvelle prise de voix. La règle est expliquée dans `STRATEGIE.md` § 3 bis. |
 | `kit/generer_specs.py` | A écrit les 30 scénarios d'origine de la campagne « Margot, 30 jours » (plan `margot` partout) ; `mettre_a_niveau.py` les a transformés depuis. |
 
 ## Fabriquer un Reel

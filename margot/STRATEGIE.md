@@ -36,6 +36,31 @@ Le modèle : `kit/specs/PRO1.json`.
 
 Ce n'est pas un essai propre (tout a changé d'un coup), mais c'est une première mesure : comparer la part des vues abandonnées avant 3 secondes des Reels publiés à partir du 16/11 à celle des Reels du 14 et du 15/11 (62 à 95 %), sans rien conclure en dessous de 50 comptes touchés. Le point du jour et le point de la semaine relèvent ce chiffre.
 
+**Premier relevé, le 19/11/2026** (Instagram, lu par Windsor ; seulement les Reels vus par plus de 50 comptes) :
+
+| Reel | Comptes touchés | Abandons avant 3 s | Durée regardée en moyenne | Durée du Reel |
+|---|---|---|---|---|
+| Avant la refonte, 14/11 (« Votre carte est sur Facebook… ») | 147 | 94,5 % | 2,0 s | — |
+| J03, allergènes (17/11) | 136 | 47,1 % | 7,5 s | 27,5 s |
+| HS1, le repérage (16/11) | 77 | 48,6 % | 5,1 s | 26,3 s |
+| J04, coût matière (18/11) | 90 | 64,4 % | 4,2 s | 31,2 s |
+
+Le début retient mieux. Le point faible s'est déplacé : ceux qui passent les 3 secondes regardent ensuite 6 à 14 secondes sur une trentaine (calcul fait à partir des deux chiffres d'Instagram), donc partent en moyenne pendant le premier ou le deuxième conseil. Les deux accroches qui retiennent le mieux ouvrent sur une scène ou une phrase inattendue ; la moins bonne annonce « le calcul tient en trois étapes ». Trois Reels : une tendance, pas une preuve.
+
+## 3 bis. L'écriture en trois temps (depuis le 19/11/2026)
+
+Le 19/11/2026, Owen a demandé que les Reels à venir suivent la règle « accroche, valeur, bénéfice » d'une vidéo de conseils qu'il a vue : les trois endroits où un Reel perd son public sont le début, le milieu et la fin. Les 32 Reels restants (J05 à J30, HS3 à HS8) ont été récrits ainsi, avec une nouvelle prise de voix ; les faits et les conseils n'ont pas changé.
+
+1. **L'accroche** : une première phrase de moins de 12 mots (8 au plus à l'écran), une scène vécue ou une phrase inattendue plutôt qu'une annonce de plan. Elle est suivie d'une **question ouverte** ou d'une annonce dont la réponse n'arrive qu'au dernier conseil (« Faut-il tout régler par écrit ? Réponse à la troisième étape. »).
+2. **La valeur** : trois conseils, le plus utile en dernier ; c'est lui qui répond à la question de l'accroche, et il le dit (« Trois, au contraire : … »).
+3. **Le bénéfice** : une scène « À retenir » (les trois points cochés à l'écran, une phrase dite), puis l'appel, raccourci.
+
+**L'annonce doit être vraie.** Elle porte sur ce que la vidéo donne vraiment : une question à laquelle le dernier conseil répond, ou une propriété vérifiable de ce conseil (« le dernier se fait quand il n'est pas là »). Jamais « presque personne ne le fait », « le plus efficace » ni aucune promesse qu'on ne peut pas vérifier.
+
+La transformation est dans `kit/trois_temps.py` (les textes y sont, Reel par Reel) ; le modèle est `kit/specs/J05.json`. Les Reels durent maintenant 27 à 39 secondes (33 en moyenne), contre 22 à 34 (27 en moyenne) : 6 secondes de plus en moyenne, c'est le prix de la question ouverte et de la scène « À retenir ».
+
+**Ce qu'on mesure**, toujours sur les Reels vus par plus de 50 comptes : la durée regardée en moyenne (elle doit monter au-dessus des 4 à 8 secondes du tableau ci-dessus) et la part d'abandons avant 3 secondes (elle ne doit pas remonter). La courbe complète, seconde par seconde, ne se lit que dans l'application Instagram (statistiques du Reel) : c'est elle qui dit si la fin retient. Là encore, ce n'est pas un essai propre : les sujets changent chaque jour. On juge sur plusieurs Reels, pas sur un seul.
+
 ## 4. Faire voir les vidéos aux restaurateurs
 
 Par ordre de coût. Claude prépare ; il ne contacte personne et ne dépense rien.

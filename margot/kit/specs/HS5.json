@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · hors-série",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -10,7 +10,7 @@
    "fond": "creme",
    "decor": "ville",
    "accessoire": "masque",
-   "voix": "Dans un braquage, personne n'y va sans savoir ce qu'il y a dans le coffre.",
+   "voix": "Personne ne braque un coffre sans savoir ce qu'il contient. Vos clients font pareil, avec autre chose qu'un coffre.",
    "titre": [
     "Qu'y a-t-il",
     "dans le coffre ?"
@@ -46,7 +46,7 @@
    "fond": "prune",
    "decor": "ville",
    "accessoire": "masque",
-   "voix": "Vos clients, eux, veulent savoir ce qu'il y a dans l'assiette. Et combien ça coûte.",
+   "voix": "Ils veulent savoir ce qu'il y a dans l'assiette. Et combien ça coûte.",
    "titre": [
     "Et dans",
     "l'assiette ?"
@@ -97,6 +97,49 @@
     }
    ],
    "transition": "glisse-gauche"
+  },
+  {
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : montrez les plats et les prix avant qu'on vous les demande.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 72,
+    "items": [
+     {
+      "texte": "Des plats",
+      "quand": 0.35
+     },
+     {
+      "texte": "Des prix",
+      "quand": 0.8
+     },
+     {
+      "texte": "Pas de surprise",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "telephone",

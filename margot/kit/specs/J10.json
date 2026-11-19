@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 10/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Vous fermez un jour férié ? Vos clients doivent le savoir avant de se déplacer.",
+   "voix": "Vous fermez un jour férié ? Trois endroits où le dire, et un détail à ne pas oublier.",
    "decor": "rue",
    "titre": [
     "Fermé un jour férié ?",
@@ -96,7 +96,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Trois : une affichette sur la porte, avec la date de réouverture.",
+   "voix": "Trois : une affichette sur la porte. Et le détail à ne pas oublier : la date de réouverture.",
    "titre": [
     "3. Sur la porte"
    ],
@@ -117,6 +117,49 @@
     }
    ],
    "transition": "glisse-gauche"
+  },
+  {
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : prévenez avant, partout où vos clients vous cherchent.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 64,
+    "items": [
+     {
+      "texte": "Votre fiche Google",
+      "quand": 0.35
+     },
+     {
+      "texte": "Réseaux et répondeur",
+      "quand": 0.8
+     },
+     {
+      "texte": "Sur la porte",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "telephone",
@@ -163,7 +206,7 @@
   {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
    "avant": 0.2,
    "transition": "zoom",
    "titre": [
@@ -191,8 +234,7 @@
     },
     {
      "quand": {
-      "mot": "carte",
-      "n": 1
+      "avant_fin": 0.6
      },
      "pose": "carte"
     }

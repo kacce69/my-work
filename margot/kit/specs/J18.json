@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 18/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "duo",
    "fond": "creme",
-   "voix": "Un client content ne revient pas toujours. Trois gestes qui aident.",
+   "voix": "Un client content ne revient pas toujours. Trois gestes qui aident, et le dernier se fait quand il n'est pas là.",
    "decor": "salle",
    "titre": [
     "Comment faire",
@@ -113,7 +113,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Trois : donnez des nouvelles. La carte qui change, une soirée à venir.",
+   "voix": "Trois, quand il n'est pas là : donnez des nouvelles. La carte qui change, une soirée à venir.",
    "titre": [
     "3. Des nouvelles"
    ],
@@ -134,6 +134,49 @@
     }
    ],
    "transition": "glisse-gauche"
+  },
+  {
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : le reconnaître, une attention, et des nouvelles entre deux visites.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 72,
+    "items": [
+     {
+      "texte": "Reconnaissez-le",
+      "quand": 0.35
+     },
+     {
+      "texte": "Une attention",
+      "quand": 0.8
+     },
+     {
+      "texte": "Des nouvelles",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "telephone",
@@ -179,7 +222,7 @@
   {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
    "avant": 0.2,
    "transition": "zoom",
    "titre": [
@@ -207,8 +250,7 @@
     },
     {
      "quand": {
-      "mot": "carte",
-      "n": 1
+      "avant_fin": 0.6
      },
      "pose": "carte"
     }

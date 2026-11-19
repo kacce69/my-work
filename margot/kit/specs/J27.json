@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 27/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Beaucoup de clients aiment savoir d'où vient ce qu'ils mangent. Dites-le sur votre carte.",
+   "voix": "Beaucoup de clients aiment savoir d'où vient ce qu'ils mangent. Et pour quatre viandes, c'est une obligation. Lesquelles ? Réponse à la fin.",
    "decor": "cuisine",
    "titre": [
     "D'où viennent",
@@ -69,9 +69,34 @@
   {
    "plan": "montre",
    "fond": "or",
-   "voix": "Deux : pour le bœuf, le porc, le mouton et la volaille, l'origine doit être indiquée.",
+   "voix": "Deux : restez exact. Si le fournisseur change, la carte change aussi.",
    "titre": [
-    "2. L'origine",
+    "2. Restez exact"
+   ],
+   "montre": {
+    "type": "icone",
+    "nom": "coche",
+    "quand": "@exact"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@exact",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@exact",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
+  },
+  {
+   "plan": "montre",
+   "fond": "creme",
+   "voix": "Trois, l'obligation : pour le bœuf, le porc, le mouton et la volaille, l'origine doit être indiquée.",
+   "titre": [
+    "3. L'origine",
     "des viandes"
    ],
    "montre": {
@@ -96,34 +121,52 @@
    "transition": "glisse-gauche"
   },
   {
-   "plan": "montre",
-   "fond": "creme",
-   "voix": "Trois : restez exact. Si le fournisseur change, la carte change aussi.",
+   "plan": "liste",
+   "fond": "or",
+   "voix": "À retenir : dites d'où ça vient, restez exact, et indiquez l'origine des viandes.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
    "titre": [
-    "3. Restez exact"
+    "À *retenir*"
    ],
-   "montre": {
-    "type": "icone",
-    "nom": "coche",
-    "quand": "@exact"
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 61,
+    "items": [
+     {
+      "texte": "Producteur ou région",
+      "quand": 0.35
+     },
+     {
+      "texte": "Restez exact",
+      "quand": 0.8
+     },
+     {
+      "texte": "L'origine des viandes",
+      "quand": 1.25
+     }
+    ]
    },
-   "pose": "pouce",
    "gestes": [
     {
-     "quand": "@exact",
-     "pose": "pointe"
-    },
-    {
-     "quand": "@exact",
+     "quand": {
+      "part": 0.55
+     },
      "expression": "joie"
     }
    ],
-   "transition": "glisse-gauche"
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur.",
    "transition": "zoom",
    "titre": [
     "Enregistrez",
@@ -155,7 +198,9 @@
      "geste": "hoche"
     },
     {
-     "quand": "@demain",
+     "quand": {
+      "avant_fin": 0.7
+     },
      "pose": "bonjour"
     }
    ]

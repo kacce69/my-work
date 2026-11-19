@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 21/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Votre formule du midi est-elle rentable ? Trois points à vérifier.",
+   "voix": "Votre formule du midi est-elle rentable ? Et combien de choix proposer ? Réponse au troisième point.",
    "decor": "cuisine",
    "titre": [
     "Votre formule du midi",
@@ -118,9 +118,52 @@
    "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
+   "fond": "or",
+   "voix": "À retenir : un coût connu, un prix comparé, et peu de choix.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 58,
+    "items": [
+     {
+      "texte": "Le coût de chaque plat",
+      "quand": 0.35
+     },
+     {
+      "texte": "Le total face au prix",
+      "quand": 0.8
+     },
+     {
+      "texte": "Peu de choix",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
+  },
+  {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur.",
    "transition": "zoom",
    "titre": [
     "Enregistrez",
@@ -152,7 +195,9 @@
      "geste": "hoche"
     },
     {
-     "quand": "@demain",
+     "quand": {
+      "avant_fin": 0.7
+     },
      "pose": "bonjour"
     }
    ]

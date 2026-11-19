@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 13/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "L'affichage des prix est obligatoire, à l'intérieur comme à l'extérieur. Trois points à vérifier.",
+   "voix": "L'affichage des prix est obligatoire, à l'intérieur comme à l'extérieur. Et le service, est-il compris ? Réponse au troisième point.",
    "decor": "rue",
    "titre": [
     "Vos prix sont-ils",
@@ -98,7 +98,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Trois : le prix affiché comprend les taxes et le service.",
+   "voix": "Trois : oui, le prix affiché comprend les taxes et le service.",
    "titre": [
     "3. Taxes et",
     "service compris"
@@ -123,9 +123,52 @@
    "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
+   "fond": "or",
+   "voix": "À retenir : affichés dehors, identiques dedans, taxes et service compris.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 72,
+    "items": [
+     {
+      "texte": "Affichés dehors",
+      "quand": 0.35
+     },
+     {
+      "texte": "Identiques dedans",
+      "quand": 0.8
+     },
+     {
+      "texte": "Prix tout compris",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
+  },
+  {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur. À demain !",
+   "voix": "Enregistrez cette vidéo, et envoyez-la à un collègue restaurateur.",
    "transition": "zoom",
    "titre": [
     "Enregistrez",
@@ -157,7 +200,9 @@
      "geste": "hoche"
     },
     {
-     "quand": "@demain",
+     "quand": {
+      "avant_fin": 0.7
+     },
      "pose": "bonjour"
     }
    ]

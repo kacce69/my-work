@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 12/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "montre",
    "fond": "creme",
-   "voix": "Poisson du jour, ça ne dit pas grand-chose. Voici une formule simple pour nommer un plat.",
+   "voix": "Poisson du jour, ça ne dit pas grand-chose. Trois précisions, et à la fin, le nom complet du plat.",
    "decor": "cuisine",
    "titre": [
     "« Poisson du jour »,",
@@ -117,6 +117,49 @@
    "transition": "glisse-gauche"
   },
   {
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : filet de cabillaud rôti, purée maison. Le produit, la cuisson, la garniture.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 64,
+    "items": [
+     {
+      "texte": "Le produit",
+      "quand": 0.35
+     },
+     {
+      "texte": "La cuisson",
+      "quand": 0.8
+     },
+     {
+      "texte": "Garniture ou origine",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
+  },
+  {
    "plan": "telephone",
    "fond": "or",
    "voix": "Sur Restaurant Site Internet, chaque plat de votre carte s'affiche avec son nom et son prix, lisible sur un téléphone.",
@@ -148,7 +191,7 @@
   {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
    "avant": 0.2,
    "transition": "zoom",
    "titre": [
@@ -176,8 +219,7 @@
     },
     {
      "quand": {
-      "mot": "carte",
-      "n": 1
+      "avant_fin": 0.6
      },
      "pose": "carte"
     }

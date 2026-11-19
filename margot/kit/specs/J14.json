@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · 14/30",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -8,7 +8,7 @@
   {
    "plan": "telephone",
    "fond": "creme",
-   "voix": "Quand on cherche un restaurant dans votre ville, apparaissez-vous ?",
+   "voix": "Quand on cherche un restaurant dans votre ville, apparaissez-vous ? Trois réglages, et un détail qui doit être identique partout.",
    "decor": "rue",
    "titre": [
     "Vous trouve-t-on",
@@ -47,9 +47,37 @@
   {
    "plan": "montre",
    "fond": "or",
-   "voix": "Deux : le même nom, la même adresse et le même téléphone partout où vous apparaissez.",
+   "voix": "Deux : répondez à vos avis. Une fiche vivante inspire confiance.",
    "titre": [
-    "2. Les mêmes infos",
+    "2. Des avis",
+    "avec réponse"
+   ],
+   "montre": {
+    "type": "icone",
+    "nom": "etoile",
+    "badge": "commentaire",
+    "quand": "voix",
+    "badge_quand": "@avis"
+   },
+   "pose": "pouce",
+   "gestes": [
+    {
+     "quand": "@avis",
+     "pose": "pointe"
+    },
+    {
+     "quand": "@avis",
+     "expression": "joie"
+    }
+   ],
+   "transition": "glisse-gauche"
+  },
+  {
+   "plan": "montre",
+   "fond": "creme",
+   "voix": "Trois, le détail : le même nom, la même adresse et le même téléphone partout où vous apparaissez.",
+   "titre": [
+    "3. Les mêmes infos",
     "partout"
    ],
    "montre": {
@@ -73,32 +101,47 @@
    "transition": "glisse-gauche"
   },
   {
-   "plan": "montre",
-   "fond": "creme",
-   "voix": "Trois : répondez à vos avis. Une fiche vivante inspire confiance.",
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : une fiche complète, des avis avec réponse, les mêmes infos partout.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
    "titre": [
-    "3. Des avis",
-    "avec réponse"
+    "À *retenir*"
    ],
-   "montre": {
-    "type": "icone",
-    "nom": "etoile",
-    "badge": "commentaire",
-    "quand": "voix",
-    "badge_quand": "@avis"
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 61,
+    "items": [
+     {
+      "texte": "Fiche Google complète",
+      "quand": 0.35
+     },
+     {
+      "texte": "Des avis avec réponse",
+      "quand": 0.8
+     },
+     {
+      "texte": "Mêmes infos partout",
+      "quand": 1.25
+     }
+    ]
    },
-   "pose": "pouce",
    "gestes": [
     {
-     "quand": "@avis",
-     "pose": "pointe"
-    },
-    {
-     "quand": "@avis",
+     "quand": {
+      "part": 0.55
+     },
      "expression": "joie"
     }
    ],
-   "transition": "glisse-gauche"
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "telephone",
@@ -144,7 +187,7 @@
   {
    "plan": "fin",
    "fond": "prune",
-   "voix": "Écrivez menu en commentaire, et nous vous recontactons pour mettre votre carte en ligne.",
+   "voix": "Écrivez menu en commentaire, et nous vous recontactons.",
    "avant": 0.2,
    "transition": "zoom",
    "titre": [
@@ -172,8 +215,7 @@
     },
     {
      "quand": {
-      "mot": "carte",
-      "n": 1
+      "avant_fin": 0.6
      },
      "pose": "carte"
     }

@@ -1,5 +1,5 @@
 {
- "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés.",
+ "note": "Mis à niveau le 15/11/2026 par mettre_a_niveau.py : mêmes mots dits, même prise de voix ; plans « montre », « duo », « telephone », « liste » et « fin », jeu fin, accroche lisible dès la première image. Les écrans « image » montrent la page de démonstration du site (restaurant fictif, marquée « Exemple fictif »), lue le 15/11/2026 ; les autres écrans sont des exemples dessinés. Récrit en trois temps le 19/11/2026 par trois_temps.py (accroche et question ouverte, meilleur conseil en dernier, scène « À retenir ») : nouvelle prise de voix.",
  "etiquette": "Les conseils de Margot · hors-série",
  "jeu": "fin",
  "soustitres": "karaoke",
@@ -10,7 +10,7 @@
    "fond": "creme",
    "decor": "ville",
    "accessoire": "lunettes",
-   "voix": "Même les plus gros jeux reçoivent des mises à jour.",
+   "voix": "Même les plus gros jeux reçoivent des mises à jour. Et votre carte, de quand date la dernière ?",
    "titre": [
     "Même un jeu",
     "se met à jour"
@@ -45,7 +45,7 @@
    "fond": "prune",
    "decor": "ville",
    "accessoire": "lunettes",
-   "voix": "Et votre carte ? Un prix qui change, un plat retiré : est-elle encore juste ?",
+   "voix": "Votre carte : un prix qui change, un plat retiré. Est-elle encore juste ?",
    "titre": [
     "Et votre carte ?"
    ],
@@ -93,6 +93,49 @@
     }
    ],
    "transition": "glisse-gauche"
+  },
+  {
+   "plan": "liste",
+   "fond": "prune",
+   "voix": "À retenir : une carte datée et à jour évite un client déçu.",
+   "avant": 0.3,
+   "apres": 0.3,
+   "transition": "glisse-gauche",
+   "titre": [
+    "À *retenir*"
+   ],
+   "pose": "index",
+   "expression": "malice",
+   "liste": {
+    "taille": 58,
+    "items": [
+     {
+      "texte": "Un prix qui change",
+      "quand": 0.35
+     },
+     {
+      "texte": "Un plat retiré",
+      "quand": 0.8
+     },
+     {
+      "texte": "La date de mise à jour",
+      "quand": 1.25
+     }
+    ]
+   },
+   "gestes": [
+    {
+     "quand": {
+      "part": 0.55
+     },
+     "expression": "joie"
+    }
+   ],
+   "margot": {
+    "x": 540,
+    "y": 1178,
+    "taille": 0.7
+   }
   },
   {
    "plan": "montre",
